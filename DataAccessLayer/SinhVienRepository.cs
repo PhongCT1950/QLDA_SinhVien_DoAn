@@ -24,7 +24,8 @@ namespace DataAccessLayer
                     {
                         MaSV = reader.GetString(0),
                         TenSV = reader.GetString(1),
-                        NgaySinh = reader.GetDateTime(2)
+                        NgaySinh = reader.GetDateTime(2),
+                        GioiTinh = reader.GetString(3)
                     });
                 }
                 reader.Close();

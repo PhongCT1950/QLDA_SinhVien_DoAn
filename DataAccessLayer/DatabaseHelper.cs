@@ -18,7 +18,7 @@ namespace DataAccessLayer
             return new SqlConnection(connectionString);
         }
 
-        public DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
+        public  DataTable ExecuteQuery(string query, SqlParameter[] parameters = null)
         {
             using (SqlConnection conn = GetConnection())
             {
@@ -62,7 +62,7 @@ namespace DataAccessLayer
                 {
                     if (parameters != null)
                         cmd.Parameters.AddRange(parameters);
-
+                    cmd.CommandType = CommandType.StoredProcedure;
                     return cmd.ExecuteScalar(); 
                 }
             }

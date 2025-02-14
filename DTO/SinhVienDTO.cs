@@ -11,5 +11,6 @@ namespace DTO
         public string MaSV { get; set; }
         public string TenSV { get; set; }
         public DateTime NgaySinh { get; set; }
+        public string GioiTinh { get; set; }
     }
 }
