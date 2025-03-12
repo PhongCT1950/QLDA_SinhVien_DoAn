@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace DataAccessLayer
     {
         public List<SinhVienDTO> getAllSinhVien()
         {
-            List<SinhVienDTO> sinhvien = new List<SinhVienDTO>();
+            List<SinhVienDTO> sinhvienList = new List<SinhVienDTO>();
             using(SqlConnection conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
@@ -20,17 +21,239 @@ namespace DataAccessLayer
 
                 while (reader.Read())
                 {
-                    sinhvien.Add(new SinhVienDTO
+                    sinhvienList.Add(new SinhVienDTO
                     {
-                        MaSV = reader.GetString(0),
-                        TenSV = reader.GetString(1),
-                        NgaySinh = reader.GetDateTime(2),
-                        GioiTinh = reader.GetString(3)
+                        MaSV = reader["MASV"].ToString(),
+                        TenSV = reader["TENSV"].ToString(),
+                        NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH")),
+                        GioiTinh = reader["GIOITINH"].ToString(),
+                        MaHeDT = reader["TenHeDT"].ToString(),
+                        MaNganh = reader["TENNGANH"].ToString(),
+                        MaKhoa = reader["TENKHOA"].ToString(),
+                        MaNK = reader["NIENKHOA"].ToString(),
+                        SDT = reader["SDT"].ToString(),
+                        DiaChi = reader["DiaChi"].ToString(),
+                        Email = reader["Email"].ToString(),
                     });
                 }
                 reader.Close();
             }
+            return sinhvienList;
+        }
+
+        public DataTable getAllSinhViens()
+        {
+            DataTable sinhvien = new DataTable();
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(sinhvien);
+            }
+
             return sinhvien;
+        }
+
+        public DataTable getAllNganh()
+        {
+            DataTable nganh = new DataTable();
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_Nganh", conn);
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(nganh);
+            }
+            return nganh;
+        }
+
+        public DataTable getAllDonVi()
+        {
+            DataTable donvi = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_DonVi", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(donvi);
+            }
+            return donvi;
+        }
+
+        public void AddSinhVien(SinhVienDTO sinhvien)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("InSert_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.VarChar, 6) { Value = sinhvien.MaSV });
+                cmd.Parameters.Add(new SqlParameter("@TenSV", SqlDbType.NVarChar, 150) { Value = sinhvien.TenSV });
+                cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = sinhvien.NgaySinh });
+                cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = sinhvien.GioiTinh });
+                cmd.Parameters.Add(new SqlParameter("@MaNganh", SqlDbType.Char, 6) { Value = sinhvien.MaNganh });
+                cmd.Parameters.Add(new SqlParameter("@MaHeDT", SqlDbType.Char, 6) { Value = sinhvien.MaHeDT });
+                cmd.Parameters.Add(new SqlParameter("@MaKhoa", SqlDbType.Char, 6) { Value = sinhvien.MaKhoa });
+                cmd.Parameters.Add(new SqlParameter("@MaNK", SqlDbType.Char, 6) { Value = sinhvien.MaNK });
+                cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = sinhvien.SDT });
+                cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = sinhvien.DiaChi });
+                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.Text) { Value = sinhvien.Email });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void DeleteSinhVien(string MaSV)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Delete_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.Char, 6) { Value = MaSV });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateSinhVien(SinhVienDTO sinhvien)
+        {
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("MaSV", SqlDbType.Char, 6) { Value = sinhvien.MaSV });
+                cmd.Parameters.Add(new SqlParameter("@TenSV", SqlDbType.NVarChar, 150) { Value = sinhvien.TenSV });
+                cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = sinhvien.NgaySinh });
+                cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = sinhvien.GioiTinh });
+                cmd.Parameters.Add(new SqlParameter("@MaNganh", SqlDbType.Char, 6) { Value = sinhvien.MaNganh });
+                cmd.Parameters.Add(new SqlParameter("@MaHeDT", SqlDbType.Char, 6) { Value = sinhvien.MaHeDT });
+                cmd.Parameters.Add(new SqlParameter("@TENKHOA", SqlDbType.NVarChar, 50) { Value = sinhvien.MaKhoa });
+                cmd.Parameters.Add(new SqlParameter("@MaNK", SqlDbType.Char, 6) { Value = sinhvien.MaNK });
+                cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = sinhvien.SDT });
+                cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = sinhvien.DiaChi });
+                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.Text) { Value = sinhvien.Email });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public DataTable getSinhVienFind(string keyword)
+        {
+            DataTable sinhvien = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Find_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(sinhvien);
+            }
+            return sinhvien;
+        }
+
+        public SinhVienDTO getSinhVienEdit(string MaSV)
+        {
+            SinhVienDTO sinhvien = new SinhVienDTO();
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Edit_SinhVien", conn);
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.Char, 6) { Value = MaSV });
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    sinhvien.MaSV = reader["MASV"].ToString();
+                    sinhvien.TenSV = reader["TENSV"].ToString();
+                    sinhvien.DiaChi = reader["DiaChi"].ToString();
+                    sinhvien.GioiTinh = reader["GIOITINH"].ToString();
+                    sinhvien.SDT = reader["SDT"].ToString();
+                    sinhvien.Email = reader["Email"].ToString();
+                    sinhvien.NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH"));
+                    sinhvien.MaHeDT = reader["MaHeDT"].ToString();
+                    sinhvien.MaNganh = reader["MANGANH"].ToString();
+                    sinhvien.MaKhoa = reader["TENKHOA"].ToString();
+                    sinhvien.MaNK = reader["MANK"].ToString();
+                }
+            }
+            return sinhvien;
+        }
+
+        public DataTable getAllHeDT()
+        {
+            DataTable HeDT = new DataTable();
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_HeDT", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                adapter.Fill(HeDT);
+            }
+            return HeDT;
+        }
+
+        public DataTable getAllNienKhoa()
+        {
+            DataTable NienKhoa = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_NienKhoa", conn);
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+
+                adapter.Fill(NienKhoa);
+            }
+            return NienKhoa;
+        }
+
+        public List<int> GetAllMaSV()
+        {
+            List<int> numMaSV = new List<int>();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+
+                string query = "SELECT MASV FROM SINHVIEN ORDER BY MASV";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string MaSV = reader["MASV"].ToString().Substring(2);
+                    numMaSV.Add(int.Parse(MaSV));
+                }
+            }
+            return numMaSV;
+        }
+
+        public string getNameSinhVien(string MaSV)
+        {
+            string NameSV = null;
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectName_SinhVien", conn);
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.Char, 6) { Value = MaSV });
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    NameSV = reader["TENSV"].ToString();
+                }
+            }
+            return NameSV;
         }
     }
 }

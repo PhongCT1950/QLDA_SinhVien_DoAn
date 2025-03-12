@@ -53,6 +53,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminGUI\frmGiangVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmGiangVien.Designer.cs">
+      <DependentUpon>frmGiangVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGUI\frmSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmSinhVien.Designer.cs">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGUI\frmTrangChuAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmTrangChuAdmin.Designer.cs">
+      <DependentUpon>frmTrangChuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmDeTai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmDeTai.Designer.cs">
+      <DependentUpon>frmDeTai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmNhomSinhVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmNhomSinhVien.Designer.cs">
+      <DependentUpon>frmNhomSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmTrangChuTeaCher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmTrangChuTeaCher.Designer.cs">
+      <DependentUpon>frmTrangChuTeaCher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGUI\frmTrangChuStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGUI\frmTrangChuStudent.Designer.cs">
+      <DependentUpon>frmTrangChuStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,24 +103,45 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminGUI\frmGiangVien.resx">
+      <DependentUpon>frmGiangVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmSinhVien.resx">
+      <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmTrangChuAdmin.resx">
+      <DependentUpon>frmTrangChuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentGUI\frmTrangChuStudent.resx">
+      <DependentUpon>frmTrangChuStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmDeTai.resx">
+      <DependentUpon>frmDeTai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmNhomSinhVien.resx">
+      <DependentUpon>frmNhomSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmTrangChuTeaCher.resx">
+      <DependentUpon>frmTrangChuTeaCher.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -98,9 +161,7 @@
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\user %281%29.png" />
   </ItemGroup>
@@ -109,6 +170,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\padlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-system-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

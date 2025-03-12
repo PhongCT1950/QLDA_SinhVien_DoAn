@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using BusinessLogicLayer;
 using DTO;
+using QLDA_SinhVien.AdminGUI;
 
 namespace QLDA_SinhVien
 {
@@ -32,22 +33,32 @@ namespace QLDA_SinhVien
             {
                 string role = taiKhoanService.CheckRoleLg(username, password);
 
-                Form newForm = null;
-
-                switch (role.ToLower())
+                TaiKhoanDTO user = taiKhoanService.GetTaiKhoan(username, password);
+                if (user != null)
+                {
+                    UserSession.UserID = user.UserID;
+                    UserSession.Username = user.Username;
+                    UserSession.Role = user.Role;
+                    UserSession.Refld = user.Refld;
+                }
+                switch (role.ToLower().Trim())
                 {
                     case "sinhvien":
-                        MessageBox.Show("Đăng nhập thành công: Sinh Viên", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmTrangChuStudent sinhvien = new frmTrangChuStudent();
+                        sinhvien.Show();
                         break;
 
                     case "giangvien":
-                        MessageBox.Show("Đăng nhập thành công: Giảng Viên", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmTrangChuTeaCher giangvien = new frmTrangChuTeaCher();
+                        giangvien.Show();
                         break;
 
                     default:
-                        MessageBox.Show("Đăng nhập thành công: Admin", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmTrangChuAdmin home = new frmTrangChuAdmin();
+                        home.Show();
                         break;
                 }
+                this.Hide();
             }
             catch (ArgumentException ex)
             {
@@ -59,7 +70,7 @@ namespace QLDA_SinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi hệ thống: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!" , "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

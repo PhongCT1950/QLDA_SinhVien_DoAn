@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    class TaiKhoanDTO
+    public class TaiKhoanDTO
     {
-        string Username { get; set; }
-        string Password { get; set; }
-        string Role { get; set; }
+        public int UserID { get; set; }
+        public string Username { get; set; }
+        public string Role { get; set; }
+        public string Refld { get; set; }
+
     }
 }

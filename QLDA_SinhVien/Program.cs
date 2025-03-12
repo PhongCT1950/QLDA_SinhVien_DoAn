@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QLDA_SinhVien.AdminGUI;
+using QLDA_SinhVien.TeacherGUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,8 @@ namespace QLDA_SinhVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmLogin());
+            //Application.Run(new frmLogin());
+            Application.Run(new frmNhomSinhVien());
         }
     }
 }

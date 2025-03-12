@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -35,6 +37,33 @@ namespace DataAccessLayer
                 throw new Exception("Lỗi không xác định: " + ex.Message);
             }
             return role;
+        }
+
+        public TaiKhoanDTO GetTaiKhoanDTO(string username, string password)
+        {
+            TaiKhoanDTO taiKhoanDTO = null;
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                using(SqlCommand cmd = new SqlCommand("Select_TaiKhoan", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@username", SqlDbType.VarChar, 50) { Value = username });
+                    cmd.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar, 50) { Value = password });
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read()){
+                        taiKhoanDTO = new TaiKhoanDTO
+                        {
+                            UserID = reader.GetInt32(0),
+                            Username = reader.GetString(1),
+                            Role = reader.GetString(2),
+                            Refld = reader.IsDBNull(3) ? null : reader.GetString(3)
+                        };
+                    }
+                }
+                
+            }
+            return taiKhoanDTO;
         }
     }
 }

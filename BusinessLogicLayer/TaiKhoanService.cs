@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
+using DTO;
 
 namespace BusinessLogicLayer
 {
@@ -23,8 +24,12 @@ namespace BusinessLogicLayer
             {
                 throw new UnauthorizedAccessException("Tài khoản hoặc mật khẩu không chính xác.");
             }
-
             return role;
+        }
+
+        public TaiKhoanDTO GetTaiKhoan(string username, string password)
+        {
+            return taiKhoanRepository.GetTaiKhoanDTO(username, password);
         }
     }
 }
