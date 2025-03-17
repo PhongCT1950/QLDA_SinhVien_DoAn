@@ -31,6 +31,7 @@ namespace QLDA_SinhVien.AdminGUI
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -70,6 +71,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Xoa = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Load = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_SinhVien)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -398,6 +400,7 @@ namespace QLDA_SinhVien.AdminGUI
             // 
             // dtgv_SinhVien
             // 
+            this.dtgv_SinhVien.AllowUserToAddRows = false;
             this.dtgv_SinhVien.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgv_SinhVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -423,12 +426,12 @@ namespace QLDA_SinhVien.AdminGUI
             this.dtgv_SinhVien.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_SinhVien.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgv_SinhVien.GridColor = System.Drawing.Color.White;
-            this.dtgv_SinhVien.Location = new System.Drawing.Point(5, 385);
+            this.dtgv_SinhVien.Location = new System.Drawing.Point(30, 385);
             this.dtgv_SinhVien.Name = "dtgv_SinhVien";
             this.dtgv_SinhVien.RowHeadersVisible = false;
             this.dtgv_SinhVien.RowHeadersWidth = 51;
             this.dtgv_SinhVien.RowTemplate.Height = 24;
-            this.dtgv_SinhVien.Size = new System.Drawing.Size(1512, 360);
+            this.dtgv_SinhVien.Size = new System.Drawing.Size(1499, 360);
             this.dtgv_SinhVien.TabIndex = 44;
             this.dtgv_SinhVien.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_SinhVien.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -487,9 +490,9 @@ namespace QLDA_SinhVien.AdminGUI
             this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2GroupBox1.Location = new System.Drawing.Point(5, 4);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(30, 4);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(1513, 315);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(1499, 315);
             this.guna2GroupBox1.TabIndex = 43;
             this.guna2GroupBox1.Text = "Thông Tin Sinh Viên";
             // 
@@ -722,12 +725,18 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Load.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
             this.btn_Load.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Load.ForeColor = System.Drawing.Color.White;
-            this.btn_Load.Location = new System.Drawing.Point(5, 752);
+            this.btn_Load.Location = new System.Drawing.Point(30, 752);
             this.btn_Load.Margin = new System.Windows.Forms.Padding(4);
             this.btn_Load.Name = "btn_Load";
             this.btn_Load.Size = new System.Drawing.Size(133, 50);
             this.btn_Load.TabIndex = 15;
             this.btn_Load.Text = "Làm mới";
+            // 
+            // guna2BorderlessForm1
+            // 
+            this.guna2BorderlessForm1.ContainerControl = this;
+            this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2BorderlessForm1.TransparentWhileDrag = true;
             // 
             // frmSinhVien
             // 
@@ -785,5 +794,6 @@ namespace QLDA_SinhVien.AdminGUI
         private Guna.UI2.WinForms.Guna2ComboBox cmb_NienKhoa;
         private Guna.UI2.WinForms.Guna2TextBox txt_Khoa;
         private Guna.UI2.WinForms.Guna2Button btn_Load;
+        private Guna.UI2.WinForms.Guna2BorderlessForm guna2BorderlessForm1;
     }
 }

@@ -356,6 +356,7 @@
             // 
             // dtgv_GiangVien
             // 
+            this.dtgv_GiangVien.AllowUserToAddRows = false;
             this.dtgv_GiangVien.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
             this.dtgv_GiangVien.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;

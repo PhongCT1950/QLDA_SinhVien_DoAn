@@ -10,36 +10,36 @@ namespace DataAccessLayer
 {
     public class SinhVienRepository
     {
-        public List<SinhVienDTO> getAllSinhVien()
-        {
-            List<SinhVienDTO> sinhvienList = new List<SinhVienDTO>();
-            using(SqlConnection conn = DatabaseHelper.GetConnection())
-            {
-                conn.Open();
-                SqlCommand cmd = new SqlCommand("Select_SinhVien", conn);
-                SqlDataReader reader = cmd.ExecuteReader();
+        //public List<SinhVienDTO> getAllSinhVien()
+        //{
+        //    List<SinhVienDTO> sinhvienList = new List<SinhVienDTO>();
+        //    using(SqlConnection conn = DatabaseHelper.GetConnection())
+        //    {
+        //        conn.Open();
+        //        SqlCommand cmd = new SqlCommand("Select_SinhVien", conn);
+        //        SqlDataReader reader = cmd.ExecuteReader();
 
-                while (reader.Read())
-                {
-                    sinhvienList.Add(new SinhVienDTO
-                    {
-                        MaSV = reader["MASV"].ToString(),
-                        TenSV = reader["TENSV"].ToString(),
-                        NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH")),
-                        GioiTinh = reader["GIOITINH"].ToString(),
-                        MaHeDT = reader["TenHeDT"].ToString(),
-                        MaNganh = reader["TENNGANH"].ToString(),
-                        MaKhoa = reader["TENKHOA"].ToString(),
-                        MaNK = reader["NIENKHOA"].ToString(),
-                        SDT = reader["SDT"].ToString(),
-                        DiaChi = reader["DiaChi"].ToString(),
-                        Email = reader["Email"].ToString(),
-                    });
-                }
-                reader.Close();
-            }
-            return sinhvienList;
-        }
+        //        while (reader.Read())
+        //        {
+        //            sinhvienList.Add(new SinhVienDTO
+        //            {
+        //                MaSV = reader["MASV"].ToString(),
+        //                TenSV = reader["TENSV"].ToString(),
+        //                NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH")),
+        //                GioiTinh = reader["GIOITINH"].ToString(),
+        //                MaHeDT = reader["TenHeDT"].ToString(),
+        //                MaNganh = reader["TENNGANH"].ToString(),
+        //                MaKhoa = reader["TENKHOA"].ToString(),
+        //                MaNK = reader["NIENKHOA"].ToString(),
+        //                SDT = reader["SDT"].ToString(),
+        //                DiaChi = reader["DiaChi"].ToString(),
+        //                Email = reader["Email"].ToString(),
+        //            });
+        //        }
+        //        reader.Close();
+        //    }
+        //    return sinhvienList;
+        //}
 
         public DataTable getAllSinhViens()
         {
@@ -49,6 +49,23 @@ namespace DataAccessLayer
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(sinhvien);
+            }
+
+            return sinhvien;
+        }
+
+        public DataTable getAllSinhVien()
+        {
+            DataTable sinhvien = new DataTable();
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_SinhVienWhere", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);

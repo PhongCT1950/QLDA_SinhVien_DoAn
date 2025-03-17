@@ -37,12 +37,12 @@
             this.btn_DangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_TenGV = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_VaiTro = new System.Windows.Forms.Label();
-            this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
@@ -115,6 +115,7 @@
             this.btn_Nhomsv.Size = new System.Drawing.Size(195, 55);
             this.btn_Nhomsv.TabIndex = 11;
             this.btn_Nhomsv.Text = "Nhóm sinh viên";
+            this.btn_Nhomsv.Click += new System.EventHandler(this.btn_Nhomsv_Click);
             // 
             // btn_Detai
             // 
@@ -194,6 +195,24 @@
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 6;
             // 
+            // btn_Minimize
+            // 
+            this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Minimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Minimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Minimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Minimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Minimize.FillColor = System.Drawing.SystemColors.Control;
+            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_Minimize.ForeColor = System.Drawing.Color.White;
+            this.btn_Minimize.Image = global::QLDA_SinhVien.Properties.Resources.minus;
+            this.btn_Minimize.ImageSize = new System.Drawing.Size(35, 35);
+            this.btn_Minimize.Location = new System.Drawing.Point(1152, 11);
+            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Minimize.Name = "btn_Minimize";
+            this.btn_Minimize.Size = new System.Drawing.Size(55, 48);
+            this.btn_Minimize.TabIndex = 13;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
@@ -258,24 +277,6 @@
             this.txt_VaiTro.TabIndex = 0;
             this.txt_VaiTro.Text = "Giảng Viên";
             this.txt_VaiTro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_Minimize
-            // 
-            this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Minimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Minimize.FillColor = System.Drawing.SystemColors.Control;
-            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.btn_Minimize.Image = global::QLDA_SinhVien.Properties.Resources.minus;
-            this.btn_Minimize.ImageSize = new System.Drawing.Size(35, 35);
-            this.btn_Minimize.Location = new System.Drawing.Point(1152, 11);
-            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.Size = new System.Drawing.Size(55, 48);
-            this.btn_Minimize.TabIndex = 13;
             // 
             // guna2PictureBox2
             // 

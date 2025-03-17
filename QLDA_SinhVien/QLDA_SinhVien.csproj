@@ -71,6 +71,12 @@
     <Compile Include="AdminGUI\frmTrangChuAdmin.Designer.cs">
       <DependentUpon>frmTrangChuAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentGUI\frmDangKyDeTai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGUI\frmDangKyDeTai.Designer.cs">
+      <DependentUpon>frmDangKyDeTai.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherGUI\frmDeTai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmTrangChuAdmin.resx">
       <DependentUpon>frmTrangChuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentGUI\frmDangKyDeTai.resx">
+      <DependentUpon>frmDangKyDeTai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentGUI\frmTrangChuStudent.resx">
       <DependentUpon>frmTrangChuStudent.cs</DependentUpon>

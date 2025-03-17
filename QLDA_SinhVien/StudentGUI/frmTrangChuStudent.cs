@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer;
 using DTO;
 using Guna.UI2.WinForms;
+using QLDA_SinhVien.StudentGUI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -109,7 +110,7 @@ namespace QLDA_SinhVien.AdminGUI
 
         private void btn_DangKyDT_Click(object sender, EventArgs e)
         {
-            OpenFormChild(new frmGiangVien());
+            OpenFormChild(new frmDangKyDeTai());
         }
     }
 }

@@ -199,10 +199,10 @@ namespace QLDA_SinhVien.AdminGUI
             {
                 MessageBox.Show(ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cmb_ChucDanh_SelectedIndexChanged(object sender, EventArgs e)

@@ -91,12 +91,17 @@ namespace QLDA_SinhVien.AdminGUI
 
         private void frmTrangChuTeaCher_Load(object sender, EventArgs e)
         {
-            LoadName();
+            //LoadName();
         }
 
         private void btn_Detai_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmDeTai());
+        }
+
+        private void btn_Nhomsv_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmNhomSinhVien());
         }
     }
 }

@@ -19,6 +19,11 @@ namespace BusinessLogicLayer
             return sinhVienRepository.getAllSinhViens();
         }
 
+        public DataTable getListSinhVienNH()
+        {
+            return sinhVienRepository.getAllSinhVien();
+        }
+
         public DataTable getListNganh()
         {
             return sinhVienRepository.getAllNganh();
