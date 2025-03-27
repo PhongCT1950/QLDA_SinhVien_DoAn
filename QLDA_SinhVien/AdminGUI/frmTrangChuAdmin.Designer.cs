@@ -43,7 +43,11 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_taiKhoan = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_nganh = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_khoa = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
+            this.btn_ChucDanh = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
@@ -244,6 +248,10 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel2.Controls.Add(this.btn_ChucDanh);
+            this.panel2.Controls.Add(this.btn_taiKhoan);
+            this.panel2.Controls.Add(this.btn_nganh);
+            this.panel2.Controls.Add(this.btn_khoa);
             this.panel2.Controls.Add(this.btn_SinhVien);
             this.panel2.Controls.Add(this.btn_giangvien);
             this.panel2.Controls.Add(this.guna2Button1);
@@ -252,6 +260,63 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(161, 565);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_taiKhoan
+            // 
+            this.btn_taiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_taiKhoan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_taiKhoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_taiKhoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_taiKhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_taiKhoan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_taiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_taiKhoan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_taiKhoan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_taiKhoan.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_taiKhoan.Location = new System.Drawing.Point(0, 168);
+            this.btn_taiKhoan.Name = "btn_taiKhoan";
+            this.btn_taiKhoan.Size = new System.Drawing.Size(161, 42);
+            this.btn_taiKhoan.TabIndex = 14;
+            this.btn_taiKhoan.Text = "Tài khoản";
+            this.btn_taiKhoan.Click += new System.EventHandler(this.btn_taiKhoan_Click);
+            // 
+            // btn_nganh
+            // 
+            this.btn_nganh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_nganh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_nganh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nganh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_nganh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_nganh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_nganh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_nganh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_nganh.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_nganh.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_nganh.Location = new System.Drawing.Point(0, 126);
+            this.btn_nganh.Name = "btn_nganh";
+            this.btn_nganh.Size = new System.Drawing.Size(161, 42);
+            this.btn_nganh.TabIndex = 13;
+            this.btn_nganh.Text = "Ngành";
+            this.btn_nganh.Click += new System.EventHandler(this.btn_nganh_Click);
+            // 
+            // btn_khoa
+            // 
+            this.btn_khoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_khoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_khoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_khoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_khoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_khoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_khoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_khoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_khoa.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_khoa.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_khoa.Location = new System.Drawing.Point(0, 84);
+            this.btn_khoa.Name = "btn_khoa";
+            this.btn_khoa.Size = new System.Drawing.Size(161, 42);
+            this.btn_khoa.TabIndex = 12;
+            this.btn_khoa.Text = "Khoa";
+            this.btn_khoa.Click += new System.EventHandler(this.btn_khoa_Click);
             // 
             // panel_body
             // 
@@ -262,6 +327,25 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1120, 655);
             this.panel_body.TabIndex = 3;
+            // 
+            // btn_ChucDanh
+            // 
+            this.btn_ChucDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_ChucDanh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChucDanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ChucDanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ChucDanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ChucDanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ChucDanh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ChucDanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ChucDanh.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ChucDanh.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ChucDanh.Location = new System.Drawing.Point(0, 210);
+            this.btn_ChucDanh.Name = "btn_ChucDanh";
+            this.btn_ChucDanh.Size = new System.Drawing.Size(161, 42);
+            this.btn_ChucDanh.TabIndex = 15;
+            this.btn_ChucDanh.Text = "Chức danh";
+            this.btn_ChucDanh.Click += new System.EventHandler(this.btn_ChucDanh_Click);
             // 
             // frmTrangChuAdmin
             // 
@@ -301,5 +385,9 @@ namespace QLDA_SinhVien.AdminGUI
         private Guna.UI2.WinForms.Guna2Button btn_Minimize;
         private Guna.UI2.WinForms.Guna2Button btn_Close;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2Button btn_taiKhoan;
+        private Guna.UI2.WinForms.Guna2Button btn_nganh;
+        private Guna.UI2.WinForms.Guna2Button btn_khoa;
+        private Guna.UI2.WinForms.Guna2Button btn_ChucDanh;
     }
 }

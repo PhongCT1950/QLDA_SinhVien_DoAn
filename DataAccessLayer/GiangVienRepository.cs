@@ -133,6 +133,27 @@ namespace DataAccessLayer
             return giangvien;
         }
 
+        public void updateGiangVien(GiangVienDTO giangvien)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update_GiangVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("MaGV", SqlDbType.Char, 6) { Value = giangvien.MaGV });
+                cmd.Parameters.Add(new SqlParameter("@TenGV", SqlDbType.NVarChar, 150) { Value = giangvien.TenGV });
+                cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = giangvien.NgaySinh });
+                cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = giangvien.GioiTinh });
+                cmd.Parameters.Add(new SqlParameter("@MACD", SqlDbType.Int) { Value = giangvien.MaCD });
+                cmd.Parameters.Add(new SqlParameter("@MAKHOA", SqlDbType.Char, 6) { Value = giangvien.MaKhoa });
+                cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = giangvien.SDT });
+                cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = giangvien.DiaChi });
+                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.Text) { Value = giangvien.Email });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public string getNameGiangvien(string MaGV)
         {
             string NameGV = null;
@@ -150,6 +171,22 @@ namespace DataAccessLayer
                 }
             }
             return NameGV;
+        }
+
+        public DataTable getGiangVienFind(string keyword)
+        {
+            DataTable sinhvien = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Find_GiangVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(sinhvien);
+            }
+            return sinhvien;
         }
     }
 }

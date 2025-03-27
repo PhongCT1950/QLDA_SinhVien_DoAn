@@ -46,7 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.txt_DiaChi = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btn_Load = new Guna.UI2.WinForms.Guna2Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dtgv_GiangVien = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btn_Them = new Guna.UI2.WinForms.Guna2Button();
@@ -181,9 +180,8 @@
             // 
             // txt_Find
             // 
-            this.txt_Find.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.txt_Find.BorderColor = System.Drawing.Color.Black;
             this.txt_Find.BorderRadius = 2;
-            this.txt_Find.BorderThickness = 2;
             this.txt_Find.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Find.DefaultText = "";
             this.txt_Find.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -202,6 +200,7 @@
             this.txt_Find.SelectedText = "";
             this.txt_Find.Size = new System.Drawing.Size(593, 50);
             this.txt_Find.TabIndex = 14;
+            this.txt_Find.TextChanged += new System.EventHandler(this.txt_Find_TextChanged);
             // 
             // btn_Xoa
             // 
@@ -323,24 +322,6 @@
             this.txt_DiaChi.SelectedText = "";
             this.txt_DiaChi.Size = new System.Drawing.Size(273, 35);
             this.txt_DiaChi.TabIndex = 4;
-            // 
-            // btn_Load
-            // 
-            this.btn_Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Load.BorderRadius = 4;
-            this.btn_Load.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Load.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Load.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_Load.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Load.ForeColor = System.Drawing.Color.White;
-            this.btn_Load.Location = new System.Drawing.Point(17, 752);
-            this.btn_Load.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Load.Name = "btn_Load";
-            this.btn_Load.Size = new System.Drawing.Size(133, 50);
-            this.btn_Load.TabIndex = 15;
-            this.btn_Load.Text = "Làm mới";
             // 
             // label3
             // 
@@ -686,7 +667,6 @@
             this.panel2.Controls.Add(this.btn_Sua);
             this.panel2.Controls.Add(this.btn_Xoa);
             this.panel2.Controls.Add(this.btn_Huy);
-            this.panel2.Controls.Add(this.btn_Load);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -729,7 +709,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private Guna.UI2.WinForms.Guna2TextBox txt_DiaChi;
-        private Guna.UI2.WinForms.Guna2Button btn_Load;
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_GiangVien;
         private Guna.UI2.WinForms.Guna2Button btn_Them;

@@ -65,5 +65,96 @@ namespace DataAccessLayer
             }
             return taiKhoanDTO;
         }
+
+        public DataTable getTaiKhoan()
+        {
+            DataTable taikhoan = new DataTable();
+            using(SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_dsTaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(taikhoan);
+            }
+            return taikhoan;
+        }
+
+        public DataTable getdsRole()
+        {
+            DataTable role = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_dsRole", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(role);
+            }
+            return role;
+        }
+
+        public DataTable getTaiKhoanEdit(string id)
+        {
+            DataTable taikhoan = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Edit_TaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@USERID", SqlDbType.VarChar, 50) { Value = id });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(taikhoan);
+            }
+            return taikhoan;
+        }
+
+        public void updateTaiKhoan(TaiKhoanDTO taikhoan)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update_TaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@USERID", SqlDbType.Int) { Value = taikhoan.UserID });
+                cmd.Parameters.Add(new SqlParameter("@USERNAME", SqlDbType.VarChar, 50) { Value = taikhoan.Username });
+                cmd.Parameters.Add(new SqlParameter("@PASSWORD", SqlDbType.VarChar, 50) { Value = taikhoan.PassWord });
+                cmd.Parameters.Add(new SqlParameter("@ROLE", SqlDbType.VarChar, 50) { Value = taikhoan.Role });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void deleteTaiKhoan(string id)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Delete_TaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@USERID", SqlDbType.Int) { Value = id });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public DataTable getTaiKhoanFind(string keyword)
+        {
+            DataTable taikhoan = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Find_TaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(taikhoan);
+            }
+            return taikhoan;
+        }
     }
 }

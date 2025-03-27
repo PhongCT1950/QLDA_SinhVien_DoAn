@@ -36,6 +36,10 @@
     <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
       <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -53,17 +57,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminGUI\frmChucDanh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmChucDanh.Designer.cs">
+      <DependentUpon>frmChucDanh.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminGUI\frmGiangVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminGUI\frmGiangVien.Designer.cs">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminGUI\frmKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmKhoa.Designer.cs">
+      <DependentUpon>frmKhoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGUI\frmNganh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmNganh.Designer.cs">
+      <DependentUpon>frmNganh.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminGUI\frmSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminGUI\frmSinhVien.Designer.cs">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminGUI\frmTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmTaiKhoan.Designer.cs">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminGUI\frmTrangChuAdmin.cs">
       <SubType>Form</SubType>
@@ -77,6 +105,24 @@
     <Compile Include="StudentGUI\frmDangKyDeTai.Designer.cs">
       <DependentUpon>frmDangKyDeTai.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentGUI\frmDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGUI\frmDiem.Designer.cs">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StudentGUI\frmNopDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGUI\frmNopDoAn.Designer.cs">
+      <DependentUpon>frmNopDoAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmDiemDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmDiemDoAn.Designer.cs">
+      <DependentUpon>frmDiemDoAn.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherGUI\frmDeTai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +134,12 @@
     </Compile>
     <Compile Include="TeacherGUI\frmNhomSinhVien.Designer.cs">
       <DependentUpon>frmNhomSinhVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmQuyenDoAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmQuyenDoAn.Designer.cs">
+      <DependentUpon>frmQuyenDoAn.cs</DependentUpon>
     </Compile>
     <Compile Include="TeacherGUI\frmTrangChuTeaCher.cs">
       <SubType>Form</SubType>
@@ -109,11 +161,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminGUI\frmChucDanh.resx">
+      <DependentUpon>frmChucDanh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmGiangVien.resx">
       <DependentUpon>frmGiangVien.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmKhoa.resx">
+      <DependentUpon>frmKhoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmNganh.resx">
+      <DependentUpon>frmNganh.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmTaiKhoan.resx">
+      <DependentUpon>frmTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmTrangChuAdmin.resx">
       <DependentUpon>frmTrangChuAdmin.cs</DependentUpon>
@@ -121,14 +185,26 @@
     <EmbeddedResource Include="StudentGUI\frmDangKyDeTai.resx">
       <DependentUpon>frmDangKyDeTai.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentGUI\frmDiem.resx">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentGUI\frmNopDoAn.resx">
+      <DependentUpon>frmNopDoAn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentGUI\frmTrangChuStudent.resx">
       <DependentUpon>frmTrangChuStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmDiemDoAn.resx">
+      <DependentUpon>frmDiemDoAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmDeTai.resx">
       <DependentUpon>frmDeTai.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmNhomSinhVien.resx">
       <DependentUpon>frmNhomSinhVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmQuyenDoAn.resx">
+      <DependentUpon>frmQuyenDoAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmTrangChuTeaCher.resx">
       <DependentUpon>frmTrangChuTeaCher.cs</DependentUpon>
@@ -165,12 +241,14 @@
       <Project>{4dcc10a1-1ea2-4699-836b-0a8f16d0cbb8}</Project>
       <Name>BusinessLogicLayer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\DTO\DataTransferObject.csproj">
       <Project>{d1979391-92a4-49b9-956e-9dccd73d1086}</Project>
-      <Name>DTO</Name>
+      <Name>DataTransferObject</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\icons8-open-file-50.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\user %281%29.png" />
   </ItemGroup>
@@ -189,5 +267,6 @@
   <ItemGroup>
     <None Include="Resources\icons8-system-50.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

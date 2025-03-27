@@ -36,7 +36,7 @@ namespace QLDA_SinhVien.TeacherGUI
 
         public void loadListDeTai()
         {
-            DataTable DeTai = deTaiService.getDataDeTai();
+            DataTable DeTai = deTaiService.getDataListDeTai();
 
             dtgv_DeTai.DataSource = DeTai;
             dtgv_DeTai.Columns["TENDT"].HeaderText  = "Tên Đề Tài";
@@ -47,7 +47,7 @@ namespace QLDA_SinhVien.TeacherGUI
 
         public void loadAllDeTai()
         {
-            DataTable DeTai = deTaiService.getAllDataDeTai();
+            DataTable DeTai = deTaiService.getDataDeTai();
 
             dtgv_DeTai.DataSource = DeTai;
             dtgv_DeTai.Columns["TENDT"].HeaderText = "Tên Đề Tài";
@@ -153,7 +153,15 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             try
             {
-                DialogResult result = MessageBox.Show("Xác nhận xóa sinh viên?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DataGridViewRow rows = dtgv_DeTai.SelectedRows[0];
+                string MaDTs = rows.Cells["MADT"].Value.ToString();
+                int count = deTaiService.getDataCountNhom(MaDTs);
+                if(count > 0)
+                {
+                    MessageBox.Show($"Đề tài đang được {count} nhóm sinh viên đăng ký, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                DialogResult result = MessageBox.Show("Xác nhận xóa đề tài?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {
                     if (dtgv_DeTai.SelectedRows.Count > 0)
@@ -174,6 +182,14 @@ namespace QLDA_SinhVien.TeacherGUI
                 MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void txt_Find_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txt_Find.Text.Trim();
+            DataTable detai = deTaiService.getDataDeTaiFind(keyword);
+
+            dtgv_DeTai.DataSource = detai;
         }
     }
 }

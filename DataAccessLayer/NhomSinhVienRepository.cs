@@ -107,6 +107,35 @@ namespace DataAccessLayer
             return NhomSV;
         }
 
+        public DataTable getdsNhomSV()
+        {
+            DataTable NhomSV = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_dsNhomSV", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(NhomSV);
+            }
+            return NhomSV;
+        }
+
+        public DataTable getttNhomSV(string MANHOM)
+        {
+            DataTable NhomSV = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_ttNhomSV", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("MANHOM", SqlDbType.Char, 6) { Value = MANHOM });
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(NhomSV);
+            }
+            return NhomSV;
+        }
+
         public DataTable getDsThanhVien(string MANHOM)
         {
             DataTable dsThanhVien = new DataTable();
@@ -127,12 +156,24 @@ namespace DataAccessLayer
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete_ThanhVien", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand("Delete_ThanhVien", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });
+                        cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });
 
-                cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (Exception ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception($"Lỗi khi lưu điểm: {ex.Message}", ex);
+                    }
+                }
             }
         }
 
@@ -141,12 +182,38 @@ namespace DataAccessLayer
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("Delete_NhomSV", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                using (SqlTransaction transaction = conn.BeginTransaction())
+                {
+                    try
+                    {
+                        SqlCommand cmd = new SqlCommand("Delete_NhomSV", conn,transaction);
+                        cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });
+                        cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });
 
-                cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                        transaction.Commit();
+                    }
+                    catch (SqlException ex)
+                    {
+                        transaction.Rollback();
+                        throw new Exception($"Lỗi khi xóa nhóm: {ex.Message}", ex);
+                    }
+                }
+            }
+        }
+
+        public void deleteNhom(string manhom)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                    SqlCommand cmd = new SqlCommand("Delete_Nhom", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });
+
+                    cmd.ExecuteNonQuery();
             }
         }
 
@@ -201,6 +268,40 @@ namespace DataAccessLayer
                 }
             }
             return MaDT;
+        }
+
+        public void updateTdDeTai(string MANHOM, string MADT)
+        {
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Update_tdDeTai", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = MANHOM });
+                cmd.Parameters.Add(new SqlParameter("@MaDT", SqlDbType.Char, 6) { Value = MADT });
+
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public string getMaNHinDoAn(string Manhom)
+        {
+            string MaNH = null;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT MANHOM FROM QUYEN_DOAN WHERE MANHOM = @MANHOM", conn);
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = Manhom });
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    MaNH = reader["MANHOM"].ToString();
+                }
+            }
+            return MaNH;
+
         }
     }
 }

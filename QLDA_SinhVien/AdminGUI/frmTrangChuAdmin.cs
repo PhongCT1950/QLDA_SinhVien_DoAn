@@ -39,7 +39,7 @@ namespace QLDA_SinhVien.AdminGUI
             currentFormChild = childform;
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
-            childform.Dock = DockStyle.Fill;
+            //childform.Dock = DockStyle.Fill;
             panel_body.Controls.Add(childform);
             panel_body.Tag = childform;
             childform.BringToFront();
@@ -100,6 +100,26 @@ namespace QLDA_SinhVien.AdminGUI
         private void btn_giangvien_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmGiangVien());
+        }
+
+        private void btn_taiKhoan_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmTaiKhoan());
+        }
+
+        private void btn_khoa_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmKhoa());
+        }
+
+        private void btn_nganh_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmNganh());
+        }
+
+        private void btn_ChucDanh_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmChucDanh());
         }
     }
 }

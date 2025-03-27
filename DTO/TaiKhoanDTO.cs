@@ -10,6 +10,7 @@ namespace DTO
     {
         public int UserID { get; set; }
         public string Username { get; set; }
+        public string PassWord { get; set; }
         public string Role { get; set; }
         public string Refld { get; set; }
 

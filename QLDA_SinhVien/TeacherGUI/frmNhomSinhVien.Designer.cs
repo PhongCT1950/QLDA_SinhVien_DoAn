@@ -50,7 +50,6 @@
             this.btn_Sua = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Xoa = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Huy = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Load = new Guna.UI2.WinForms.Guna2Button();
             this.txt_Find = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_SinhVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_Nhom)).BeginInit();
@@ -399,29 +398,10 @@
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
             // 
-            // btn_Load
-            // 
-            this.btn_Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Load.BorderRadius = 4;
-            this.btn_Load.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Load.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Load.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_Load.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Load.ForeColor = System.Drawing.Color.White;
-            this.btn_Load.Location = new System.Drawing.Point(23, 754);
-            this.btn_Load.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Load.Name = "btn_Load";
-            this.btn_Load.Size = new System.Drawing.Size(133, 50);
-            this.btn_Load.TabIndex = 94;
-            this.btn_Load.Text = "Làm mới";
-            // 
             // txt_Find
             // 
-            this.txt_Find.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.txt_Find.BorderColor = System.Drawing.Color.Black;
             this.txt_Find.BorderRadius = 2;
-            this.txt_Find.BorderThickness = 2;
             this.txt_Find.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Find.DefaultText = "";
             this.txt_Find.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -451,7 +431,6 @@
             this.Controls.Add(this.btn_Sua);
             this.Controls.Add(this.btn_Xoa);
             this.Controls.Add(this.btn_Huy);
-            this.Controls.Add(this.btn_Load);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
@@ -494,7 +473,6 @@
         private Guna.UI2.WinForms.Guna2Button btn_Sua;
         private Guna.UI2.WinForms.Guna2Button btn_Xoa;
         private Guna.UI2.WinForms.Guna2Button btn_Huy;
-        private Guna.UI2.WinForms.Guna2Button btn_Load;
         private Guna.UI2.WinForms.Guna2TextBox txt_Find;
     }
 }

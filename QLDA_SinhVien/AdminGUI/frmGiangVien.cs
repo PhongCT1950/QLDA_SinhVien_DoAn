@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -173,19 +174,19 @@ namespace QLDA_SinhVien.AdminGUI
                 }
                 else
                 {
-                    //SinhVienDTO sinhvien = new SinhVienDTO();
-                    //sinhvien.MaSV = txt_MaSV.Text;
-                    //sinhvien.TenSV = txt_TenSV.Text;
-                    //sinhvien.NgaySinh = txt_NgaySinh.Value;
-                    //sinhvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    //sinhvien.SDT = txt_SDT.Text;
-                    //sinhvien.DiaChi = txt_DiaChi.Text;
-                    //sinhvien.Email = txt_Email.Text;
-                    //sinhvien.MaHeDT = cmb_HeDT.SelectedValue.ToString();
-                    //sinhvien.MaNganh = cmb_Nganh.SelectedValue.ToString();
-                    //sinhvien.MaNK = cmb_NienKhoa.SelectedValue.ToString();
-                    //sinhvien.MaKhoa = txt_Khoa.Text;
-                    //sinhVienService.UpdateDataSinhVien(sinhvien);
+                    DataRowView row = (DataRowView)cmb_ChucDanh.SelectedItem;
+                    GiangVienDTO giangvien = new GiangVienDTO();
+                    giangvien.MaGV = txt_MaGV.Text;
+                    giangvien.TenGV = txt_TenGV.Text;
+                    giangvien.NgaySinh = txt_NgaySinh.Value;
+                    giangvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
+                    giangvien.SDT = txt_SDT.Text;
+                    giangvien.DiaChi = txt_DiaChi.Text;
+                    giangvien.Email = txt_Email.Text;
+                    giangvien.MaKhoa = cmb_Khoa.SelectedValue.ToString();
+                    giangvien.MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString());
+
+                    giangVienService.updateDataGiangVien(giangvien);
 
                     MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     IsEdit = false;
@@ -215,6 +216,14 @@ namespace QLDA_SinhVien.AdminGUI
                     txt_HeSoChucDanh.Text = row["HeSoCD"].ToString();
                 }
             }
+        }
+
+        private void txt_Find_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txt_Find.Text.Trim();
+            DataTable giangvien = giangVienService.getDataGiangVienFind(keyword);
+
+            dtgv_GiangVien.DataSource = giangvien;
         }
     }
 }

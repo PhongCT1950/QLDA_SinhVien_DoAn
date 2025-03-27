@@ -41,7 +41,7 @@ namespace QLDA_SinhVien.AdminGUI
             currentFormChild = childform;
             childform.TopLevel = false;
             childform.FormBorderStyle = FormBorderStyle.None;
-            childform.Dock = DockStyle.Fill;
+            //childform.Dock = DockStyle.Fill;
             panel_body.Controls.Add(childform);
             panel_body.Tag = childform;
             childform.BringToFront();
@@ -104,13 +104,23 @@ namespace QLDA_SinhVien.AdminGUI
 
         public void LoadName()
         {
-            string MaSV = UserSession.Username;
+            string MaSV = UserSession.Refld;
             txt_TenSV.Text = sinhVienService.getNameSV(MaSV);
         }
 
         private void btn_DangKyDT_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmDangKyDeTai());
+        }
+
+        private void btn_NopDA_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmNopDoAn());
+        }
+
+        private void btn_Diem_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmDiem());
         }
     }
 }

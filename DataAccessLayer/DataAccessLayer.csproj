@@ -42,11 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucDanhRepository.cs" />
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DeTaiRepository.cs" />
+    <Compile Include="DiemRepository.cs" />
     <Compile Include="GiangVienRepository.cs" />
+    <Compile Include="KhoaRepository.cs" />
+    <Compile Include="NganhRepository.cs" />
     <Compile Include="NhomSinhVienRepository.cs" />
+    <Compile Include="NopDoAnRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuyenDoAnRepository.cs" />
     <Compile Include="SinhVienRepository.cs" />
     <Compile Include="TaiKhoanRepository.cs" />
   </ItemGroup>
@@ -54,9 +60,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DTO\DTO.csproj">
+    <ProjectReference Include="..\DTO\DataTransferObject.csproj">
       <Project>{d1979391-92a4-49b9-956e-9dccd73d1086}</Project>
-      <Name>DTO</Name>
+      <Name>DataTransferObject</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

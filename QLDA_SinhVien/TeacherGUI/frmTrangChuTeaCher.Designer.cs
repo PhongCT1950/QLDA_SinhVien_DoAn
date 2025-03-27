@@ -30,7 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_Diem = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_QuyenDA = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Nhomsv = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Detai = new Guna.UI2.WinForms.Guna2Button();
             this.btn_DoiMK = new Guna.UI2.WinForms.Guna2Button();
@@ -45,6 +46,7 @@
             this.txt_VaiTro = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -71,6 +73,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
             this.panel2.Controls.Add(this.btn_ttCaNhan);
+            this.panel2.Controls.Add(this.btn_Diem);
+            this.panel2.Controls.Add(this.btn_QuyenDA);
             this.panel2.Controls.Add(this.btn_Nhomsv);
             this.panel2.Controls.Add(this.btn_Detai);
             this.panel2.Controls.Add(this.btn_DoiMK);
@@ -80,23 +84,43 @@
             this.panel2.Size = new System.Drawing.Size(195, 565);
             this.panel2.TabIndex = 4;
             // 
-            // btn_ttCaNhan
+            // btn_Diem
             // 
-            this.btn_ttCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
-            this.btn_ttCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ttCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ttCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 110);
-            this.btn_ttCaNhan.Name = "btn_ttCaNhan";
-            this.btn_ttCaNhan.Size = new System.Drawing.Size(195, 55);
-            this.btn_ttCaNhan.TabIndex = 12;
-            this.btn_ttCaNhan.Text = "Thông tin cá nhân";
+            this.btn_Diem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_Diem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Diem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Diem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Diem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Diem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Diem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Diem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Diem.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_Diem.Location = new System.Drawing.Point(0, 165);
+            this.btn_Diem.Name = "btn_Diem";
+            this.btn_Diem.Size = new System.Drawing.Size(195, 55);
+            this.btn_Diem.TabIndex = 13;
+            this.btn_Diem.Text = "Điểm";
+            this.btn_Diem.Click += new System.EventHandler(this.btn_Diem_Click);
+            // 
+            // btn_QuyenDA
+            // 
+            this.btn_QuyenDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_QuyenDA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QuyenDA.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_QuyenDA.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_QuyenDA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_QuyenDA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_QuyenDA.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_QuyenDA.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_QuyenDA.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_QuyenDA.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_QuyenDA.Location = new System.Drawing.Point(0, 110);
+            this.btn_QuyenDA.Name = "btn_QuyenDA";
+            this.btn_QuyenDA.Size = new System.Drawing.Size(195, 55);
+            this.btn_QuyenDA.TabIndex = 12;
+            this.btn_QuyenDA.Text = "Quyển đồ án";
+            this.btn_QuyenDA.Click += new System.EventHandler(this.btn_QuyenDA_Click);
             // 
             // btn_Nhomsv
             // 
@@ -310,6 +334,24 @@
             this.btn_Close.Size = new System.Drawing.Size(55, 48);
             this.btn_Close.TabIndex = 12;
             // 
+            // btn_ttCaNhan
+            // 
+            this.btn_ttCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_ttCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ttCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ttCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 220);
+            this.btn_ttCaNhan.Name = "btn_ttCaNhan";
+            this.btn_ttCaNhan.Size = new System.Drawing.Size(195, 55);
+            this.btn_ttCaNhan.TabIndex = 14;
+            this.btn_ttCaNhan.Text = "Thông tin cá nhân";
+            // 
             // frmTrangChuTeaCher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,7 +382,7 @@
         private Guna.UI2.WinForms.Guna2Button btn_Minimize;
         private Guna.UI2.WinForms.Guna2Button btn_Close;
         private System.Windows.Forms.Panel panel2;
-        private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
+        private Guna.UI2.WinForms.Guna2Button btn_QuyenDA;
         private Guna.UI2.WinForms.Guna2Button btn_Nhomsv;
         private Guna.UI2.WinForms.Guna2Button btn_Detai;
         private Guna.UI2.WinForms.Guna2Button btn_DoiMK;
@@ -353,5 +395,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label txt_VaiTro;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private Guna.UI2.WinForms.Guna2Button btn_Diem;
+        private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
     }
 }

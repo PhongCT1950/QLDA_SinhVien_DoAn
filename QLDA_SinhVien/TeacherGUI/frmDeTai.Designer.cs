@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Find = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Xoa = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Load = new Guna.UI2.WinForms.Guna2Button();
             this.dtgv_DeTai = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.cmb_LoaiDT = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -57,9 +56,8 @@
             // 
             // txt_Find
             // 
-            this.txt_Find.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.txt_Find.BorderColor = System.Drawing.Color.Black;
             this.txt_Find.BorderRadius = 2;
-            this.txt_Find.BorderThickness = 2;
             this.txt_Find.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Find.DefaultText = "";
             this.txt_Find.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -78,6 +76,7 @@
             this.txt_Find.SelectedText = "";
             this.txt_Find.Size = new System.Drawing.Size(593, 50);
             this.txt_Find.TabIndex = 14;
+            this.txt_Find.TextChanged += new System.EventHandler(this.txt_Find_TextChanged);
             // 
             // btn_Xoa
             // 
@@ -97,24 +96,6 @@
             this.btn_Xoa.TabIndex = 18;
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // btn_Load
-            // 
-            this.btn_Load.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_Load.BorderRadius = 4;
-            this.btn_Load.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Load.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Load.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Load.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_Load.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Load.ForeColor = System.Drawing.Color.White;
-            this.btn_Load.Location = new System.Drawing.Point(17, 752);
-            this.btn_Load.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Load.Name = "btn_Load";
-            this.btn_Load.Size = new System.Drawing.Size(133, 50);
-            this.btn_Load.TabIndex = 15;
-            this.btn_Load.Text = "Làm mới";
             // 
             // dtgv_DeTai
             // 
@@ -346,7 +327,6 @@
             this.panel2.Controls.Add(this.btn_Sua);
             this.panel2.Controls.Add(this.btn_Xoa);
             this.panel2.Controls.Add(this.btn_Huy);
-            this.panel2.Controls.Add(this.btn_Load);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
@@ -446,7 +426,6 @@
 
         private Guna.UI2.WinForms.Guna2TextBox txt_Find;
         private Guna.UI2.WinForms.Guna2Button btn_Xoa;
-        private Guna.UI2.WinForms.Guna2Button btn_Load;
         private Guna.UI2.WinForms.Guna2DataGridView dtgv_DeTai;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2TextBox txt_MoTa;

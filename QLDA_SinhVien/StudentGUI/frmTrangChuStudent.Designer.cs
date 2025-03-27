@@ -35,22 +35,23 @@
             this.txt_VaiTro = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.txt_TenSV = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_Diem = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.txt_TenSV = new System.Windows.Forms.Label();
             this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_NopDA
@@ -70,6 +71,7 @@
             this.btn_NopDA.Size = new System.Drawing.Size(201, 55);
             this.btn_NopDA.TabIndex = 11;
             this.btn_NopDA.Text = "Nộp Đồ Án";
+            this.btn_NopDA.Click += new System.EventHandler(this.btn_NopDA_Click);
             // 
             // btn_DangKyDT
             // 
@@ -161,6 +163,33 @@
             this.panel3.Size = new System.Drawing.Size(201, 155);
             this.panel3.TabIndex = 5;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.txt_TenSV, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 105);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(201, 31);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // txt_TenSV
+            // 
+            this.txt_TenSV.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txt_TenSV.AutoSize = true;
+            this.txt_TenSV.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_TenSV.ForeColor = System.Drawing.SystemColors.Window;
+            this.txt_TenSV.Location = new System.Drawing.Point(24, 5);
+            this.txt_TenSV.Name = "txt_TenSV";
+            this.txt_TenSV.Size = new System.Drawing.Size(153, 21);
+            this.txt_TenSV.TabIndex = 0;
+            this.txt_TenSV.Text = "Tên Người Dùng";
+            this.txt_TenSV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // guna2PictureBox2
             // 
             this.guna2PictureBox2.Image = global::QLDA_SinhVien.Properties.Resources.icons8_system_50;
@@ -246,6 +275,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
             this.panel2.Controls.Add(this.btn_ttCaNhan);
+            this.panel2.Controls.Add(this.btn_Diem);
             this.panel2.Controls.Add(this.btn_NopDA);
             this.panel2.Controls.Add(this.btn_DangKyDT);
             this.panel2.Controls.Add(this.btn_DoiMK);
@@ -254,6 +284,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(201, 565);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_Diem
+            // 
+            this.btn_Diem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_Diem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Diem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Diem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_Diem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_Diem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_Diem.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Diem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Diem.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_Diem.Location = new System.Drawing.Point(0, 110);
+            this.btn_Diem.Name = "btn_Diem";
+            this.btn_Diem.Size = new System.Drawing.Size(201, 55);
+            this.btn_Diem.TabIndex = 12;
+            this.btn_Diem.Text = "Điểm";
+            this.btn_Diem.Click += new System.EventHandler(this.btn_Diem_Click);
             // 
             // panel_body
             // 
@@ -264,33 +313,6 @@
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1082, 655);
             this.panel_body.TabIndex = 3;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.txt_TenSV, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 105);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(201, 31);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // txt_TenSV
-            // 
-            this.txt_TenSV.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txt_TenSV.AutoSize = true;
-            this.txt_TenSV.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_TenSV.ForeColor = System.Drawing.SystemColors.Window;
-            this.txt_TenSV.Location = new System.Drawing.Point(24, 5);
-            this.txt_TenSV.Name = "txt_TenSV";
-            this.txt_TenSV.Size = new System.Drawing.Size(153, 21);
-            this.txt_TenSV.TabIndex = 0;
-            this.txt_TenSV.Text = "Tên Người Dùng";
-            this.txt_TenSV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_ttCaNhan
             // 
@@ -304,10 +326,10 @@
             this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
             this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 110);
+            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 165);
             this.btn_ttCaNhan.Name = "btn_ttCaNhan";
             this.btn_ttCaNhan.Size = new System.Drawing.Size(201, 55);
-            this.btn_ttCaNhan.TabIndex = 12;
+            this.btn_ttCaNhan.TabIndex = 13;
             this.btn_ttCaNhan.Text = "Thông Tin Cá Nhân";
             // 
             // frmTrangChuStudent
@@ -324,12 +346,12 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -352,6 +374,7 @@
         private System.Windows.Forms.Panel panel_body;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label txt_TenSV;
+        private Guna.UI2.WinForms.Guna2Button btn_Diem;
         private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
     }
 }

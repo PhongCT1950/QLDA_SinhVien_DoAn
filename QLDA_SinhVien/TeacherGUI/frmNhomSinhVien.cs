@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -206,7 +207,7 @@ namespace QLDA_SinhVien.TeacherGUI
             {
                 if (dtgv_Nhom.SelectedRows[0].Cells["MANHOM"].Value.ToString() == null)
                 {
-                    MessageBox.Show("Chưa chọn nhóm để xóa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Chưa chọn nhóm để sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 lsb_tvNhom.Items.Clear();
                 string MANHOM = dtgv_Nhom.SelectedRows[0].Cells["MANHOM"].Value.ToString();
@@ -256,6 +257,20 @@ namespace QLDA_SinhVien.TeacherGUI
                 if (result == DialogResult.Yes)
                 {
                     string manhom = dtgv_Nhom.SelectedRows[0].Cells["MANHOM"].Value.ToString();
+
+                    string MaNH = nhomSinhVienService.getDataMaNHinDoAn(manhom);
+
+                    if(manhom == MaNH)
+                    {
+                        nhomSinhVienService.deleteDataNhom(manhom);
+
+                        MessageBox.Show("Xóa nhóm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadListSinhVien();
+                        loadListNhom();
+                        loadHuy();
+
+                        return;
+                    }
 
                     nhomSinhVienService.deleteDataNhomSV(manhom);
 

@@ -82,5 +82,32 @@ namespace BusinessLogicLayer
         {
             return giangVienRepository.getNameGiangvien(MaGV);
         }
+
+        public void updateDataGiangVien(GiangVienDTO giangvien)
+        {
+            if (string.IsNullOrWhiteSpace(giangvien.TenGV))
+            {
+                throw new ArgumentException("Tên giảng viên không được để trống.");
+            }
+
+            if (string.IsNullOrWhiteSpace(giangvien.DiaChi))
+            {
+                throw new ArgumentException("Địa chỉ giảng viên không được để trống.");
+            }
+            if (string.IsNullOrWhiteSpace(giangvien.Email))
+            {
+                throw new ArgumentException("Email giảng viên không được để trống.");
+            }
+
+            if (string.IsNullOrWhiteSpace(giangvien.SDT))
+            {
+                throw new ArgumentException("Số điện thoại giảng viên không được để trống.");
+            }
+            giangVienRepository.updateGiangVien(giangvien);
+        }
+        public DataTable getDataGiangVienFind(string keyword)
+        {
+            return giangVienRepository.getGiangVienFind(keyword);
+        }
     }
 }

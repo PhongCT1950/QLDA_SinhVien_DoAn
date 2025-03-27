@@ -38,6 +38,11 @@ namespace BusinessLogicLayer
             return nhomSinhVienRepository.getNhomSV();
         }
 
+        public DataTable getDatadsNhomSV()
+        {
+            return nhomSinhVienRepository.getdsNhomSV();
+        }
+
         public void updateDataNhomSV(NhomSinhVienDTO nhomsv)
         {
             nhomSinhVienRepository.updateDataNhomSV(nhomsv);
@@ -63,6 +68,11 @@ namespace BusinessLogicLayer
             nhomSinhVienRepository.deleteNhomSV(manhom);
         }
 
+        public void deleteDataNhom(string manhom)
+        {
+            nhomSinhVienRepository.deleteNhom(manhom);
+        }
+
         public string getDataMaNhom(string MaSV)
         {
             return nhomSinhVienRepository.getMaNhom(MaSV);
@@ -75,7 +85,22 @@ namespace BusinessLogicLayer
 
         public string getDataMaDT(string MaNhom)
         {
-            return nhomSinhVienRepository.getMaNhom(MaNhom);
+            return nhomSinhVienRepository.getMaDT(MaNhom);
+        }
+
+        public DataTable getDatattNhomSV(string MANHOM)
+        {
+            return nhomSinhVienRepository.getttNhomSV(MANHOM);
+        }
+
+        public void updateDataTdDeTai(string MANHOM, string MADT)
+        {
+            nhomSinhVienRepository.updateTdDeTai(MANHOM,MADT);
+        }
+
+        public string getDataMaNHinDoAn(string MaNH)
+        {
+            return nhomSinhVienRepository.getMaNHinDoAn(MaNH);
         }
     }
 }

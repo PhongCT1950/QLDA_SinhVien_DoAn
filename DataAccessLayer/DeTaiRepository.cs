@@ -42,13 +42,29 @@ namespace DataAccessLayer
             return Detai;
         }
 
-        public DataTable getAllDeTai()
+        public DataTable getAllDeTai(string MaNH)
         {
             DataTable Detai = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_DeTai", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = MaNH });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(Detai);
+            }
+            return Detai;
+        }
+
+        public DataTable getDeTai()
+        {
+            DataTable Detai = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_AllDeTai", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
@@ -123,6 +139,37 @@ namespace DataAccessLayer
 
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        public int getCountNhom(string MaDT)
+        {
+            int count = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_CountNhom", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MaDT", SqlDbType.Char, 6) { Value = MaDT });
+
+                count = (int)cmd.ExecuteScalar();
+            }
+            return count;
+        }
+
+        public DataTable getDeTaiFind(string keyword)
+        {
+            DataTable detai = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Find_DeTai", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(detai);
+            }
+            return detai;
         }
     }
 }

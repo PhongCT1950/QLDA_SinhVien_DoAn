@@ -17,20 +17,26 @@ namespace BusinessLogicLayer
             return deTaiRepository.getLoaiDA();
         }
 
-        public DataTable getDataDeTai()
+        public DataTable getDataListDeTai()
         {
             return deTaiRepository.getListDeTai();
         }
 
-        public DataTable getAllDataDeTai()
+        public DataTable getAllDataDeTai(string MaNH)
         {
-            return deTaiRepository.getAllDeTai();
+            return deTaiRepository.getAllDeTai(MaNH);
+        }
+
+        public DataTable getDataDeTai()
+        {
+            return deTaiRepository.getDeTai();
         }
 
         public DeTaiDTO getEditDeTai(string MaDT)
         {
             return deTaiRepository.getDeTaiEdit(MaDT);
         }
+
 
         public void addDetai(DeTaiDTO detai)
         {
@@ -55,6 +61,16 @@ namespace BusinessLogicLayer
         public void deteleDataDeTai(string MaDT)
         {
             deTaiRepository.deleteDeTai(MaDT);
+        }
+
+        public int getDataCountNhom(string MaDT)
+        {
+            return deTaiRepository.getCountNhom(MaDT);
+        }
+
+        public DataTable getDataDeTaiFind(string keyword)
+        {
+            return deTaiRepository.getDeTaiFind(keyword);
         }
     }
 }
