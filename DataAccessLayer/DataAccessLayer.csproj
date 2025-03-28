@@ -50,6 +50,7 @@
     <Compile Include="KhoaRepository.cs" />
     <Compile Include="NganhRepository.cs" />
     <Compile Include="NhomSinhVienRepository.cs" />
+    <Compile Include="NienKhoaRepository.cs" />
     <Compile Include="NopDoAnRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuyenDoAnRepository.cs" />

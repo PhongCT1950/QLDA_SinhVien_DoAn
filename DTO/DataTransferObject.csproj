@@ -48,6 +48,7 @@
     <Compile Include="KhoaDTO.cs" />
     <Compile Include="NganhDTO.cs" />
     <Compile Include="NhomSinhVienDTO.cs" />
+    <Compile Include="NienKhoaDTO.cs" />
     <Compile Include="QuyenDoAnDTO.cs" />
     <Compile Include="SinhVienDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

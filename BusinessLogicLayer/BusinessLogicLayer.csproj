@@ -48,6 +48,7 @@
     <Compile Include="KhoaService.cs" />
     <Compile Include="NganhService.cs" />
     <Compile Include="NhomSinhVienService.cs" />
+    <Compile Include="NienKhoaService.cs" />
     <Compile Include="NopDoAnService.cs" />
     <Compile Include="QuyenDoAnService.cs" />
     <Compile Include="SinhVienService.cs" />

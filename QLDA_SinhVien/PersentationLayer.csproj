@@ -81,6 +81,12 @@
     <Compile Include="AdminGUI\frmNganh.Designer.cs">
       <DependentUpon>frmNganh.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminGUI\frmNienKhoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminGUI\frmNienKhoa.Designer.cs">
+      <DependentUpon>frmNienKhoa.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminGUI\frmSinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmNganh.resx">
       <DependentUpon>frmNganh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminGUI\frmNienKhoa.resx">
+      <DependentUpon>frmNienKhoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminGUI\frmSinhVien.resx">
       <DependentUpon>frmSinhVien.cs</DependentUpon>
