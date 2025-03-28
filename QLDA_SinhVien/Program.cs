@@ -19,8 +19,8 @@ namespace QLDA_SinhVien
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmLogin());
-            Application.Run(new frmNienKhoa());
+            Application.Run(new frmLogin());
+            //Application.Run(new frmThongTinCaNhan());
         }
     }
 }

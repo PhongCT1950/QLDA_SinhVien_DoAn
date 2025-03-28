@@ -113,5 +113,21 @@ namespace QLDA_SinhVien.AdminGUI
         {
             OpenFormChild(new frmDiemDoAn());
         }
+
+        private void mini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btn_ttCaNhan_Click(object sender, EventArgs e)
+        {
+            frmThongTinCaNhanGV f = new frmThongTinCaNhanGV();
+            f.ShowDialog();
+        }
     }
 }

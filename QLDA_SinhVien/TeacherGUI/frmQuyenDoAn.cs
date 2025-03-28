@@ -62,6 +62,7 @@ namespace QLDA_SinhVien.TeacherGUI
             dtgv_Nhom.Columns["MANHOM"].HeaderText = "MaNH";
             dtgv_Nhom.Columns["TENNHOM"].HeaderText = "TenNH";
             dtgv_Nhom.Columns["Soluong"].HeaderText = "Số lượng thành viên";
+            dtgv_Nhom.Columns["Soluong"].Width = 500;
         }
 
         public void loadListQuyenDoAn()

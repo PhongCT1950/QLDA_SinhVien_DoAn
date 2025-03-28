@@ -40,19 +40,22 @@ namespace QLDA_SinhVien.AdminGUI
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_NienKhoa = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_ChucDanh = new Guna.UI2.WinForms.Guna2Button();
             this.btn_taiKhoan = new Guna.UI2.WinForms.Guna2Button();
             this.btn_nganh = new Guna.UI2.WinForms.Guna2Button();
             this.btn_khoa = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.btn_ChucDanh = new Guna.UI2.WinForms.Guna2Button();
+            this.mini = new System.Windows.Forms.PictureBox();
+            this.close = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mini)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_SinhVien
@@ -179,10 +182,10 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.mini);
+            this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btn_Minimize);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.btn_Close);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel_body);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -202,52 +205,12 @@ namespace QLDA_SinhVien.AdminGUI
             this.label1.Text = "Quản Lý Đồ Án Sinh Viên";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_Minimize
-            // 
-            this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Minimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Minimize.FillColor = System.Drawing.SystemColors.Control;
-            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.btn_Minimize.Image = global::QLDA_SinhVien.Properties.Resources.minus;
-            this.btn_Minimize.ImageSize = new System.Drawing.Size(35, 35);
-            this.btn_Minimize.Location = new System.Drawing.Point(1152, 11);
-            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.Size = new System.Drawing.Size(55, 48);
-            this.btn_Minimize.TabIndex = 13;
-            this.btn_Minimize.Click += new System.EventHandler(this.btn_Minimize_Click_1);
-            // 
-            // btn_Close
-            // 
-            this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.CheckedState.FillColor = System.Drawing.Color.Red;
-            this.btn_Close.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Close.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Close.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Close.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Close.FillColor = System.Drawing.SystemColors.Control;
-            this.btn_Close.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Close.ForeColor = System.Drawing.Color.White;
-            this.btn_Close.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn_Close.Image = global::QLDA_SinhVien.Properties.Resources.close;
-            this.btn_Close.ImageSize = new System.Drawing.Size(35, 35);
-            this.btn_Close.Location = new System.Drawing.Point(1213, 11);
-            this.btn_Close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.ShadowDecoration.Color = System.Drawing.Color.Red;
-            this.btn_Close.Size = new System.Drawing.Size(55, 48);
-            this.btn_Close.TabIndex = 12;
-            this.btn_Close.Click += new System.EventHandler(this.btn_Close_Click_1);
-            // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel2.Controls.Add(this.btn_NienKhoa);
             this.panel2.Controls.Add(this.btn_ChucDanh);
             this.panel2.Controls.Add(this.btn_taiKhoan);
             this.panel2.Controls.Add(this.btn_nganh);
@@ -260,6 +223,44 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(161, 565);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_NienKhoa
+            // 
+            this.btn_NienKhoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_NienKhoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_NienKhoa.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NienKhoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_NienKhoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_NienKhoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_NienKhoa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_NienKhoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_NienKhoa.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_NienKhoa.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_NienKhoa.Location = new System.Drawing.Point(0, 252);
+            this.btn_NienKhoa.Name = "btn_NienKhoa";
+            this.btn_NienKhoa.Size = new System.Drawing.Size(161, 42);
+            this.btn_NienKhoa.TabIndex = 16;
+            this.btn_NienKhoa.Text = "Niên khóa";
+            this.btn_NienKhoa.Click += new System.EventHandler(this.btn_NienKhoa_Click);
+            // 
+            // btn_ChucDanh
+            // 
+            this.btn_ChucDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_ChucDanh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ChucDanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ChucDanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ChucDanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ChucDanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ChucDanh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ChucDanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ChucDanh.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ChucDanh.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ChucDanh.Location = new System.Drawing.Point(0, 210);
+            this.btn_ChucDanh.Name = "btn_ChucDanh";
+            this.btn_ChucDanh.Size = new System.Drawing.Size(161, 42);
+            this.btn_ChucDanh.TabIndex = 15;
+            this.btn_ChucDanh.Text = "Chức danh";
+            this.btn_ChucDanh.Click += new System.EventHandler(this.btn_ChucDanh_Click);
             // 
             // btn_taiKhoan
             // 
@@ -328,24 +329,29 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel_body.Size = new System.Drawing.Size(1120, 655);
             this.panel_body.TabIndex = 3;
             // 
-            // btn_ChucDanh
+            // mini
             // 
-            this.btn_ChucDanh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
-            this.btn_ChucDanh.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ChucDanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ChucDanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ChucDanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ChucDanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ChucDanh.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ChucDanh.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_ChucDanh.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ChucDanh.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_ChucDanh.Location = new System.Drawing.Point(0, 210);
-            this.btn_ChucDanh.Name = "btn_ChucDanh";
-            this.btn_ChucDanh.Size = new System.Drawing.Size(161, 42);
-            this.btn_ChucDanh.TabIndex = 15;
-            this.btn_ChucDanh.Text = "Chức danh";
-            this.btn_ChucDanh.Click += new System.EventHandler(this.btn_ChucDanh_Click);
+            this.mini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mini.Image = global::QLDA_SinhVien.Properties.Resources.minus;
+            this.mini.Location = new System.Drawing.Point(1157, 3);
+            this.mini.Name = "mini";
+            this.mini.Size = new System.Drawing.Size(57, 56);
+            this.mini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mini.TabIndex = 26;
+            this.mini.TabStop = false;
+            this.mini.Click += new System.EventHandler(this.mini_Click);
+            // 
+            // close
+            // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close.Image = global::QLDA_SinhVien.Properties.Resources.close;
+            this.close.Location = new System.Drawing.Point(1220, 3);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(57, 56);
+            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.close.TabIndex = 25;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // frmTrangChuAdmin
             // 
@@ -366,6 +372,8 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mini)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -382,12 +390,13 @@ namespace QLDA_SinhVien.AdminGUI
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel_body;
-        private Guna.UI2.WinForms.Guna2Button btn_Minimize;
-        private Guna.UI2.WinForms.Guna2Button btn_Close;
         private System.Windows.Forms.Label label1;
         private Guna.UI2.WinForms.Guna2Button btn_taiKhoan;
         private Guna.UI2.WinForms.Guna2Button btn_nganh;
         private Guna.UI2.WinForms.Guna2Button btn_khoa;
         private Guna.UI2.WinForms.Guna2Button btn_ChucDanh;
+        private Guna.UI2.WinForms.Guna2Button btn_NienKhoa;
+        private System.Windows.Forms.PictureBox mini;
+        private System.Windows.Forms.PictureBox close;
     }
 }

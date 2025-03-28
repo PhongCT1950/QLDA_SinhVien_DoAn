@@ -51,16 +51,6 @@ namespace QLDA_SinhVien.AdminGUI
 
         }
 
-        private void btn_Minimize_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btn_Close_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btn_SinhVien_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmSinhVien());
@@ -120,6 +110,21 @@ namespace QLDA_SinhVien.AdminGUI
         private void btn_ChucDanh_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmChucDanh());
+        }
+
+        private void btn_NienKhoa_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmNienKhoa());
+        }
+
+        private void mini_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

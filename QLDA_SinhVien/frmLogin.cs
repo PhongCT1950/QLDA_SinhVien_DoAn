@@ -70,7 +70,7 @@ namespace QLDA_SinhVien
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!" , "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

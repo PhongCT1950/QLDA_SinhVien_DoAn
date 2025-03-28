@@ -94,7 +94,6 @@ namespace QLDA_SinhVien.AdminGUI
 
         private void btn_Close_Click(object sender, EventArgs e)
         {
-            Application.Exit();
         }
 
         private void frmTrangChuStudent_Load(object sender, EventArgs e)
@@ -121,6 +120,22 @@ namespace QLDA_SinhVien.AdminGUI
         private void btn_Diem_Click(object sender, EventArgs e)
         {
             OpenFormChild(new frmDiem());
+        }
+
+        private void btn_ttCaNhan_Click(object sender, EventArgs e)
+        {
+            frmThongTinCaNhanSV f = new frmThongTinCaNhanSV();
+            f.ShowDialog();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

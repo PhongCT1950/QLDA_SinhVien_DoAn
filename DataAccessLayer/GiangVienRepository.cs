@@ -188,5 +188,21 @@ namespace DataAccessLayer
             }
             return sinhvien;
         }
+
+        public DataTable getTTCaNhan(string MaGV)
+        {
+            DataTable giangvien = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_ttCaNhanGV", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MaGV", SqlDbType.Char, 6) { Value = MaGV });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(giangvien);
+            }
+            return giangvien;
+        }
     }
 }

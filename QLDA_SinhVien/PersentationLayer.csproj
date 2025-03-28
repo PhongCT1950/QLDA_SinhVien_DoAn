@@ -123,6 +123,12 @@
     <Compile Include="StudentGUI\frmNopDoAn.Designer.cs">
       <DependentUpon>frmNopDoAn.cs</DependentUpon>
     </Compile>
+    <Compile Include="StudentGUI\frmThongTinCaNhanSV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentGUI\frmThongTinCaNhanSV.Designer.cs">
+      <DependentUpon>frmThongTinCaNhanSV.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeacherGUI\frmDiemDoAn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +152,12 @@
     </Compile>
     <Compile Include="TeacherGUI\frmQuyenDoAn.Designer.cs">
       <DependentUpon>frmQuyenDoAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherGUI\frmThongTinCaNhanGV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeacherGUI\frmThongTinCaNhanGV.Designer.cs">
+      <DependentUpon>frmThongTinCaNhanGV.cs</DependentUpon>
     </Compile>
     <Compile Include="TeacherGUI\frmTrangChuTeaCher.cs">
       <SubType>Form</SubType>
@@ -200,6 +212,9 @@
     <EmbeddedResource Include="StudentGUI\frmNopDoAn.resx">
       <DependentUpon>frmNopDoAn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StudentGUI\frmThongTinCaNhanSV.resx">
+      <DependentUpon>frmThongTinCaNhanSV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentGUI\frmTrangChuStudent.resx">
       <DependentUpon>frmTrangChuStudent.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +229,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmQuyenDoAn.resx">
       <DependentUpon>frmQuyenDoAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherGUI\frmThongTinCaNhanGV.resx">
+      <DependentUpon>frmThongTinCaNhanGV.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmTrangChuTeaCher.resx">
       <DependentUpon>frmTrangChuTeaCher.cs</DependentUpon>

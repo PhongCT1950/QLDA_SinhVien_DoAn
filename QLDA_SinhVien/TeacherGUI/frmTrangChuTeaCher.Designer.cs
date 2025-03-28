@@ -30,6 +30,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Diem = new Guna.UI2.WinForms.Guna2Button();
             this.btn_QuyenDA = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Nhomsv = new Guna.UI2.WinForms.Guna2Button();
@@ -38,17 +39,18 @@
             this.btn_DangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Minimize = new Guna.UI2.WinForms.Guna2Button();
+            this.mini = new System.Windows.Forms.PictureBox();
+            this.close = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_TenGV = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.txt_VaiTro = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.btn_Close = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mini)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -83,6 +85,25 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(195, 565);
             this.panel2.TabIndex = 4;
+            // 
+            // btn_ttCaNhan
+            // 
+            this.btn_ttCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_ttCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ttCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ttCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 220);
+            this.btn_ttCaNhan.Name = "btn_ttCaNhan";
+            this.btn_ttCaNhan.Size = new System.Drawing.Size(195, 55);
+            this.btn_ttCaNhan.TabIndex = 14;
+            this.btn_ttCaNhan.Text = "Thông tin cá nhân";
+            this.btn_ttCaNhan.Click += new System.EventHandler(this.btn_ttCaNhan_Click);
             // 
             // btn_Diem
             // 
@@ -208,10 +229,10 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.mini);
+            this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btn_Minimize);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.btn_Close);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.panel_body);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -219,23 +240,29 @@
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 6;
             // 
-            // btn_Minimize
+            // mini
             // 
-            this.btn_Minimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Minimize.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Minimize.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Minimize.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Minimize.FillColor = System.Drawing.SystemColors.Control;
-            this.btn_Minimize.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Minimize.ForeColor = System.Drawing.Color.White;
-            this.btn_Minimize.Image = global::QLDA_SinhVien.Properties.Resources.minus;
-            this.btn_Minimize.ImageSize = new System.Drawing.Size(35, 35);
-            this.btn_Minimize.Location = new System.Drawing.Point(1152, 11);
-            this.btn_Minimize.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Minimize.Name = "btn_Minimize";
-            this.btn_Minimize.Size = new System.Drawing.Size(55, 48);
-            this.btn_Minimize.TabIndex = 13;
+            this.mini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.mini.Image = global::QLDA_SinhVien.Properties.Resources.minus;
+            this.mini.Location = new System.Drawing.Point(1157, 3);
+            this.mini.Name = "mini";
+            this.mini.Size = new System.Drawing.Size(57, 56);
+            this.mini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.mini.TabIndex = 28;
+            this.mini.TabStop = false;
+            this.mini.Click += new System.EventHandler(this.mini_Click);
+            // 
+            // close
+            // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close.Image = global::QLDA_SinhVien.Properties.Resources.close;
+            this.close.Location = new System.Drawing.Point(1220, 3);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(57, 56);
+            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.close.TabIndex = 27;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // panel3
             // 
@@ -313,45 +340,6 @@
             this.guna2PictureBox2.TabIndex = 1;
             this.guna2PictureBox2.TabStop = false;
             // 
-            // btn_Close
-            // 
-            this.btn_Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Close.CheckedState.FillColor = System.Drawing.Color.Red;
-            this.btn_Close.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Close.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_Close.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_Close.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Close.FillColor = System.Drawing.SystemColors.Control;
-            this.btn_Close.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_Close.ForeColor = System.Drawing.Color.White;
-            this.btn_Close.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
-            this.btn_Close.Image = global::QLDA_SinhVien.Properties.Resources.close;
-            this.btn_Close.ImageSize = new System.Drawing.Size(35, 35);
-            this.btn_Close.Location = new System.Drawing.Point(1213, 11);
-            this.btn_Close.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Close.Name = "btn_Close";
-            this.btn_Close.ShadowDecoration.Color = System.Drawing.Color.Red;
-            this.btn_Close.Size = new System.Drawing.Size(55, 48);
-            this.btn_Close.TabIndex = 12;
-            // 
-            // btn_ttCaNhan
-            // 
-            this.btn_ttCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
-            this.btn_ttCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ttCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ttCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 220);
-            this.btn_ttCaNhan.Name = "btn_ttCaNhan";
-            this.btn_ttCaNhan.Size = new System.Drawing.Size(195, 55);
-            this.btn_ttCaNhan.TabIndex = 14;
-            this.btn_ttCaNhan.Text = "Thông tin cá nhân";
-            // 
             // frmTrangChuTeaCher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -366,6 +354,8 @@
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mini)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -379,8 +369,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2Button btn_Minimize;
-        private Guna.UI2.WinForms.Guna2Button btn_Close;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI2.WinForms.Guna2Button btn_QuyenDA;
         private Guna.UI2.WinForms.Guna2Button btn_Nhomsv;
@@ -397,5 +385,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btn_Diem;
         private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
+        private System.Windows.Forms.PictureBox mini;
+        private System.Windows.Forms.PictureBox close;
     }
 }

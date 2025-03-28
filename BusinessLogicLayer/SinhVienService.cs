@@ -136,5 +136,10 @@ namespace BusinessLogicLayer
         {
             return sinhVienRepository.getNameSinhVien(MaSV);
         }
+
+        public DataTable getDataTTCaNhan(string MaSV)
+        {
+            return sinhVienRepository.getTTCaNhan(MaSV);
+        }
     }
 }

@@ -156,13 +156,13 @@ namespace QLDA_SinhVien.AdminGUI
                 {
                     DataRowView row = (DataRowView)cmb_ChucDanh.SelectedItem;
                     GiangVienDTO giangvien = new GiangVienDTO();
-                    giangvien.MaGV = txt_MaGV.Text;
-                    giangvien.TenGV = txt_TenGV.Text;
+                    giangvien.MaGV = txt_MaGV.Text.Trim();
+                    giangvien.TenGV = txt_TenGV.Text.Trim();
                     giangvien.NgaySinh = txt_NgaySinh.Value;
                     giangvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    giangvien.SDT = txt_SDT.Text;
-                    giangvien.DiaChi = txt_DiaChi.Text;
-                    giangvien.Email = txt_Email.Text;
+                    giangvien.SDT = txt_SDT.Text.Trim();
+                    giangvien.DiaChi = txt_DiaChi.Text.Trim();
+                    giangvien.Email = txt_Email.Text.Trim();
                     giangvien.MaKhoa = cmb_Khoa.SelectedValue.ToString();
                     giangvien.MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString());
 
@@ -176,13 +176,13 @@ namespace QLDA_SinhVien.AdminGUI
                 {
                     DataRowView row = (DataRowView)cmb_ChucDanh.SelectedItem;
                     GiangVienDTO giangvien = new GiangVienDTO();
-                    giangvien.MaGV = txt_MaGV.Text;
-                    giangvien.TenGV = txt_TenGV.Text;
+                    giangvien.MaGV = txt_MaGV.Text.Trim();
+                    giangvien.TenGV = txt_TenGV.Text.Trim();
                     giangvien.NgaySinh = txt_NgaySinh.Value;
                     giangvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    giangvien.SDT = txt_SDT.Text;
-                    giangvien.DiaChi = txt_DiaChi.Text;
-                    giangvien.Email = txt_Email.Text;
+                    giangvien.SDT = txt_SDT.Text.Trim();
+                    giangvien.DiaChi = txt_DiaChi.Text.Trim();
+                    giangvien.Email = txt_Email.Text.Trim();
                     giangvien.MaKhoa = cmb_Khoa.SelectedValue.ToString();
                     giangvien.MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString());
 

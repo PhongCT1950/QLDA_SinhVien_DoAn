@@ -109,5 +109,10 @@ namespace BusinessLogicLayer
         {
             return giangVienRepository.getGiangVienFind(keyword);
         }
+
+        public DataTable getDataTTCaNhanGV(string MaGV)
+        {
+            return giangVienRepository.getTTCaNhan(MaGV);
+        }
     }
 }

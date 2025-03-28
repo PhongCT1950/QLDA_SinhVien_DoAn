@@ -178,13 +178,13 @@ namespace QLDA_SinhVien.AdminGUI
                 {
                     DataRowView row = (DataRowView)cmb_Nganh.SelectedItem;
                     SinhVienDTO sinhvien = new SinhVienDTO();
-                    sinhvien.MaSV = txt_MaSV.Text;
-                    sinhvien.TenSV = txt_TenSV.Text;
+                    sinhvien.MaSV = txt_MaSV.Text.Trim();
+                    sinhvien.TenSV = txt_TenSV.Text.Trim();
                     sinhvien.NgaySinh = txt_NgaySinh.Value;
                     sinhvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    sinhvien.SDT = txt_SDT.Text;
-                    sinhvien.DiaChi = txt_DiaChi.Text;
-                    sinhvien.Email = txt_Email.Text;
+                    sinhvien.SDT = txt_SDT.Text.Trim();
+                    sinhvien.DiaChi = txt_DiaChi.Text.Trim();
+                    sinhvien.Email = txt_Email.Text.Trim();
                     sinhvien.MaHeDT = cmb_HeDT.SelectedValue.ToString();
                     sinhvien.MaNganh = cmb_Nganh.SelectedValue.ToString();
                     sinhvien.MaKhoa = row["MAKHOA"].ToString();
@@ -199,17 +199,17 @@ namespace QLDA_SinhVien.AdminGUI
                 else
                 {
                     SinhVienDTO sinhvien = new SinhVienDTO();
-                    sinhvien.MaSV = txt_MaSV.Text;
-                    sinhvien.TenSV = txt_TenSV.Text;
+                    sinhvien.MaSV = txt_MaSV.Text.Trim();
+                    sinhvien.TenSV = txt_TenSV.Text.Trim();
                     sinhvien.NgaySinh = txt_NgaySinh.Value;
                     sinhvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    sinhvien.SDT = txt_SDT.Text;
-                    sinhvien.DiaChi = txt_DiaChi.Text;
-                    sinhvien.Email = txt_Email.Text;
+                    sinhvien.SDT = txt_SDT.Text.Trim();
+                    sinhvien.DiaChi = txt_DiaChi.Text.Trim();
+                    sinhvien.Email = txt_Email.Text.Trim();
                     sinhvien.MaHeDT = cmb_HeDT.SelectedValue.ToString();
                     sinhvien.MaNganh = cmb_Nganh.SelectedValue.ToString();
                     sinhvien.MaNK = cmb_NienKhoa.SelectedValue.ToString();
-                    sinhvien.MaKhoa = txt_Khoa.Text;
+                    sinhvien.MaKhoa = txt_Khoa.Text.Trim();
                     sinhVienService.UpdateDataSinhVien(sinhvien);
 
                     MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
