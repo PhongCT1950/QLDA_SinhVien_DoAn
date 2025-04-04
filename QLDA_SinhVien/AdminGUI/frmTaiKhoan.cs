@@ -35,6 +35,7 @@ namespace QLDA_SinhVien.AdminGUI
 
             dtgv_TaiKhoan.DataSource = taikhoan;
 
+            dtgv_TaiKhoan.Columns["UserID"].HeaderText = "Mã người dùng";
             dtgv_TaiKhoan.Columns["USERNAME"].HeaderText = "Tên Tài Khoản";
             dtgv_TaiKhoan.Columns["PASSWORD"].HeaderText = "Mật Khẩu";
             dtgv_TaiKhoan.Columns["ROLE"].HeaderText = "Vai Trò";

@@ -131,7 +131,7 @@
             this.txt_TenNganh.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenNganh.Name = "txt_TenNganh";
             this.txt_TenNganh.PasswordChar = '\0';
-            this.txt_TenNganh.PlaceholderText = "";
+            this.txt_TenNganh.PlaceholderText = "Nhập tên ngành";
             this.txt_TenNganh.SelectedText = "";
             this.txt_TenNganh.Size = new System.Drawing.Size(286, 35);
             this.txt_TenNganh.TabIndex = 4;
@@ -296,7 +296,7 @@
             this.txt_MaNG.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaNG.ForeColor = System.Drawing.Color.Black;
             this.txt_MaNG.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_MaNG.Location = new System.Drawing.Point(139, 82);
+            this.txt_MaNG.Location = new System.Drawing.Point(150, 82);
             this.txt_MaNG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MaNG.Name = "txt_MaNG";
             this.txt_MaNG.PasswordChar = '\0';
@@ -319,12 +319,12 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label5.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(47, 90);
+            this.label5.Location = new System.Drawing.Point(35, 90);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 21);
+            this.label5.Size = new System.Drawing.Size(96, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaNG";
+            this.label5.Text = "Mã Ngành";
             // 
             // btn_Them
             // 

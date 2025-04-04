@@ -91,7 +91,7 @@
             this.txt_hesoCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_hesoCD.Name = "txt_hesoCD";
             this.txt_hesoCD.PasswordChar = '\0';
-            this.txt_hesoCD.PlaceholderText = "";
+            this.txt_hesoCD.PlaceholderText = "Nhập hệ số chức danh";
             this.txt_hesoCD.SelectedText = "";
             this.txt_hesoCD.Size = new System.Drawing.Size(286, 35);
             this.txt_hesoCD.TabIndex = 105;
@@ -104,9 +104,9 @@
             this.label3.Location = new System.Drawing.Point(1064, 91);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 21);
+            this.label3.Size = new System.Drawing.Size(91, 21);
             this.label3.TabIndex = 104;
-            this.label3.Text = "hesoCD";
+            this.label3.Text = "Hệ số CD";
             // 
             // txt_TenCD
             // 
@@ -125,7 +125,7 @@
             this.txt_TenCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenCD.Name = "txt_TenCD";
             this.txt_TenCD.PasswordChar = '\0';
-            this.txt_TenCD.PlaceholderText = "";
+            this.txt_TenCD.PlaceholderText = "Nhập tên chức danh";
             this.txt_TenCD.SelectedText = "";
             this.txt_TenCD.Size = new System.Drawing.Size(286, 35);
             this.txt_TenCD.TabIndex = 4;
@@ -138,9 +138,9 @@
             this.label1.Location = new System.Drawing.Point(535, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.Size = new System.Drawing.Size(73, 21);
             this.label1.TabIndex = 73;
-            this.label1.Text = "TenCD";
+            this.label1.Text = "Tên CD";
             // 
             // txt_MaCD
             // 
@@ -160,7 +160,7 @@
             this.txt_MaCD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MaCD.Name = "txt_MaCD";
             this.txt_MaCD.PasswordChar = '\0';
-            this.txt_MaCD.PlaceholderText = "";
+            this.txt_MaCD.PlaceholderText = "Nhập mã chức danh";
             this.txt_MaCD.SelectedText = "";
             this.txt_MaCD.Size = new System.Drawing.Size(286, 35);
             this.txt_MaCD.TabIndex = 1;
@@ -182,9 +182,9 @@
             this.label5.Location = new System.Drawing.Point(47, 90);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaCD";
+            this.label5.Text = "Mã CD";
             // 
             // txt_Find
             // 

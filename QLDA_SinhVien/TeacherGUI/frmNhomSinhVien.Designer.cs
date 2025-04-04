@@ -80,7 +80,7 @@
             this.txt_MaNH.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaNH.ForeColor = System.Drawing.Color.Black;
             this.txt_MaNH.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_MaNH.Location = new System.Drawing.Point(343, 23);
+            this.txt_MaNH.Location = new System.Drawing.Point(366, 23);
             this.txt_MaNH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MaNH.Name = "txt_MaNH";
             this.txt_MaNH.PasswordChar = '\0';
@@ -106,7 +106,7 @@
             this.txt_TenNH.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenNH.Name = "txt_TenNH";
             this.txt_TenNH.PasswordChar = '\0';
-            this.txt_TenNH.PlaceholderText = "";
+            this.txt_TenNH.PlaceholderText = "Nhập tên nhóm";
             this.txt_TenNH.SelectedText = "";
             this.txt_TenNH.Size = new System.Drawing.Size(273, 35);
             this.txt_TenNH.TabIndex = 77;
@@ -116,12 +116,12 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label5.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(263, 31);
+            this.label5.Location = new System.Drawing.Point(253, 31);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.Size = new System.Drawing.Size(92, 21);
             this.label5.TabIndex = 80;
-            this.label5.Text = "MaNH";
+            this.label5.Text = "Mã Nhóm";
             // 
             // label4
             // 
@@ -191,6 +191,7 @@
             this.dtgv_SinhVien.ThemeStyle.RowsStyle.Height = 24;
             this.dtgv_SinhVien.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgv_SinhVien.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            this.dtgv_SinhVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgv_SinhVien_CellContentClick);
             // 
             // btn_ThemNH
             // 

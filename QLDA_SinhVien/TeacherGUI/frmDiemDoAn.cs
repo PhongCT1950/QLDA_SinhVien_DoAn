@@ -1,25 +1,25 @@
 ﻿using BusinessLogicLayer;
+using DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.IO;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Word;
-using System.Web.Util;
-using System.Data.SqlClient;
-using DTO;
 
 namespace QLDA_SinhVien.TeacherGUI
 {
     public partial class frmDiemDoAn: Form
     {
         DiemService diemService = new DiemService();
+        public static double Diem { get; set; }
+        bool isEdit = false;
         public frmDiemDoAn()
         {
             InitializeComponent();
@@ -28,13 +28,6 @@ namespace QLDA_SinhVien.TeacherGUI
         private void frmDiemDoAn_Load(object sender, EventArgs e)
         {
             loadListDoAn();
-            loadListDiemDoAn();
-            readDiem();
-        }
-
-        private void readDiem()
-        {
-            dtgv_diemDoAn.Columns["DIEM"].ReadOnly = true;
         }
 
         public void loadListDoAn()
@@ -44,33 +37,15 @@ namespace QLDA_SinhVien.TeacherGUI
 
             dtgv_Diem.DataSource = DoAn;
 
-            dtgv_Diem.Columns["MADA"].HeaderText = "MaDA";
-            dtgv_Diem.Columns["MANHOM"].HeaderText = "MaNH";
-            dtgv_Diem.Columns["TENDA"].HeaderText = "TenDA";
+            dtgv_Diem.Columns["MADA"].HeaderText = "Mã DA";
+            dtgv_Diem.Columns["MANHOM"].HeaderText = "Mã Nhóm";
+            dtgv_Diem.Columns["TENDA"].HeaderText = "Tên DA";
             dtgv_Diem.Columns["LOAIDA"].HeaderText = "Loại đồ án";
             dtgv_Diem.Columns["SOTC"].HeaderText = "Số tín chỉ";
             dtgv_Diem.Columns["NGAYNOP"].HeaderText = "Ngày nộp";
             dtgv_Diem.Columns["NGAYNOP"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dtgv_Diem.Columns["PATH"].HeaderText = "Tên tài liệu";
             dtgv_Diem.Columns["DIEM"].HeaderText = "Điểm";
-        }
-
-        public void loadListDiemDoAn()
-        {
-            string MaGV = UserSession.Refld;
-            System.Data.DataTable DoAn = diemService.getDataDiemDoAn(MaGV);
-
-            dtgv_diemDoAn.DataSource = DoAn;
-
-            dtgv_diemDoAn.Columns["MADA"].HeaderText = "MaDA";
-            dtgv_diemDoAn.Columns["MANHOM"].HeaderText = "MaNH";
-            dtgv_diemDoAn.Columns["TENDA"].HeaderText = "TenDA";
-            dtgv_diemDoAn.Columns["LOAIDA"].HeaderText = "Loại đồ án";
-            dtgv_diemDoAn.Columns["SOTC"].HeaderText = "Số tín chỉ";
-            dtgv_diemDoAn.Columns["NGAYNOP"].HeaderText = "Ngày nộp";
-            dtgv_diemDoAn.Columns["NGAYNOP"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dtgv_diemDoAn.Columns["PATH"].HeaderText = "Tên tài liệu";
-            dtgv_diemDoAn.Columns["DIEM"].HeaderText = "Điểm";
         }
 
         public void OpenWord(string path)
@@ -110,74 +85,13 @@ namespace QLDA_SinhVien.TeacherGUI
                 GC.WaitForPendingFinalizers();
             }
         }
-
-        private void btn_openFile_Click(object sender, EventArgs e)
+        private void btn_openFile_Click_1(object sender, EventArgs e)
         {
             string MaDA = dtgv_Diem.SelectedRows[0].Cells["MADA"].Value.ToString();
             string fileName = diemService.getDataPath(MaDA);
             string filePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "Documents", fileName);
 
             OpenWord(filePath);
-        }
-
-        private void btn_Them_Click(object sender, EventArgs e)
-        {
-            bool coLuuDuLieu = false;
-            try
-            {
-                foreach (DataGridViewRow row in dtgv_Diem.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    var MaDA = row.Cells["MADA"].Value?.ToString();
-                    var Diem = row.Cells["Diem"].Value;
-                    //var MaGV = "GV001";
-                    var MaGV = UserSession.Refld;
-
-                    if (string.IsNullOrEmpty(MaDA))
-                    {
-                        continue;
-                    }
-
-                    if (Diem == null || string.IsNullOrWhiteSpace(Diem.ToString()) || Diem.ToString() == "Chưa chấm")
-                    {
-                        continue;
-                    }
-
-                    try
-                    {
-                        string diemStr = Diem.ToString().Replace(',', '.');
-                        double diemValue = Convert.ToDouble(diemStr, System.Globalization.CultureInfo.InvariantCulture);
-
-                        diemService.addDataDiemDoAn(MaDA, diemValue, MaGV);
-
-                        coLuuDuLieu = true;
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show($"Điểm của đồ án {MaDA} không đúng định dạng số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Lỗi khi lưu điểm cho đồ án {MaDA}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                if (coLuuDuLieu)
-                {
-                    MessageBox.Show("Nhập điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadListDoAn();
-                    loadListDiemDoAn();
-                }
-                else
-                {
-                    MessageBox.Show("Không có dữ liệu nào được lưu. Vui lòng kiểm tra lại điểm đã nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void dtgv_Diem_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -191,80 +105,135 @@ namespace QLDA_SinhVien.TeacherGUI
                 }
             }
         }
-        private void btn_suaDiem_Click(object sender, EventArgs e)
+
+        private void btn_Them_Click(object sender, EventArgs e)
         {
-            dtgv_diemDoAn.Columns["DIEM"].ReadOnly = false;
+            if (dtgv_Diem.SelectedRows.Count > 0)
+            {
+                int selectedRowIndex = dtgv_Diem.SelectedRows[0].Index;
+                string MaDA = dtgv_Diem.SelectedRows[0].Cells["MADA"].Value.ToString();
+
+                frmChiTietDiem.MaDA = MaDA;
+                frmChiTietDiem frm = new frmChiTietDiem();
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    dtgv_Diem.Rows[selectedRowIndex].Cells["DIEM"].Value = Diem;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một đồ án!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btn_Luu_Click(object sender, EventArgs e)
         {
-            bool coLuuDuLieu = false;
-            try
+            bool suaDiem = false;
+            foreach (DataGridViewRow row in dtgv_Diem.Rows)
             {
-                foreach (DataGridViewRow row in dtgv_diemDoAn.Rows)
+                if (row.IsNewRow) continue;
+
+                var maDA = row.Cells["MADA"].Value?.ToString();
+                var diemObj = row.Cells["Diem"].Value;
+                var maGV = UserSession.Refld;
+
+                if (string.IsNullOrEmpty(maDA) ||
+                    diemObj == null ||
+                    string.IsNullOrWhiteSpace(diemObj.ToString()) ||
+                    diemObj.ToString() == "Chưa chấm")
                 {
-                    if (row.IsNewRow) continue;
+                    continue;
+                }
 
-                    var MaDA = row.Cells["MADA"].Value?.ToString();
-                    var Diem = row.Cells["Diem"].Value;
+                string diemStr = diemObj.ToString().Replace(',', '.');
+                if (!double.TryParse(diemStr, System.Globalization.NumberStyles.Any,
+                                    System.Globalization.CultureInfo.InvariantCulture, out double diemValue))
+                {
+                    MessageBox.Show($"Điểm của đồ án {maDA} không đúng định dạng số",
+                                  "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    continue;
+                }
 
-                    try
+                try
+                {
+                    if (isEdit)
                     {
-                        string diemStr = Diem.ToString().Replace(',', '.');
-                        double diemValue = Convert.ToDouble(diemStr, System.Globalization.CultureInfo.InvariantCulture);
-
-                        if (diemValue < 0 || diemValue > 10)
+                        diemService.updateDataDiem(maDA, diemValue);
+                        suaDiem = true;
+                    }
+                    else
+                    {
+                        if (diemService.isDiemExists(maDA))
                         {
-                            MessageBox.Show($"Điểm của đồ án {MaDA} không hợp lệ", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             continue;
                         }
 
-                        diemService.updateDataDiem(MaDA, diemValue);
-                        coLuuDuLieu = true;
-                    }
-                    catch (FormatException)
-                    {
-                        MessageBox.Show($"Điểm của đồ án {MaDA} không đúng định dạng số", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Lỗi khi lưu điểm cho đồ án {MaDA}: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        diemService.addDataDiemDoAn(maDA, diemValue, maGV);
+
                     }
                 }
-
-                if (coLuuDuLieu)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Sửa điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    loadListDiemDoAn();
-                    readDiem();
+                    MessageBox.Show($"Lỗi khi lưu điểm cho đồ án {maDA}: {ex.Message}",
+                                  "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            loadListDoAn();
+            if (suaDiem)
+            {
+                MessageBox.Show("Sửa điểm thành công!", "Thông báo",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                isEdit = false;
+            }
+            else
+            {
+                MessageBox.Show("Nhập điểm thành công!", "Thông báo",
+                              MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_suaDiem_Click(object sender, EventArgs e)
+        {
+            if (dtgv_Diem.SelectedRows.Count > 0)
+            {
+                int selectedRowIndex = dtgv_Diem.SelectedRows[0].Index;
+                string MaDA = dtgv_Diem.SelectedRows[0].Cells["MADA"].Value.ToString();
+
+                frmChiTietDiem.MaDA = MaDA;
+                frmChiTietDiem frm = new frmChiTietDiem();
+
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    dtgv_Diem.Rows[selectedRowIndex].Cells["DIEM"].Value = Diem;
+                }
+                isEdit = true;
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một đồ án!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dtgv_Diem_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dtgv_Diem.CurrentRow != null && !dtgv_Diem.CurrentRow.IsNewRow)
+            {
+                var diemValue = dtgv_Diem.CurrentRow.Cells["Diem"].Value?.ToString();
+
+                if (diemValue == "Chưa chấm" || string.IsNullOrEmpty(diemValue))
+                {
+                    btn_Them.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show("Không có dữ liệu nào được sửa. Vui lòng kiểm tra lại điểm đã sửa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btn_Them.Enabled = false;
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btn_Them.Enabled = false;
             }
-        }
-
-        private void txt_Find_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txt_Find.Text.Trim();
-            string MaGV = UserSession.Refld;
-            System.Data.DataTable diem = diemService.getDataDiemFind(keyword,MaGV);
-
-            dtgv_Diem.DataSource = diem;
-        }
-
-        private void guna2TextBox1_TextChanged(object sender, EventArgs e)
-        {
-            string keyword = txt_Find.Text.Trim();
-            string MaGV = UserSession.Refld;
-            System.Data.DataTable diem = diemService.getDataDiemDoAnFind(keyword, MaGV);
-
-            dtgv_diemDoAn.DataSource = diem;
         }
     }
 }

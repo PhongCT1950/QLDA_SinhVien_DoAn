@@ -129,7 +129,7 @@
             this.txt_TenKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenKhoa.Name = "txt_TenKhoa";
             this.txt_TenKhoa.PasswordChar = '\0';
-            this.txt_TenKhoa.PlaceholderText = "";
+            this.txt_TenKhoa.PlaceholderText = "Nhập tên khoa";
             this.txt_TenKhoa.SelectedText = "";
             this.txt_TenKhoa.Size = new System.Drawing.Size(379, 35);
             this.txt_TenKhoa.TabIndex = 4;
@@ -290,9 +290,9 @@
             this.label5.Location = new System.Drawing.Point(303, 89);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(80, 21);
+            this.label5.Size = new System.Drawing.Size(85, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaKhoa";
+            this.label5.Text = "Mã Khoa";
             // 
             // btn_Them
             // 

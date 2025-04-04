@@ -34,8 +34,8 @@ namespace QLDA_SinhVien.AdminGUI
             string MaGV = giangVienService.GenerateMaGV();
 
             txt_MaGV.Text = MaGV;
-            dtgv_GiangVien.Columns["MAGV"].HeaderText = "MaGV";
-            dtgv_GiangVien.Columns["TENGV"].HeaderText = "TenGV";
+            dtgv_GiangVien.Columns["MAGV"].HeaderText = "Mã GV";
+            dtgv_GiangVien.Columns["TENGV"].HeaderText = "Tên GV";
             dtgv_GiangVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             dtgv_GiangVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dtgv_GiangVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
@@ -192,7 +192,6 @@ namespace QLDA_SinhVien.AdminGUI
                     IsEdit = false;
                     btn_Them.Text = "Thêm";
                     LoadListGiangVien();
-                    LoadMaGV();
                     LoadHuy();
                 }
             }

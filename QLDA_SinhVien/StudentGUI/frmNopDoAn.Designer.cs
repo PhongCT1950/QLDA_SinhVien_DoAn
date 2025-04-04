@@ -137,9 +137,9 @@
             this.label5.Location = new System.Drawing.Point(34, 73);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.Size = new System.Drawing.Size(92, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaNH";
+            this.label5.Text = "Mã Nhóm";
             // 
             // label4
             // 
@@ -149,9 +149,9 @@
             this.label4.Location = new System.Drawing.Point(34, 144);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 21);
+            this.label4.Size = new System.Drawing.Size(66, 21);
             this.label4.TabIndex = 55;
-            this.label4.Text = "MaDA";
+            this.label4.Text = "Mã DA";
             // 
             // guna2GroupBox1
             // 
@@ -257,7 +257,7 @@
             this.txt_Path.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Path.Name = "txt_Path";
             this.txt_Path.PasswordChar = '\0';
-            this.txt_Path.PlaceholderText = "";
+            this.txt_Path.PlaceholderText = "Chọn file đồ án";
             this.txt_Path.SelectedText = "";
             this.txt_Path.Size = new System.Drawing.Size(273, 35);
             this.txt_Path.TabIndex = 105;
@@ -313,9 +313,9 @@
             this.label11.Location = new System.Drawing.Point(34, 215);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(68, 21);
+            this.label11.Size = new System.Drawing.Size(73, 21);
             this.label11.TabIndex = 89;
-            this.label11.Text = "TenDA";
+            this.label11.Text = "Tên DA";
             // 
             // label3
             // 

@@ -41,6 +41,7 @@ namespace QLDA_SinhVien.AdminGUI
             DataTable chucdanh = chucDanhService.getDataDsChucDanh();
             dtgv_ChucDanh.DataSource = chucdanh;
 
+            dtgv_ChucDanh.Columns["MACD"].HeaderText = "Mã CD";
             dtgv_ChucDanh.Columns["ChucDanh"].HeaderText = "Chức Danh";
             dtgv_ChucDanh.Columns["hesoCD"].HeaderText = "Hệ Số Chức Danh";
         }

@@ -39,7 +39,7 @@ namespace QLDA_SinhVien.AdminGUI
             DataTable khoa = khoaService.getDataKhoa();
             dtgv_Khoa.DataSource = khoa;
 
-            dtgv_Khoa.Columns["MAKHOA"].HeaderText = "MaKhoa";
+            dtgv_Khoa.Columns["MAKHOA"].HeaderText = "Mã Khoa";
             dtgv_Khoa.Columns["TENKHOA"].HeaderText = "Tên Khoa";
         }
 

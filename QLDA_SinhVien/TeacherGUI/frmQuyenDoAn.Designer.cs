@@ -401,9 +401,9 @@
             this.label8.Location = new System.Drawing.Point(456, 154);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 21);
+            this.label8.Size = new System.Drawing.Size(92, 21);
             this.label8.TabIndex = 77;
-            this.label8.Text = "MaNH";
+            this.label8.Text = "Mã Nhóm";
             // 
             // label3
             // 
@@ -478,7 +478,7 @@
             this.txt_TenDA.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenDA.Name = "txt_TenDA";
             this.txt_TenDA.PasswordChar = '\0';
-            this.txt_TenDA.PlaceholderText = "";
+            this.txt_TenDA.PlaceholderText = "Nhập tên đồ án";
             this.txt_TenDA.SelectedText = "";
             this.txt_TenDA.Size = new System.Drawing.Size(273, 35);
             this.txt_TenDA.TabIndex = 2;
@@ -491,9 +491,9 @@
             this.label5.Location = new System.Drawing.Point(19, 73);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.Size = new System.Drawing.Size(66, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaDA";
+            this.label5.Text = "Mã DA";
             // 
             // label4
             // 
@@ -503,9 +503,9 @@
             this.label4.Location = new System.Drawing.Point(19, 155);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 21);
+            this.label4.Size = new System.Drawing.Size(73, 21);
             this.label4.TabIndex = 55;
-            this.label4.Text = "TenDA";
+            this.label4.Text = "Tên DA";
             // 
             // txt_Find
             // 

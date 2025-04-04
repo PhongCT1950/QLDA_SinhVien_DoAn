@@ -45,6 +45,23 @@ namespace DataAccessLayer
             return DoAn;
         }
 
+        public DataTable getThongtinDoAn(string MaDA)
+        {
+            DataTable DoAn = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_ThongtinDoAn", conn);
+                cmd.Parameters.Add(new SqlParameter("@MADA", SqlDbType.Char, 6) { Value = MaDA });
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(DoAn);
+            }
+            return DoAn;
+        }
+
         public string getPath(string MaDA)
         {
             string path = null;
@@ -204,6 +221,22 @@ namespace DataAccessLayer
                 adapter.Fill(diem);
             }
             return diem;
+        }
+
+        public bool isKiemTraDiem(string MaDA)
+        {
+            string query = "SELECT COUNT(*) FROM DIEM WHERE MADA = @maDA";
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@maDA", MaDA);
+                    int count = (int)cmd.ExecuteScalar();
+                    return count > 0;
+                }
+            }
         }
     }
 }

@@ -39,6 +39,7 @@ namespace QLDA_SinhVien.TeacherGUI
             DataTable DeTai = deTaiService.getDataListDeTai();
 
             dtgv_DeTai.DataSource = DeTai;
+            dtgv_DeTai.Columns["MADT"].HeaderText  = "Mã Đề Tài";
             dtgv_DeTai.Columns["TENDT"].HeaderText  = "Tên Đề Tài";
             dtgv_DeTai.Columns["LOAIDA"].HeaderText = "Loại Đồ Án";
             dtgv_DeTai.Columns["MOTA"].HeaderText   = "Mô Tả Đồ Án";
@@ -50,6 +51,7 @@ namespace QLDA_SinhVien.TeacherGUI
             DataTable DeTai = deTaiService.getDataDeTai();
 
             dtgv_DeTai.DataSource = DeTai;
+            dtgv_DeTai.Columns["MADT"].HeaderText = "Mã Đề Tài";
             dtgv_DeTai.Columns["TENDT"].HeaderText = "Tên Đề Tài";
             dtgv_DeTai.Columns["LOAIDA"].HeaderText = "Loại Đồ Án";
             dtgv_DeTai.Columns["MOTA"].HeaderText = "Mô Tả Đồ Án";

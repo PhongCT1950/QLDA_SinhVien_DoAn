@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txt_Find = new Guna.UI2.WinForms.Guna2TextBox();
             this.btn_Sua = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Xoa = new Guna.UI2.WinForms.Guna2Button();
@@ -39,6 +39,7 @@
             this.dtgv_NienKhoa = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txt_NienKhoa = new Guna.UI2.WinForms.Guna2TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_MaNK = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,7 +47,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btn_Them = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Huy = new Guna.UI2.WinForms.Guna2Button();
-            this.txt_NienKhoa = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_NienKhoa)).BeginInit();
             this.panel2.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
@@ -127,11 +127,11 @@
             this.txt_TenNK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_TenNK.ForeColor = System.Drawing.Color.Black;
             this.txt_TenNK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_TenNK.Location = new System.Drawing.Point(661, 82);
+            this.txt_TenNK.Location = new System.Drawing.Point(688, 82);
             this.txt_TenNK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenNK.Name = "txt_TenNK";
             this.txt_TenNK.PasswordChar = '\0';
-            this.txt_TenNK.PlaceholderText = "";
+            this.txt_TenNK.PlaceholderText = "Nhập tên niên khóa";
             this.txt_TenNK.SelectedText = "";
             this.txt_TenNK.Size = new System.Drawing.Size(286, 35);
             this.txt_TenNK.TabIndex = 4;
@@ -152,27 +152,27 @@
             // 
             this.dtgv_NienKhoa.AllowUserToAddRows = false;
             this.dtgv_NienKhoa.AllowUserToResizeRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            this.dtgv_NienKhoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgv_NienKhoa.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_NienKhoa.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgv_NienKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgv_NienKhoa.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgv_NienKhoa.ColumnHeadersHeight = 30;
             this.dtgv_NienKhoa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_NienKhoa.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_NienKhoa.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgv_NienKhoa.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgv_NienKhoa.GridColor = System.Drawing.Color.White;
             this.dtgv_NienKhoa.Location = new System.Drawing.Point(22, 234);
@@ -242,6 +242,28 @@
             this.guna2GroupBox1.TabIndex = 43;
             this.guna2GroupBox1.Text = "Thông Tin Niên Khóa";
             // 
+            // txt_NienKhoa
+            // 
+            this.txt_NienKhoa.BorderRadius = 2;
+            this.txt_NienKhoa.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_NienKhoa.DefaultText = "";
+            this.txt_NienKhoa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_NienKhoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_NienKhoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_NienKhoa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_NienKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_NienKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_NienKhoa.ForeColor = System.Drawing.Color.Black;
+            this.txt_NienKhoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_NienKhoa.Location = new System.Drawing.Point(1164, 82);
+            this.txt_NienKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_NienKhoa.Name = "txt_NienKhoa";
+            this.txt_NienKhoa.PasswordChar = '\0';
+            this.txt_NienKhoa.PlaceholderText = "Nhập niên khóa";
+            this.txt_NienKhoa.SelectedText = "";
+            this.txt_NienKhoa.Size = new System.Drawing.Size(286, 35);
+            this.txt_NienKhoa.TabIndex = 105;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -250,9 +272,9 @@
             this.label3.Location = new System.Drawing.Point(1048, 90);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 21);
+            this.label3.Size = new System.Drawing.Size(96, 21);
             this.label3.TabIndex = 104;
-            this.label3.Text = "Niên Khóa";
+            this.label3.Text = "Niên khóa";
             // 
             // label1
             // 
@@ -262,9 +284,9 @@
             this.label1.Location = new System.Drawing.Point(535, 90);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 21);
+            this.label1.Size = new System.Drawing.Size(131, 21);
             this.label1.TabIndex = 73;
-            this.label1.Text = "TenNK";
+            this.label1.Text = "Tên niên khóa";
             // 
             // txt_MaNK
             // 
@@ -280,7 +302,7 @@
             this.txt_MaNK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_MaNK.ForeColor = System.Drawing.Color.Black;
             this.txt_MaNK.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_MaNK.Location = new System.Drawing.Point(139, 82);
+            this.txt_MaNK.Location = new System.Drawing.Point(188, 82);
             this.txt_MaNK.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_MaNK.Name = "txt_MaNK";
             this.txt_MaNK.PasswordChar = '\0';
@@ -306,9 +328,9 @@
             this.label5.Location = new System.Drawing.Point(47, 90);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 21);
+            this.label5.Size = new System.Drawing.Size(124, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaNK";
+            this.label5.Text = "Mã niên khóa";
             // 
             // btn_Them
             // 
@@ -347,28 +369,6 @@
             this.btn_Huy.TabIndex = 19;
             this.btn_Huy.Text = "Hủy";
             this.btn_Huy.Click += new System.EventHandler(this.btn_Huy_Click);
-            // 
-            // txt_NienKhoa
-            // 
-            this.txt_NienKhoa.BorderRadius = 2;
-            this.txt_NienKhoa.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_NienKhoa.DefaultText = "";
-            this.txt_NienKhoa.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_NienKhoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_NienKhoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_NienKhoa.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_NienKhoa.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_NienKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_NienKhoa.ForeColor = System.Drawing.Color.Black;
-            this.txt_NienKhoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_NienKhoa.Location = new System.Drawing.Point(1164, 82);
-            this.txt_NienKhoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_NienKhoa.Name = "txt_NienKhoa";
-            this.txt_NienKhoa.PasswordChar = '\0';
-            this.txt_NienKhoa.PlaceholderText = "";
-            this.txt_NienKhoa.SelectedText = "";
-            this.txt_NienKhoa.Size = new System.Drawing.Size(286, 35);
-            this.txt_NienKhoa.TabIndex = 105;
             // 
             // frmNienKhoa
             // 

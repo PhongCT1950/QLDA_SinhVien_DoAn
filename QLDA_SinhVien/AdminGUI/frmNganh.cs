@@ -42,7 +42,7 @@ namespace QLDA_SinhVien.AdminGUI
             DataTable nganh = nganhService.getDataNganh();
             dtgv_Nganh.DataSource = nganh;
 
-            dtgv_Nganh.Columns["MANGANH"].HeaderText = "MaNG";
+            dtgv_Nganh.Columns["MANGANH"].HeaderText = "Mã Ngành";
             dtgv_Nganh.Columns["TENNGANH"].HeaderText = "Tên Ngành";
             dtgv_Nganh.Columns["TENKHOA"].HeaderText = "Tên Khoa";
         }

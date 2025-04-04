@@ -59,8 +59,9 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             dtgv_Nhom.DataSource = nhomSinhVienService.getDatadsNhomSV();
 
-            dtgv_Nhom.Columns["MANHOM"].HeaderText = "MaNH";
-            dtgv_Nhom.Columns["TENNHOM"].HeaderText = "TenNH";
+            dtgv_Nhom.Columns["STT"].HeaderText = "Số thứ tự";
+            dtgv_Nhom.Columns["MANHOM"].HeaderText = "Mã Nhóm";
+            dtgv_Nhom.Columns["TENNHOM"].HeaderText = "Tên Nhóm";
             dtgv_Nhom.Columns["Soluong"].HeaderText = "Số lượng thành viên";
             dtgv_Nhom.Columns["Soluong"].Width = 500;
         }
@@ -69,11 +70,11 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             dtgv_QuyenDoAn.DataSource = quyenDoAnService.getDataListQuyenDoAn();
 
-            dtgv_QuyenDoAn.Columns["MADA"].HeaderText = "MaDA";
-            dtgv_QuyenDoAn.Columns["TENDA"].HeaderText = "TenDA";
+            dtgv_QuyenDoAn.Columns["MADA"].HeaderText = "Mã DA";
+            dtgv_QuyenDoAn.Columns["TENDA"].HeaderText = "Tên DA";
             dtgv_QuyenDoAn.Columns["LOAIDA"].HeaderText = "Loại đồ án";
             dtgv_QuyenDoAn.Columns["SOTC"].HeaderText = "Số tín chỉ";
-            dtgv_QuyenDoAn.Columns["MANHOM"].HeaderText = "MaNH";
+            dtgv_QuyenDoAn.Columns["MANHOM"].HeaderText = "Mã nhóm";
             dtgv_QuyenDoAn.Columns["TinhTrang"].HeaderText = "Tình trạng";
         }
 

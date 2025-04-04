@@ -41,6 +41,10 @@ namespace QLDA_SinhVien.AdminGUI
         {
             DataTable nienkhoa = nienKhoaService.getDataDsNienKhoa();
             dtgv_NienKhoa.DataSource = nienkhoa;
+
+            dtgv_NienKhoa.Columns["MANK"].HeaderText = "Mã niên khóa";
+            dtgv_NienKhoa.Columns["TENNK"].HeaderText = "Tên niên khóa";
+            dtgv_NienKhoa.Columns["NIENKHOA"].HeaderText = "Niên khóa";
         }
 
         public void loadMaNG()

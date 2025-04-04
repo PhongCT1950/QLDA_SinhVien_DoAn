@@ -34,8 +34,8 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             dtgv_SinhVien.DataSource = sinhVienService.getListSinhVienNH();
 
-            dtgv_SinhVien.Columns["MASV"].HeaderText = "MaSV";
-            dtgv_SinhVien.Columns["TENSV"].HeaderText = "TenSV";
+            dtgv_SinhVien.Columns["MASV"].HeaderText = "Mã SV";
+            dtgv_SinhVien.Columns["TENSV"].HeaderText = "Tên SV";
             dtgv_SinhVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             dtgv_SinhVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dtgv_SinhVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
@@ -52,6 +52,8 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             dtgv_Nhom.DataSource = nhomSinhVienService.getDataNhomSV();
 
+            dtgv_Nhom.Columns["STT"].HeaderText = "Số thứ tự";
+            dtgv_Nhom.Columns["MANHOM"].HeaderText = "Mã Nhóm";
             dtgv_Nhom.Columns["TENNHOM"].HeaderText = "Tên Nhóm";
             dtgv_Nhom.Columns["Soluong"].HeaderText = "Số lượng thành viên";
             dtgv_Nhom.Columns["TENDT"].HeaderText = "Tên đề tài";
@@ -139,8 +141,8 @@ namespace QLDA_SinhVien.TeacherGUI
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (!IsEdit)
                 {
                     if (txt_TenNH.Text.Trim() == "" || lsb_tvNhom.Items.Count < 2)
@@ -194,11 +196,11 @@ namespace QLDA_SinhVien.TeacherGUI
                     btn_Them.Text = "Thêm";
                     IsEdit = false;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -284,6 +286,11 @@ namespace QLDA_SinhVien.TeacherGUI
             {
                 MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void dtgv_SinhVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

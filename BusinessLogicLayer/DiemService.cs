@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,11 @@ namespace BusinessLogicLayer
         public DataTable getDataDiemDoAn(string MaGV)
         {
             return diemRepository.getDiemDoAn(MaGV);
+        }
+
+        public DataTable getDataThongtinDoAn(string MaDA)
+        {
+            return diemRepository.getThongtinDoAn(MaDA);
         }
 
         public void updateDataDiem(object MaDA, object Diem)
@@ -59,6 +65,11 @@ namespace BusinessLogicLayer
         public DataTable getDataDiemDoAnFind(string keyword, string MaGV)
         {
             return diemRepository.getDiemDoAnFind(keyword, MaGV);
+        }
+
+        public bool isDiemExists(string maDA)
+        {
+            return diemRepository.isKiemTraDiem(maDA);
         }
     }
 }

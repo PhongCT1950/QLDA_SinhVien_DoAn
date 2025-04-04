@@ -64,6 +64,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.btn_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_GiangVien)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -238,7 +239,7 @@
             this.txt_SDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.PasswordChar = '\0';
-            this.txt_SDT.PlaceholderText = "";
+            this.txt_SDT.PlaceholderText = "Nhập số điện thoại";
             this.txt_SDT.SelectedText = "";
             this.txt_SDT.Size = new System.Drawing.Size(273, 35);
             this.txt_SDT.TabIndex = 8;
@@ -272,7 +273,7 @@
             this.txt_Email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.PasswordChar = '\0';
-            this.txt_Email.PlaceholderText = "";
+            this.txt_Email.PlaceholderText = "Nhập email";
             this.txt_Email.SelectedText = "";
             this.txt_Email.Size = new System.Drawing.Size(273, 35);
             this.txt_Email.TabIndex = 7;
@@ -318,7 +319,7 @@
             this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_DiaChi.Name = "txt_DiaChi";
             this.txt_DiaChi.PasswordChar = '\0';
-            this.txt_DiaChi.PlaceholderText = "";
+            this.txt_DiaChi.PlaceholderText = "Nhập địa chỉ";
             this.txt_DiaChi.SelectedText = "";
             this.txt_DiaChi.Size = new System.Drawing.Size(273, 35);
             this.txt_DiaChi.TabIndex = 4;
@@ -491,7 +492,7 @@
             this.txt_TenGV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txt_TenGV.Name = "txt_TenGV";
             this.txt_TenGV.PasswordChar = '\0';
-            this.txt_TenGV.PlaceholderText = "";
+            this.txt_TenGV.PlaceholderText = "Nhập tên giảng viên";
             this.txt_TenGV.SelectedText = "";
             this.txt_TenGV.Size = new System.Drawing.Size(273, 35);
             this.txt_TenGV.TabIndex = 2;
@@ -504,9 +505,9 @@
             this.label5.Location = new System.Drawing.Point(34, 73);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 21);
+            this.label5.Size = new System.Drawing.Size(67, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaGV";
+            this.label5.Text = "Mã GV";
             // 
             // label4
             // 
@@ -516,9 +517,9 @@
             this.label4.Location = new System.Drawing.Point(34, 131);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 21);
+            this.label4.Size = new System.Drawing.Size(74, 21);
             this.label4.TabIndex = 55;
-            this.label4.Text = "TenGV";
+            this.label4.Text = "Tên GV";
             // 
             // guna2GroupBox1
             // 
@@ -635,9 +636,9 @@
             this.label13.Location = new System.Drawing.Point(1028, 155);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(128, 21);
+            this.label13.Size = new System.Drawing.Size(91, 21);
             this.label13.TabIndex = 86;
-            this.label13.Text = "hsChức Danh";
+            this.label13.Text = "Hệ số CD";
             // 
             // btn_Huy
             // 
@@ -660,6 +661,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.dtgv_GiangVien);
             this.panel2.Controls.Add(this.guna2GroupBox1);
             this.panel2.Controls.Add(this.txt_Find);
@@ -673,6 +675,18 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1562, 817);
             this.panel2.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(13, 356);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(196, 21);
+            this.label2.TabIndex = 98;
+            this.label2.Text = "Danh sách giảng viên";
             // 
             // frmGiangVien
             // 
@@ -689,6 +703,7 @@
             this.guna2GroupBox1.ResumeLayout(false);
             this.guna2GroupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -727,5 +742,6 @@
         private System.Windows.Forms.Label label13;
         private Guna.UI2.WinForms.Guna2TextBox txt_HeSoChucDanh;
         private Guna.UI2.WinForms.Guna2ComboBox cmb_Khoa;
+        private System.Windows.Forms.Label label2;
     }
 }

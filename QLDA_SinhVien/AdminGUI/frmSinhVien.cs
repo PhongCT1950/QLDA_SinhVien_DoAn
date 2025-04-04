@@ -34,8 +34,8 @@ namespace QLDA_SinhVien.AdminGUI
         {
             dtgv_SinhVien.DataSource = sinhVienService.getListSinhVien();
 
-            dtgv_SinhVien.Columns["MASV"].HeaderText = "MaSV";
-            dtgv_SinhVien.Columns["TENSV"].HeaderText = "TenSV";
+            dtgv_SinhVien.Columns["MASV"].HeaderText = "Mã SV";
+            dtgv_SinhVien.Columns["TENSV"].HeaderText = "Tên SV";
             dtgv_SinhVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
             dtgv_SinhVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
             dtgv_SinhVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
@@ -125,7 +125,7 @@ namespace QLDA_SinhVien.AdminGUI
                         IsEdit = false;
                         btn_Them.Text = "Thêm";
                         LoadListSinhVien();
-                        LoadMaSV();
+                        LoadHuy();
                     }
                 }
             }
@@ -216,7 +216,6 @@ namespace QLDA_SinhVien.AdminGUI
                     IsEdit = false;
                     btn_Them.Text = "Thêm";
                     LoadListSinhVien();
-                    LoadMaSV();
                     LoadHuy();
                 }
             }

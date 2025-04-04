@@ -301,9 +301,9 @@
             this.label5.Location = new System.Drawing.Point(34, 89);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 21);
+            this.label5.Size = new System.Drawing.Size(88, 21);
             this.label5.TabIndex = 54;
-            this.label5.Text = "MaDT";
+            this.label5.Text = "Mã đề tài";
             // 
             // label4
             // 

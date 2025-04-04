@@ -160,7 +160,7 @@ namespace DataAccessLayer
                 {
                     try
                     {
-                        SqlCommand cmd = new SqlCommand("Delete_ThanhVien", conn);
+                        SqlCommand cmd = new SqlCommand("Delete_ThanhVien", conn, transaction);
                         cmd.CommandType = CommandType.StoredProcedure;
 
                         cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = manhom });

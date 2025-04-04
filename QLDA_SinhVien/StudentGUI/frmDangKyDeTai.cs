@@ -25,7 +25,7 @@ namespace QLDA_SinhVien.StudentGUI
         private void frmDangKyDeTai_Load(object sender, EventArgs e)
         {
             loadMaNhom();
-            loadAllDeTai();
+            loadDeTai();
             loadTtNhomSV();
             loadtvNhom();
         }
@@ -69,8 +69,7 @@ namespace QLDA_SinhVien.StudentGUI
             label1.Text = $"Thành viên nhóm {MaNhom}";
             txt_MaNH.Text = MaNhom;
 
-
-            string MaNH = nopDoAnService.getDataMaNH(txt_MaNH.Text);
+            string MaNH = nopDoAnService.getDataMaNH(MaNhom);
             if (MaNH == txt_MaNH.Text)
             {
                 btn_ThayDoiDT.Enabled = false;
@@ -80,8 +79,25 @@ namespace QLDA_SinhVien.StudentGUI
 
         public void loadAllDeTai()
         {
+            DataTable DeTai = deTaiService.getDataDeTai();
+
+            dtgv_DeTai.DataSource = DeTai;
+            dtgv_DeTai.Columns["MADT"].HeaderText = "Mã Đề Tài";
+            dtgv_DeTai.Columns["TENDT"].HeaderText = "Tên Đề Tài";
+            dtgv_DeTai.Columns["LOAIDA"].HeaderText = "Loại Đồ Án";
+            dtgv_DeTai.Columns["MOTA"].HeaderText = "Mô Tả Đồ Án";
+            dtgv_DeTai.Columns["TENGV"].HeaderText = "Tên Giảng Viên";
+            btn_ThayDoiDT.Enabled = false;
+        }
+
+        public void loadDeTai()
+        {
             string MaSV = UserSession.Refld;
             string MaNhom = nhomSinhVienService.getDataMaNhom(MaSV);
+            if(MaNhom == null) {
+                loadAllDeTai();
+                return;
+            }
             DataTable DeTai = deTaiService.getAllDataDeTai(MaNhom);
 
             dtgv_DeTai.DataSource = DeTai;
