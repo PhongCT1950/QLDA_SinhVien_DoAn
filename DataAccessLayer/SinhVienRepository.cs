@@ -118,8 +118,8 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@MaKhoa", SqlDbType.Char, 6) { Value = sinhvien.MaKhoa });
                 cmd.Parameters.Add(new SqlParameter("@MaNK", SqlDbType.Char, 6) { Value = sinhvien.MaNK });
                 cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = sinhvien.SDT });
-                cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = sinhvien.DiaChi });
-                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.Text) { Value = sinhvien.Email });
+                cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NVarChar, 150) { Value = sinhvien.DiaChi });
+                cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.VarChar, 150) { Value = sinhvien.Email });
 
                 cmd.ExecuteNonQuery();
             }

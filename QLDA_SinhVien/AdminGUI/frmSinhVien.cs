@@ -219,7 +219,7 @@ namespace QLDA_SinhVien.AdminGUI
                     LoadHuy();
                 }
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 MessageBox.Show(ex.Message, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

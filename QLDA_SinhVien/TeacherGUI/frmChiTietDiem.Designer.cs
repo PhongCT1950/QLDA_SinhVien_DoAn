@@ -121,7 +121,7 @@
             // 
             // txt_Diem
             // 
-            this.txt_Diem.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.txt_Diem.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Diem.DefaultText = "";
             this.txt_Diem.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txt_Diem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -138,7 +138,6 @@
             this.txt_Diem.SelectedText = "";
             this.txt_Diem.Size = new System.Drawing.Size(167, 43);
             this.txt_Diem.TabIndex = 1;
-            this.txt_Diem.UseWaitCursor = true;
             // 
             // label_TenFile
             // 

@@ -141,12 +141,6 @@
     <Compile Include="TeacherGUI\frmDiemDoAn.Designer.cs">
       <DependentUpon>frmDiemDoAn.cs</DependentUpon>
     </Compile>
-    <Compile Include="TeacherGUI\OldfrmDiemDoAn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TeacherGUI\OldfrmDiemDoAn.Designer.cs">
-      <DependentUpon>OldfrmDiemDoAn.cs</DependentUpon>
-    </Compile>
     <Compile Include="TeacherGUI\frmDeTai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmDiemDoAn.resx">
       <DependentUpon>frmDiemDoAn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TeacherGUI\OldfrmDiemDoAn.resx">
-      <DependentUpon>OldfrmDiemDoAn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherGUI\frmDeTai.resx">
       <DependentUpon>frmDeTai.cs</DependentUpon>

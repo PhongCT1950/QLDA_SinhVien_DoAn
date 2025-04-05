@@ -34,17 +34,6 @@ namespace QLDA_SinhVien.AdminGUI
             string MaGV = giangVienService.GenerateMaGV();
 
             txt_MaGV.Text = MaGV;
-            dtgv_GiangVien.Columns["MAGV"].HeaderText = "Mã GV";
-            dtgv_GiangVien.Columns["TENGV"].HeaderText = "Tên GV";
-            dtgv_GiangVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
-            dtgv_GiangVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            dtgv_GiangVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
-            dtgv_GiangVien.Columns["SDT"].HeaderText = "SĐT";
-            dtgv_GiangVien.Columns["DiaChi"].HeaderText = "Địa Chỉ";
-            dtgv_GiangVien.Columns["Email"].HeaderText = "Email";
-            dtgv_GiangVien.Columns["ChucDanh"].HeaderText = "Chức Danh";
-            dtgv_GiangVien.Columns["HeSoCD"].HeaderText = "Hệ Số";
-            dtgv_GiangVien.Columns["TENKHOA"].HeaderText = "Khoa";
         }
 
         public void LoadKhoa()
@@ -67,6 +56,17 @@ namespace QLDA_SinhVien.AdminGUI
             DataTable giangvien = giangVienService.getListGiangVien();
 
             dtgv_GiangVien.DataSource = giangvien;
+            dtgv_GiangVien.Columns["MAGV"].HeaderText = "Mã GV";
+            dtgv_GiangVien.Columns["TENGV"].HeaderText = "Tên GV";
+            dtgv_GiangVien.Columns["NgaySinh"].HeaderText = "Ngày Sinh";
+            dtgv_GiangVien.Columns["NgaySinh"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dtgv_GiangVien.Columns["GioiTinh"].HeaderText = "Giới Tính";
+            dtgv_GiangVien.Columns["SDT"].HeaderText = "SĐT";
+            dtgv_GiangVien.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+            dtgv_GiangVien.Columns["Email"].HeaderText = "Email";
+            dtgv_GiangVien.Columns["ChucDanh"].HeaderText = "Chức Danh";
+            dtgv_GiangVien.Columns["HeSoCD"].HeaderText = "Hệ Số";
+            dtgv_GiangVien.Columns["TENKHOA"].HeaderText = "Khoa";
         }
 
         bool IsEdit = false;
@@ -152,48 +152,32 @@ namespace QLDA_SinhVien.AdminGUI
         {
             try
             {
+                GiangVienDTO giangvien = new GiangVienDTO
+                {
+                    MaGV = txt_MaGV.Text.Trim(),
+                    TenGV = txt_TenGV.Text.Trim(),
+                    NgaySinh = txt_NgaySinh.Value,
+                    GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ",
+                    SDT = txt_SDT.Text.Trim(),
+                    DiaChi = txt_DiaChi.Text.Trim(),
+                    Email = txt_Email.Text.Trim(),
+                    MaKhoa = cmb_Khoa.SelectedValue?.ToString(),
+                    MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString())
+                };
+
                 if (!IsEdit)
                 {
-                    DataRowView row = (DataRowView)cmb_ChucDanh.SelectedItem;
-                    GiangVienDTO giangvien = new GiangVienDTO();
-                    giangvien.MaGV = txt_MaGV.Text.Trim();
-                    giangvien.TenGV = txt_TenGV.Text.Trim();
-                    giangvien.NgaySinh = txt_NgaySinh.Value;
-                    giangvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    giangvien.SDT = txt_SDT.Text.Trim();
-                    giangvien.DiaChi = txt_DiaChi.Text.Trim();
-                    giangvien.Email = txt_Email.Text.Trim();
-                    giangvien.MaKhoa = cmb_Khoa.SelectedValue.ToString();
-                    giangvien.MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString());
-
                     giangVienService.addNewGiangVien(giangvien, rdb_Nam.Checked, rdb_Nu.Checked);
-
                     MessageBox.Show("Thêm giảng viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadListGiangVien();
-                    LoadHuy();
                 }
                 else
                 {
-                    DataRowView row = (DataRowView)cmb_ChucDanh.SelectedItem;
-                    GiangVienDTO giangvien = new GiangVienDTO();
-                    giangvien.MaGV = txt_MaGV.Text.Trim();
-                    giangvien.TenGV = txt_TenGV.Text.Trim();
-                    giangvien.NgaySinh = txt_NgaySinh.Value;
-                    giangvien.GioiTinh = rdb_Nam.Checked ? "Nam" : "Nữ";
-                    giangvien.SDT = txt_SDT.Text.Trim();
-                    giangvien.DiaChi = txt_DiaChi.Text.Trim();
-                    giangvien.Email = txt_Email.Text.Trim();
-                    giangvien.MaKhoa = cmb_Khoa.SelectedValue.ToString();
-                    giangvien.MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString());
-
                     giangVienService.updateDataGiangVien(giangvien);
-
                     MessageBox.Show("Cập nhật dữ liệu thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    IsEdit = false;
-                    btn_Them.Text = "Thêm";
-                    LoadListGiangVien();
-                    LoadHuy();
                 }
+
+                LoadListGiangVien();
+                LoadHuy();
             }
             catch (ArgumentException ex)
             {

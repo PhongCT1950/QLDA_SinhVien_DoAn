@@ -157,12 +157,6 @@ namespace QLDA_SinhVien.TeacherGUI
             {
                 DataGridViewRow rows = dtgv_DeTai.SelectedRows[0];
                 string MaDTs = rows.Cells["MADT"].Value.ToString();
-                int count = deTaiService.getDataCountNhom(MaDTs);
-                if(count > 0)
-                {
-                    MessageBox.Show($"Đề tài đang được {count} nhóm sinh viên đăng ký, không thể xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
                 DialogResult result = MessageBox.Show("Xác nhận xóa đề tài?", "Xác Nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (result == DialogResult.Yes)
                 {

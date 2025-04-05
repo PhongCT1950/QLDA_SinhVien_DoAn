@@ -147,8 +147,7 @@ namespace QLDA_SinhVien.TeacherGUI
                 }
 
                 string diemStr = diemObj.ToString().Replace(',', '.');
-                if (!double.TryParse(diemStr, System.Globalization.NumberStyles.Any,
-                                    System.Globalization.CultureInfo.InvariantCulture, out double diemValue))
+                if (!double.TryParse(diemStr, out double diemValue))
                 {
                     MessageBox.Show($"Điểm của đồ án {maDA} không đúng định dạng số",
                                   "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);

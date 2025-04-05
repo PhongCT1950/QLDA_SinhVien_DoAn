@@ -141,8 +141,8 @@ namespace QLDA_SinhVien.TeacherGUI
 
         private void btn_Them_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (!IsEdit)
                 {
                     if (txt_TenNH.Text.Trim() == "" || lsb_tvNhom.Items.Count < 2)
@@ -193,14 +193,12 @@ namespace QLDA_SinhVien.TeacherGUI
                     LoadListSinhVien();
                     loadListNhom();
                     loadHuy();
-                    btn_Them.Text = "Thêm";
-                    IsEdit = false;
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
