@@ -40,8 +40,6 @@ namespace QLDA_SinhVien.TeacherGUI
                 label_Email.Text = giangvien.Rows[0]["EMAIL"].ToString();
                 label_DienThoai.Text = giangvien.Rows[0]["SDT"].ToString();
                 label_Khoa.Text = giangvien.Rows[0]["TENKHOA"].ToString();
-                label_ChucDanh.Text = giangvien.Rows[0]["ChucDanh"].ToString();
-                label_HeSo.Text = giangvien.Rows[0]["HeSoCD"].ToString();
             }
         }
 

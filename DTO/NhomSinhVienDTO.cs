@@ -11,5 +11,6 @@ namespace DTO
         public string MaNhom { get; set; }
         public string TenNhom { get; set; }
         public int SoLuong { get; set; }
+        public string MAGV { get; set; }
     }
 }

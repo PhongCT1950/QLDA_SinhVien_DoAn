@@ -48,7 +48,7 @@ namespace QLDA_SinhVien.AdminGUI
 
         private void frmTrangChuAdmin_Load(object sender, EventArgs e)
         {
-
+            OpenFormChild(new frmAdminDashBoard());
         }
 
         private void btn_SinhVien_Click(object sender, EventArgs e)
@@ -125,6 +125,11 @@ namespace QLDA_SinhVien.AdminGUI
         private void close_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnTrangChu_Click(object sender, EventArgs e)
+        {
+            OpenFormChild(new frmAdminDashBoard());
         }
     }
 }

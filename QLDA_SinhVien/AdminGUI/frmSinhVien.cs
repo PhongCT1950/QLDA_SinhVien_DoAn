@@ -45,7 +45,6 @@ namespace QLDA_SinhVien.AdminGUI
             dtgv_SinhVien.Columns["NIENKHOA"].HeaderText = "Niên Khóa";
             dtgv_SinhVien.Columns["TENNGANH"].HeaderText = "Ngành";
             dtgv_SinhVien.Columns["TENKHOA"].HeaderText = "Khoa";
-            dtgv_SinhVien.Columns["TenHeDT"].HeaderText = "Hệ Đào Tạo";
         }
 
         public void LoadListHeDT()
@@ -148,7 +147,6 @@ namespace QLDA_SinhVien.AdminGUI
                 txt_NgaySinh.Value = sinhvien.NgaySinh;
                 txt_Email.Text = sinhvien.Email;
                 txt_SDT.Text = sinhvien.SDT.Trim();
-                cmb_HeDT.SelectedValue = sinhvien.MaHeDT;
                 cmb_Nganh.SelectedValue = sinhvien.MaNganh;
                 cmb_NienKhoa.SelectedValue = sinhvien.MaNK;
 
@@ -185,7 +183,6 @@ namespace QLDA_SinhVien.AdminGUI
                     sinhvien.SDT = txt_SDT.Text.Trim();
                     sinhvien.DiaChi = txt_DiaChi.Text.Trim();
                     sinhvien.Email = txt_Email.Text.Trim();
-                    sinhvien.MaHeDT = cmb_HeDT.SelectedValue.ToString();
                     sinhvien.MaNganh = cmb_Nganh.SelectedValue.ToString();
                     sinhvien.MaKhoa = row["MAKHOA"].ToString();
                     sinhvien.MaNK = cmb_NienKhoa.SelectedValue.ToString();
@@ -206,7 +203,6 @@ namespace QLDA_SinhVien.AdminGUI
                     sinhvien.SDT = txt_SDT.Text.Trim();
                     sinhvien.DiaChi = txt_DiaChi.Text.Trim();
                     sinhvien.Email = txt_Email.Text.Trim();
-                    sinhvien.MaHeDT = cmb_HeDT.SelectedValue.ToString();
                     sinhvien.MaNganh = cmb_Nganh.SelectedValue.ToString();
                     sinhvien.MaNK = cmb_NienKhoa.SelectedValue.ToString();
                     sinhvien.MaKhoa = txt_Khoa.Text.Trim();

@@ -65,5 +65,10 @@ namespace BusinessLogicLayer
         {
             return nganhRepository.getNganhFind(keyword);
         }
+
+        public string getDataMaNganh(string MASV)
+        {
+            return nganhRepository.getMaNganh(MASV);
+        }
     }
 }

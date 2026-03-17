@@ -61,7 +61,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(207, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 24);
@@ -73,7 +73,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.btn_ttCaNhan);
             this.panel2.Controls.Add(this.btn_Diem);
             this.panel2.Controls.Add(this.btn_QuyenDA);
@@ -88,14 +88,14 @@
             // 
             // btn_ttCaNhan
             // 
-            this.btn_ttCaNhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_ttCaNhan.BackColor = System.Drawing.Color.White;
             this.btn_ttCaNhan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ttCaNhan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_ttCaNhan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 220);
@@ -107,14 +107,14 @@
             // 
             // btn_Diem
             // 
-            this.btn_Diem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_Diem.BackColor = System.Drawing.Color.White;
             this.btn_Diem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Diem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Diem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Diem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Diem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Diem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Diem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Diem.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Diem.Location = new System.Drawing.Point(0, 165);
@@ -126,14 +126,14 @@
             // 
             // btn_QuyenDA
             // 
-            this.btn_QuyenDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_QuyenDA.BackColor = System.Drawing.Color.White;
             this.btn_QuyenDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_QuyenDA.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_QuyenDA.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_QuyenDA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_QuyenDA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_QuyenDA.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_QuyenDA.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_QuyenDA.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_QuyenDA.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_QuyenDA.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_QuyenDA.Location = new System.Drawing.Point(0, 110);
@@ -145,14 +145,14 @@
             // 
             // btn_Nhomsv
             // 
-            this.btn_Nhomsv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_Nhomsv.BackColor = System.Drawing.Color.White;
             this.btn_Nhomsv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Nhomsv.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Nhomsv.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Nhomsv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Nhomsv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Nhomsv.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Nhomsv.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Nhomsv.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Nhomsv.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Nhomsv.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Nhomsv.Location = new System.Drawing.Point(0, 55);
@@ -164,14 +164,14 @@
             // 
             // btn_Detai
             // 
-            this.btn_Detai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(179)))), ((int)(((byte)(56)))));
+            this.btn_Detai.BackColor = System.Drawing.Color.White;
             this.btn_Detai.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Detai.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_Detai.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Detai.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Detai.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Detai.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Detai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Detai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Detai.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Detai.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Detai.Location = new System.Drawing.Point(0, 0);
@@ -183,12 +183,13 @@
             // 
             // btn_DoiMK
             // 
+            this.btn_DoiMK.BackColor = System.Drawing.Color.White;
             this.btn_DoiMK.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_DoiMK.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_DoiMK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_DoiMK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_DoiMK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_DoiMK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_DoiMK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_DoiMK.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DoiMK.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_DoiMK.Location = new System.Drawing.Point(0, 465);
@@ -196,15 +197,17 @@
             this.btn_DoiMK.Size = new System.Drawing.Size(195, 50);
             this.btn_DoiMK.TabIndex = 4;
             this.btn_DoiMK.Text = "Đổi mật khẩu";
+            this.btn_DoiMK.Visible = false;
             // 
             // btn_DangXuat
             // 
+            this.btn_DangXuat.BackColor = System.Drawing.Color.White;
             this.btn_DangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btn_DangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_DangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_DangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_DangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_DangXuat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_DangXuat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_DangXuat.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangXuat.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_DangXuat.Location = new System.Drawing.Point(0, 515);
@@ -219,6 +222,7 @@
             this.panel_body.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_body.BackColor = System.Drawing.Color.White;
             this.panel_body.Location = new System.Drawing.Point(188, 65);
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1092, 655);
@@ -229,6 +233,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.mini);
             this.panel1.Controls.Add(this.close);
             this.panel1.Controls.Add(this.label1);
@@ -266,7 +271,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Controls.Add(this.guna2PictureBox2);
@@ -384,8 +389,8 @@
         private System.Windows.Forms.Label txt_VaiTro;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
         private Guna.UI2.WinForms.Guna2Button btn_Diem;
-        private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
         private System.Windows.Forms.PictureBox mini;
         private System.Windows.Forms.PictureBox close;
+        private Guna.UI2.WinForms.Guna2Button btn_ttCaNhan;
     }
 }

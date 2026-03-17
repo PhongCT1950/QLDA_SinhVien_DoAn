@@ -19,14 +19,24 @@ namespace BusinessLogicLayer
             return sinhVienRepository.getAllSinhViens();
         }
 
-        public DataTable getListSinhVienNH()
+        public DataTable getListSinhVienNH(string MANGANH)
         {
-            return sinhVienRepository.getAllSinhVien();
+            return sinhVienRepository.getAllSinhVien(MANGANH);
         }
 
         public DataTable getListNganh()
         {
             return sinhVienRepository.getAllNganh();
+        }
+
+        public DataTable getDataNganhSinhVien(string MASV)
+        {
+            return sinhVienRepository.getNganhSinhVien(MASV);
+        }
+
+        public DataTable getListNganhGiangVien(string MAGV)
+        {
+            return sinhVienRepository.getAllNganhGiangVien(MAGV);
         }
 
         public DataTable getListDonVi()
@@ -141,5 +151,7 @@ namespace BusinessLogicLayer
         {
             return sinhVienRepository.getTTCaNhan(MaSV);
         }
+
+        
     }
 }

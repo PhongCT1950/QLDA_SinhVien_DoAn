@@ -75,6 +75,29 @@ namespace DataAccessLayer
             return MaNH;
         }
 
-        
+        public bool KiemTraNopDA(string MaNHom, string MADA)
+        {
+            int count = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("kiemtraNopDA", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.VarChar, 20) { Value = MaNHom.Trim() });
+                cmd.Parameters.Add(new SqlParameter("@MADA", SqlDbType.VarChar, 20) { Value = MADA.Trim() });
+
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    count = Convert.ToInt32(result);
+                }
+            }
+
+            return count > 0;
+        }
+
     }
 }

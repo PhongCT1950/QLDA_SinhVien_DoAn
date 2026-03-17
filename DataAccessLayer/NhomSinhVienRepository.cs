@@ -42,6 +42,7 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = nhomsv.MaNhom });
                 cmd.Parameters.Add(new SqlParameter("@TENNHOM", SqlDbType.NVarChar, 100) { Value = nhomsv.TenNhom });
                 cmd.Parameters.Add(new SqlParameter("@SOLUONG", SqlDbType.Int) { Value = nhomsv.SoLuong });
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.Char, 6) { Value = nhomsv.MAGV });
 
                 cmd.ExecuteNonQuery();
             }
@@ -93,7 +94,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable getNhomSV()
+        public DataTable getNhomSV(string MAGV)
         {
             DataTable NhomSV = new DataTable();
             using(SqlConnection conn = DatabaseHelper.GetConnection())
@@ -101,13 +102,16 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_NhomSV", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.Char, 6) { Value = MAGV });
+
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(NhomSV);
             }
             return NhomSV;
         }
 
-        public DataTable getdsNhomSV()
+        public DataTable getdsNhomSV(string MAGV)
         {
             DataTable NhomSV = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
@@ -115,6 +119,9 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_dsNhomSV", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.VarChar, 20) { Value = MAGV });
+
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(NhomSV);
             }
@@ -216,7 +223,7 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
             }
         }
-
+        
         public string getMaNhom(string MaSV)
         {
             string MaNhom = null;
@@ -234,6 +241,44 @@ namespace DataAccessLayer
                 }
             }
             return MaNhom;
+        }
+
+        public int SinhVienDaCoNhom(string MANK)
+        {
+            int soLuong = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectSinhVienDaCoNhom", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.VarChar, 20) { Value = MANK });
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    soLuong = Convert.ToInt32(result);
+                }
+            }
+            return soLuong;
+        }
+
+        public int TongSoSinhVien(string MANK)
+        {
+            int tongSo = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(MASV) FROM SINHVIEN WHERE MANK = @MANK", conn);
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.VarChar, 20) { Value = MANK });
+                conn.Open();
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    tongSo = Convert.ToInt32(result);
+                }
+            }
+            return tongSo;
         }
 
         public void updateDangKyDeTai(string MaNhom, string MaDT)

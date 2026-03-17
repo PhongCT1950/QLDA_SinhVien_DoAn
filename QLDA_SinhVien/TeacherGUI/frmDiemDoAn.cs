@@ -87,8 +87,29 @@ namespace QLDA_SinhVien.TeacherGUI
         }
         private void btn_openFile_Click_1(object sender, EventArgs e)
         {
-            string MaDA = dtgv_Diem.SelectedRows[0].Cells["MADA"].Value.ToString();
+            if (dtgv_Diem.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn một đồ án từ danh sách!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            object cellValue = dtgv_Diem.SelectedRows[0].Cells["MADA"].Value;
+            if (cellValue == null || string.IsNullOrWhiteSpace(cellValue.ToString()))
+            {
+                MessageBox.Show("Không tìm thấy mã đồ án hợp lệ ở dòng này!", "Lỗi dữ liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string MaDA = cellValue.ToString();
+
             string fileName = diemService.getDataPath(MaDA);
+
+            if (string.IsNullOrEmpty(fileName))
+            {
+                MessageBox.Show("Sinh viên chưa nộp file cho đồ án này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             string filePath = Path.Combine(System.Windows.Forms.Application.StartupPath, "Documents", fileName);
 
             OpenWord(filePath);

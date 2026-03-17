@@ -135,5 +135,24 @@ namespace DataAccessLayer
             }
             return nganh;
         }
+
+        public string getMaNganh(string MaSV)
+        {
+            string MaNganh = null;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectMaNganh", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.Char, 6) { Value = MaSV });
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    MaNganh = reader["MaNganh"].ToString();
+                }
+            }
+            return MaNganh;
+        }
     }
 }

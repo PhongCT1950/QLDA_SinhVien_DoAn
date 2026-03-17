@@ -114,5 +114,15 @@ namespace BusinessLogicLayer
         {
             return giangVienRepository.getTTCaNhan(MaGV);
         }
+
+        public int getDataSoGiangVienThamGia(string MANK)
+        {
+            return giangVienRepository.getSoGiangVienThamGia(MANK);
+        }
+
+        public int getDataTongGiangVien()
+        {
+            return giangVienRepository.getTongGiangVien();
+        }
     }
 }

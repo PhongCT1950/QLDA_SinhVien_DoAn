@@ -58,7 +58,7 @@ namespace DataAccessLayer
             return sinhvien;
         }
 
-        public DataTable getAllSinhVien()
+        public DataTable getAllSinhVien(string MANGANH)
         {
             DataTable sinhvien = new DataTable();
 
@@ -67,7 +67,7 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_SinhVienWhere", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-
+                cmd.Parameters.Add(new SqlParameter("@MANGANH", SqlDbType.Char, 6) { Value = MANGANH });
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(sinhvien);
             }
@@ -89,6 +89,37 @@ namespace DataAccessLayer
             return nganh;
         }
 
+        public DataTable getNganhSinhVien(string MASV)
+        {
+            DataTable nganh = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectMaNganh", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MASV", SqlDbType.VarChar, 20) { Value = MASV });
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(nganh);
+            }
+            return nganh;
+        }
+
+
+        public DataTable getAllNganhGiangVien(string MAGV)
+        {
+            DataTable nganh = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectNganhGiangVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.Char, 6) { Value = MAGV });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(nganh);
+            }
+            return nganh;
+        }
         public DataTable getAllDonVi()
         {
             DataTable donvi = new DataTable();
@@ -114,7 +145,6 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = sinhvien.NgaySinh });
                 cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = sinhvien.GioiTinh });
                 cmd.Parameters.Add(new SqlParameter("@MaNganh", SqlDbType.Char, 6) { Value = sinhvien.MaNganh });
-                cmd.Parameters.Add(new SqlParameter("@MaHeDT", SqlDbType.Char, 6) { Value = sinhvien.MaHeDT });
                 cmd.Parameters.Add(new SqlParameter("@MaKhoa", SqlDbType.Char, 6) { Value = sinhvien.MaKhoa });
                 cmd.Parameters.Add(new SqlParameter("@MaNK", SqlDbType.Char, 6) { Value = sinhvien.MaNK });
                 cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = sinhvien.SDT });
@@ -150,7 +180,6 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = sinhvien.NgaySinh });
                 cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = sinhvien.GioiTinh });
                 cmd.Parameters.Add(new SqlParameter("@MaNganh", SqlDbType.Char, 6) { Value = sinhvien.MaNganh });
-                cmd.Parameters.Add(new SqlParameter("@MaHeDT", SqlDbType.Char, 6) { Value = sinhvien.MaHeDT });
                 cmd.Parameters.Add(new SqlParameter("@TENKHOA", SqlDbType.NVarChar, 50) { Value = sinhvien.MaKhoa });
                 cmd.Parameters.Add(new SqlParameter("@MaNK", SqlDbType.Char, 6) { Value = sinhvien.MaNK });
                 cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = sinhvien.SDT });
@@ -197,7 +226,6 @@ namespace DataAccessLayer
                     sinhvien.SDT = reader["SDT"].ToString();
                     sinhvien.Email = reader["Email"].ToString();
                     sinhvien.NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH"));
-                    sinhvien.MaHeDT = reader["MaHeDT"].ToString();
                     sinhvien.MaNganh = reader["MANGANH"].ToString();
                     sinhvien.MaKhoa = reader["TENKHOA"].ToString();
                     sinhvien.MaNK = reader["MANK"].ToString();

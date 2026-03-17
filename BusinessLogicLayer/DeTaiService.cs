@@ -22,9 +22,9 @@ namespace BusinessLogicLayer
             return deTaiRepository.getListDeTai();
         }
 
-        public DataTable getAllDataDeTai(string MaNH)
+        public DataTable getAllDataDeTai(string MaNH,string MaNganh)
         {
-            return deTaiRepository.getAllDeTai(MaNH);
+            return deTaiRepository.getAllDeTai(MaNH, MaNganh);
         }
 
         public DataTable getDataDeTai()
@@ -32,6 +32,10 @@ namespace BusinessLogicLayer
             return deTaiRepository.getDeTai();
         }
 
+        public DataTable GetDataThongKeDeTaiTheoNganh(string MANK)
+        {
+            return deTaiRepository.GetThongKeDeTaiTheoNganh(MANK);
+        }
         public DeTaiDTO getEditDeTai(string MaDT)
         {
             return deTaiRepository.getDeTaiEdit(MaDT);
@@ -68,9 +72,28 @@ namespace BusinessLogicLayer
             return deTaiRepository.getCountNhom(MaDT);
         }
 
-        public DataTable getDataDeTaiFind(string keyword)
+        public DataTable getDataDeTaiFind(string keyword,string MAGV)
         {
-            return deTaiRepository.getDeTaiFind(keyword);
+            return deTaiRepository.getDeTaiFind(keyword, MAGV);
+        }
+
+        public DataTable getDataDeTaiFindSinhVien(string keyword,string maNhom, string maNganh)
+        {
+            return deTaiRepository.getDataDeTaiFindSinhVien(keyword, maNhom, maNganh);
+        }
+
+        public string getDeTaiChoAI(string MANHOM, string MANGANH)
+        {
+            return deTaiRepository.LayDanhSachDeTaiChoAI(MANHOM, MANGANH);
+        }
+
+        public int DemDoAnDaNop(string MANK)
+        {
+            return deTaiRepository.DoAnDaNop(MANK);
+        }
+        public int DemTongDoAn(string MANK)
+        {
+            return deTaiRepository.TongDoAn(MANK);
         }
     }
 }

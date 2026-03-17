@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,21 +19,38 @@ namespace QLDA_SinhVien.TeacherGUI
         SinhVienService sinhVienService = new SinhVienService();
         NhomSinhVienService nhomSinhVienService = new NhomSinhVienService();
         bool IsEdit = false;
+
         public frmNhomSinhVien()
         {
             InitializeComponent();
+
         }
 
         private void frmNhomSinhVien_Load(object sender, EventArgs e)
         {
-            LoadListSinhVien();
+            LoadListNganh();
+            string MANGANH = cmb_Nganh.SelectedValue.ToString();
+
+            LoadListSinhVien(MANGANH);
             loadMaNH();
             loadListNhom();
         }
 
-        public void LoadListSinhVien()
+        public void LoadListNganh()
         {
-            dtgv_SinhVien.DataSource = sinhVienService.getListSinhVienNH();
+            string MAGV = UserSession.Refld;
+            DataTable listNganh = sinhVienService.getListNganhGiangVien(MAGV);
+            if (listNganh.Rows.Count > 0)
+            {
+                cmb_Nganh.DataSource = listNganh;
+                cmb_Nganh.DisplayMember = "TENNGANH";
+                cmb_Nganh.ValueMember = "MANGANH";
+            }
+        }
+
+        public void LoadListSinhVien(string MANGANH)
+        {
+            dtgv_SinhVien.DataSource = sinhVienService.getListSinhVienNH(MANGANH);
 
             dtgv_SinhVien.Columns["MASV"].HeaderText = "Mã SV";
             dtgv_SinhVien.Columns["TENSV"].HeaderText = "Tên SV";
@@ -45,25 +63,20 @@ namespace QLDA_SinhVien.TeacherGUI
             dtgv_SinhVien.Columns["NIENKHOA"].HeaderText = "Niên Khóa";
             dtgv_SinhVien.Columns["TENNGANH"].HeaderText = "Ngành";
             dtgv_SinhVien.Columns["TENKHOA"].HeaderText = "Khoa";
-            dtgv_SinhVien.Columns["TenHeDT"].HeaderText = "Hệ Đào Tạo";
         }
 
         public void loadListNhom()
         {
-            dtgv_Nhom.DataSource = nhomSinhVienService.getDataNhomSV();
+            string MAGV = UserSession.Refld;
+            dtgv_Nhom.DataSource = nhomSinhVienService.getDataNhomSV(MAGV);
 
             dtgv_Nhom.Columns["STT"].HeaderText = "Số thứ tự";
             dtgv_Nhom.Columns["MANHOM"].HeaderText = "Mã Nhóm";
             dtgv_Nhom.Columns["TENNHOM"].HeaderText = "Tên Nhóm";
-            dtgv_Nhom.Columns["Soluong"].HeaderText = "Số lượng thành viên";
             dtgv_Nhom.Columns["TENDT"].HeaderText = "Tên đề tài";
-            foreach (DataGridViewRow row in dtgv_Nhom.Rows)
-            {
-                if (row.Cells["TENDT"].Value == null || string.IsNullOrWhiteSpace(row.Cells["TENDT"].Value.ToString()))
-                {
-                    row.Cells["TENDT"].Value = "Nhóm chưa đăng ký đề tài";
-                }
-            }
+            dtgv_Nhom.Columns["Soluong"].HeaderText = "Số lượng thành viên";
+            dtgv_Nhom.Columns["TENNGANH"].HeaderText = "Tên ngành";
+            dtgv_Nhom.Columns["MANGANH"].Visible = false;
         }
 
         public void loadMaNH()
@@ -80,6 +93,7 @@ namespace QLDA_SinhVien.TeacherGUI
             btn_Them.Text = "Thêm";
             loadMaNH();
             IsEdit = false;
+            cmb_Nganh.Enabled = true;
         }
         private void btn_ThemNH_Click(object sender, EventArgs e)
         {
@@ -93,6 +107,7 @@ namespace QLDA_SinhVien.TeacherGUI
 
                 if (dtgv_SinhVien.SelectedRows.Count > 0)
                 {
+                    DataGridViewRow selectedRow = dtgv_SinhVien.SelectedRows[0];
                     string masv = dtgv_SinhVien.SelectedRows[0].Cells["MASV"].Value.ToString();
                     string tensv = dtgv_SinhVien.SelectedRows[0].Cells["TENSV"].Value.ToString();
                     bool exists = lsb_tvNhom.Items.Cast<string>().Any(item => item.Contains($"- {masv}"));
@@ -102,7 +117,7 @@ namespace QLDA_SinhVien.TeacherGUI
                         int stt = lsb_tvNhom.Items.Count + 1;
                         string sinhvien = $"{tensv} - {masv}";
                         lsb_tvNhom.Items.Add(sinhvien);
-                        LoadListSinhVien();
+                        dtgv_SinhVien.Rows.Remove(selectedRow);
                     }
                     else
                     {
@@ -152,9 +167,10 @@ namespace QLDA_SinhVien.TeacherGUI
                     }
 
                     NhomSinhVienDTO nhomsv = new NhomSinhVienDTO();
-                    nhomsv.MaNhom = txt_MaNH.Text;
-                    nhomsv.TenNhom = txt_TenNH.Text;
+                    nhomsv.MaNhom = txt_MaNH.Text.Trim();
+                    nhomsv.TenNhom = txt_TenNH.Text.Trim();
                     nhomsv.SoLuong = lsb_tvNhom.Items.Count;
+                    nhomsv.MAGV = UserSession.Refld.Trim();
 
                     nhomSinhVienService.addDataInNhomSV(nhomsv);
 
@@ -165,7 +181,6 @@ namespace QLDA_SinhVien.TeacherGUI
                     }
 
                     MessageBox.Show("Thêm nhóm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadListSinhVien();
                     loadListNhom();
                     loadHuy();
                 }
@@ -190,7 +205,10 @@ namespace QLDA_SinhVien.TeacherGUI
                     }
 
                     MessageBox.Show("Sửa nhóm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadListSinhVien();
+                    if (cmb_Nganh.SelectedValue != null)
+                    {
+                        LoadListSinhVien(cmb_Nganh.SelectedValue.ToString());
+                    }
                     loadListNhom();
                     loadHuy();
                 }
@@ -205,26 +223,46 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             try
             {
-                if (dtgv_Nhom.SelectedRows[0].Cells["MANHOM"].Value.ToString() == null)
+                if (dtgv_Nhom.SelectedRows.Count == 0)
                 {
-                    MessageBox.Show("Chưa chọn nhóm để sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Vui lòng chọn một nhóm từ danh sách để sửa!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return; 
                 }
-                lsb_tvNhom.Items.Clear();
-                string MANHOM = dtgv_Nhom.SelectedRows[0].Cells["MANHOM"].Value.ToString();
+
+                DataGridViewRow row = dtgv_Nhom.SelectedRows[0];
+
+                if (row.Cells["MANHOM"].Value == null) return;
+
+                string MANHOM = row.Cells["MANHOM"].Value.ToString();
+
+                string MANGANH = row.Cells["MANGANH"].Value?.ToString();
+
                 DataTable dsThanhVien = nhomSinhVienService.getDsThanhVienSV(MANHOM);
-                txt_MaNH.Text = dsThanhVien.Rows[0]["MANHOM"].ToString();
-                txt_TenNH.Text = dsThanhVien.Rows[0]["TENNHOM"].ToString();
 
-                string danhSach = dsThanhVien.Rows[0]["DanhSachSinhVien"].ToString();
-                string[] sinhVienArray = danhSach.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
-
-                lsb_tvNhom.Items.Clear();
-                foreach (string sinhVien in sinhVienArray)
+                if (dsThanhVien != null && dsThanhVien.Rows.Count > 0)
                 {
-                    lsb_tvNhom.Items.Add(sinhVien);
+                    txt_MaNH.Text = dsThanhVien.Rows[0]["MANHOM"].ToString();
+                    txt_TenNH.Text = dsThanhVien.Rows[0]["TENNHOM"].ToString();
+
+                    string danhSach = dsThanhVien.Rows[0]["DanhSachSinhVien"].ToString();
+                    string[] sinhVienArray = danhSach.Split(new string[] { ", " }, StringSplitOptions.RemoveEmptyEntries);
+
+                    lsb_tvNhom.Items.Clear();
+                    foreach (string sinhVien in sinhVienArray)
+                    {
+                        lsb_tvNhom.Items.Add(sinhVien.Trim());
+                    }
                 }
+
                 IsEdit = true;
                 btn_Them.Text = "Lưu";
+                cmb_Nganh.Enabled = false;
+
+                if (!string.IsNullOrEmpty(MANGANH))
+                {
+                    cmb_Nganh.SelectedValue = MANGANH;
+                    LoadListSinhVien(MANGANH);
+                }
             }
             catch (Exception ex)
             {
@@ -239,7 +277,15 @@ namespace QLDA_SinhVien.TeacherGUI
 
         private void lsb_tvNhom_SelectedIndexChanged(object sender, EventArgs e)
         {
-            LoadListSinhVien();
+            if (cmb_Nganh.SelectedValue != null && cmb_Nganh.SelectedIndex >= 0)
+            {
+                string MANGANH = cmb_Nganh.SelectedValue.ToString();
+
+                if (MANGANH != "System.Data.DataRowView")
+                {
+                    LoadListSinhVien(MANGANH);
+                }
+            }
         }
 
         private void btn_Xoa_Click_1(object sender, EventArgs e)
@@ -265,17 +311,16 @@ namespace QLDA_SinhVien.TeacherGUI
                         nhomSinhVienService.deleteDataNhom(manhom);
 
                         MessageBox.Show("Xóa nhóm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadListSinhVien();
-                        loadListNhom();
-                        loadHuy();
-
                         return;
                     }
 
                     nhomSinhVienService.deleteDataNhomSV(manhom);
 
                     MessageBox.Show("Xóa nhóm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadListSinhVien();
+                    if (cmb_Nganh.SelectedValue != null)
+                    {
+                        LoadListSinhVien(cmb_Nganh.SelectedValue.ToString());
+                    }
                     loadListNhom();
                     loadHuy();
                 }
@@ -289,6 +334,19 @@ namespace QLDA_SinhVien.TeacherGUI
         private void dtgv_SinhVien_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmb_Nganh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_Nganh.SelectedValue != null && cmb_Nganh.SelectedIndex >= 0)
+            {
+                string MANGANH = cmb_Nganh.SelectedValue.ToString();
+
+                if (MANGANH != "System.Data.DataRowView")
+                {
+                    LoadListSinhVien(MANGANH);
+                }
+            }
         }
     }
 }

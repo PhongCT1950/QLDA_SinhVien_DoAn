@@ -33,14 +33,14 @@ namespace BusinessLogicLayer
             nhomSinhVienRepository.addDataChiTietNhom(manhom, masv);
         }
 
-        public DataTable getDataNhomSV()
+        public DataTable getDataNhomSV(string MAGV)
         {
-            return nhomSinhVienRepository.getNhomSV();
+            return nhomSinhVienRepository.getNhomSV(MAGV);
         }
 
-        public DataTable getDatadsNhomSV()
+        public DataTable getDatadsNhomSV(string MAGV)
         {
-            return nhomSinhVienRepository.getdsNhomSV();
+            return nhomSinhVienRepository.getdsNhomSV(MAGV);
         }
 
         public void updateDataNhomSV(NhomSinhVienDTO nhomsv)
@@ -101,6 +101,15 @@ namespace BusinessLogicLayer
         public string getDataMaNHinDoAn(string MaNH)
         {
             return nhomSinhVienRepository.getMaNHinDoAn(MaNH);
+        }
+        
+        public int DemSinhVienDaCoNhom(string MANK)
+        {
+            return nhomSinhVienRepository.SinhVienDaCoNhom(MANK);
+        }
+        public int DemTongSinhVien(string MANK)
+        {
+            return nhomSinhVienRepository.TongSoSinhVien(MANK);
         }
     }
 }

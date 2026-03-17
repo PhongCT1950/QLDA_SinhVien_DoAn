@@ -56,6 +56,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Them = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Sua = new Guna.UI2.WinForms.Guna2Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.dtgv_SinhVien = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.txt_Khoa = new Guna.UI2.WinForms.Guna2TextBox();
@@ -71,7 +72,6 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Xoa = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Huy = new Guna.UI2.WinForms.Guna2Button();
             this.guna2BorderlessForm1 = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgv_SinhVien)).BeginInit();
             this.guna2GroupBox1.SuspendLayout();
@@ -89,6 +89,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.cmb_Nganh.ForeColor = System.Drawing.Color.Black;
             this.cmb_Nganh.ItemHeight = 30;
             this.cmb_Nganh.Location = new System.Drawing.Point(652, 230);
+            this.cmb_Nganh.Margin = new System.Windows.Forms.Padding(5);
             this.cmb_Nganh.Name = "cmb_Nganh";
             this.cmb_Nganh.Size = new System.Drawing.Size(273, 36);
             this.cmb_Nganh.TabIndex = 102;
@@ -175,7 +176,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.label10.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(1028, 239);
+            this.label10.Location = new System.Drawing.Point(1028, 155);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 21);
@@ -205,6 +206,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.label13.Size = new System.Drawing.Size(110, 21);
             this.label13.TabIndex = 86;
             this.label13.Text = "Hệ Đào Tạo";
+            this.label13.Visible = false;
             // 
             // label6
             // 
@@ -232,7 +234,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.txt_SDT.ForeColor = System.Drawing.Color.Black;
             this.txt_SDT.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_SDT.Location = new System.Drawing.Point(652, 177);
-            this.txt_SDT.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_SDT.Margin = new System.Windows.Forms.Padding(5);
             this.txt_SDT.Name = "txt_SDT";
             this.txt_SDT.PasswordChar = '\0';
             this.txt_SDT.PlaceholderText = "Nhập số điện thoại";
@@ -266,8 +268,9 @@ namespace QLDA_SinhVien.AdminGUI
             this.txt_Email.ForeColor = System.Drawing.Color.Black;
             this.txt_Email.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Email.Location = new System.Drawing.Point(652, 122);
-            this.txt_Email.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Email.Margin = new System.Windows.Forms.Padding(5);
             this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.txt_Email.PasswordChar = '\0';
             this.txt_Email.PlaceholderText = "Nhập email";
             this.txt_Email.SelectedText = "";
@@ -312,8 +315,9 @@ namespace QLDA_SinhVien.AdminGUI
             this.txt_DiaChi.ForeColor = System.Drawing.Color.Black;
             this.txt_DiaChi.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_DiaChi.Location = new System.Drawing.Point(155, 231);
-            this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_DiaChi.Margin = new System.Windows.Forms.Padding(5);
             this.txt_DiaChi.Name = "txt_DiaChi";
+            this.txt_DiaChi.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.txt_DiaChi.PasswordChar = '\0';
             this.txt_DiaChi.PlaceholderText = "Nhập địa chỉ";
             this.txt_DiaChi.SelectedText = "";
@@ -352,7 +356,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Them.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Them.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Them.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Them.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Them.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Them.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Them.ForeColor = System.Drawing.Color.White;
             this.btn_Them.Location = new System.Drawing.Point(1035, 752);
@@ -371,7 +375,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Sua.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Sua.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Sua.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Sua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Sua.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Sua.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Sua.ForeColor = System.Drawing.Color.White;
             this.btn_Sua.Location = new System.Drawing.Point(1163, 752);
@@ -394,10 +398,22 @@ namespace QLDA_SinhVien.AdminGUI
             this.panel2.Controls.Add(this.btn_Huy);
             this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(10);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1562, 817);
             this.panel2.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(26, 356);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(185, 21);
+            this.label2.TabIndex = 98;
+            this.label2.Text = "Danh sách sinh viên";
             // 
             // dtgv_SinhVien
             // 
@@ -408,7 +424,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.dtgv_SinhVien.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dtgv_SinhVien.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
@@ -441,7 +457,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.dtgv_SinhVien.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
             this.dtgv_SinhVien.ThemeStyle.BackColor = System.Drawing.Color.White;
             this.dtgv_SinhVien.ThemeStyle.GridColor = System.Drawing.Color.White;
-            this.dtgv_SinhVien.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.dtgv_SinhVien.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.dtgv_SinhVien.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Raised;
             this.dtgv_SinhVien.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtgv_SinhVien.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.Black;
@@ -488,7 +504,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.guna2GroupBox1.Controls.Add(this.txt_TenSV);
             this.guna2GroupBox1.Controls.Add(this.label5);
             this.guna2GroupBox1.Controls.Add(this.label4);
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.guna2GroupBox1.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.Black;
             this.guna2GroupBox1.Location = new System.Drawing.Point(30, 4);
@@ -512,8 +528,9 @@ namespace QLDA_SinhVien.AdminGUI
             this.txt_Khoa.ForeColor = System.Drawing.Color.Black;
             this.txt_Khoa.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_Khoa.Location = new System.Drawing.Point(1204, 65);
-            this.txt_Khoa.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_Khoa.Margin = new System.Windows.Forms.Padding(5);
             this.txt_Khoa.Name = "txt_Khoa";
+            this.txt_Khoa.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.txt_Khoa.PasswordChar = '\0';
             this.txt_Khoa.PlaceholderText = "";
             this.txt_Khoa.SelectedText = "";
@@ -531,7 +548,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.cmb_NienKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_NienKhoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cmb_NienKhoa.ItemHeight = 30;
-            this.cmb_NienKhoa.Location = new System.Drawing.Point(1204, 230);
+            this.cmb_NienKhoa.Location = new System.Drawing.Point(1204, 146);
             this.cmb_NienKhoa.Name = "cmb_NienKhoa";
             this.cmb_NienKhoa.Size = new System.Drawing.Size(273, 36);
             this.cmb_NienKhoa.TabIndex = 103;
@@ -551,6 +568,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.cmb_HeDT.Name = "cmb_HeDT";
             this.cmb_HeDT.Size = new System.Drawing.Size(273, 36);
             this.cmb_HeDT.TabIndex = 45;
+            this.cmb_HeDT.Visible = false;
             // 
             // guna2TextBox1
             // 
@@ -620,8 +638,9 @@ namespace QLDA_SinhVien.AdminGUI
             this.txt_TenSV.ForeColor = System.Drawing.Color.Black;
             this.txt_TenSV.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txt_TenSV.Location = new System.Drawing.Point(155, 122);
-            this.txt_TenSV.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_TenSV.Margin = new System.Windows.Forms.Padding(5, 5, 5, 20);
             this.txt_TenSV.Name = "txt_TenSV";
+            this.txt_TenSV.Padding = new System.Windows.Forms.Padding(0, 0, 0, 5);
             this.txt_TenSV.PasswordChar = '\0';
             this.txt_TenSV.PlaceholderText = "Nhập tên sinh viên";
             this.txt_TenSV.SelectedText = "";
@@ -684,7 +703,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Xoa.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Xoa.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Xoa.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Xoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Xoa.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Xoa.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Xoa.ForeColor = System.Drawing.Color.White;
             this.btn_Xoa.Location = new System.Drawing.Point(1292, 752);
@@ -703,7 +722,7 @@ namespace QLDA_SinhVien.AdminGUI
             this.btn_Huy.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btn_Huy.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Huy.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_Huy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Huy.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Huy.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Huy.ForeColor = System.Drawing.Color.White;
             this.btn_Huy.Location = new System.Drawing.Point(1425, 752);
@@ -719,18 +738,6 @@ namespace QLDA_SinhVien.AdminGUI
             this.guna2BorderlessForm1.ContainerControl = this;
             this.guna2BorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
             this.guna2BorderlessForm1.TransparentWhileDrag = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label2.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(26, 356);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 21);
-            this.label2.TabIndex = 98;
-            this.label2.Text = "Danh sách sinh viên";
             // 
             // frmSinhVien
             // 

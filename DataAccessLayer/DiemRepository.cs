@@ -162,7 +162,7 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_Diem", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@MADA", SqlDbType.Char, 6) { Value = MaDA });
+                cmd.Parameters.Add(new SqlParameter("@MADA", SqlDbType.VarChar, 20) { Value = MaDA });
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(diem);

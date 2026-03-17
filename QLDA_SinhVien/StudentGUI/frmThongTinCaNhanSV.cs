@@ -28,7 +28,6 @@ namespace QLDA_SinhVien.StudentGUI
         public void loadTTCaNhan()
         {
             string MaSV = UserSession.Refld;
-            //string MaSV = "SV001";
             DataTable sinhvien = sinhVienService.getDataTTCaNhan(MaSV);
             if(sinhvien.Rows.Count > 0)
             {
@@ -42,7 +41,6 @@ namespace QLDA_SinhVien.StudentGUI
                 label_DienThoai.Text = sinhvien.Rows[0]["SDT"].ToString();
                 label_Nganh.Text = sinhvien.Rows[0]["TENNGANH"].ToString();
                 label_Khoa.Text = sinhvien.Rows[0]["TENKHOA"].ToString();
-                label_heDT.Text = sinhvien.Rows[0]["TenHeDT"].ToString();
                 label_KhoaHoc.Text = sinhvien.Rows[0]["NIENKHOA"].ToString();
             }
         }

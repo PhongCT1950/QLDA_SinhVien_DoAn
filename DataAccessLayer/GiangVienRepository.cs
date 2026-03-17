@@ -30,6 +30,8 @@ namespace DataAccessLayer
             }
             return numMaGV;
         }
+
+
         public DataTable getAllGiangVien()
         {
             DataTable giangvien = new DataTable();
@@ -44,6 +46,54 @@ namespace DataAccessLayer
             return giangvien;
         }
 
+        public int getSoGiangVienThamGia(string MANK)
+        {
+            int giangvien = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SelectSoGiangVienThamGia", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.Char, 6) { Value = MANK });
+
+                try
+                {
+                    conn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        giangvien = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Lỗi SQL: " + ex.Message);
+                }
+            }
+            return giangvien;
+        }
+
+        public int getTongGiangVien()
+        {
+            int giangvien = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SelectTongGiangVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                conn.Open();
+
+                object result = cmd.ExecuteScalar();
+
+                if (result != null && result != DBNull.Value)
+                {
+                    giangvien = Convert.ToInt32(result);
+                }
+            }
+            return giangvien;
+        }
+
+
         public void addGiangVien(GiangVienDTO giangvien)
         {
             using(SqlConnection conn = DatabaseHelper.GetConnection())
@@ -56,7 +106,6 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = giangvien.NgaySinh });
                 cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = giangvien.GioiTinh });
                 cmd.Parameters.Add(new SqlParameter("@MaKhoa", SqlDbType.Char, 6) { Value = giangvien.MaKhoa });
-                cmd.Parameters.Add(new SqlParameter("@MACD", SqlDbType.Int) { Value = giangvien.MaCD });
                 cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = giangvien.SDT });
                 cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = giangvien.DiaChi });
                 cmd.Parameters.Add(new SqlParameter("@Email", SqlDbType.Text) { Value = giangvien.Email });
@@ -127,7 +176,6 @@ namespace DataAccessLayer
                     giangvien.Email = reader["Email"].ToString();
                     giangvien.NgaySinh = reader.GetDateTime(reader.GetOrdinal("NGAYSINH"));
                     giangvien.MaKhoa = reader["MAKHOA"].ToString();
-                    giangvien.MaCD = reader["MaCD"] == DBNull.Value ? 0 : Convert.ToInt32(reader["MaCD"]);
                 }
             }
             return giangvien;
@@ -144,7 +192,6 @@ namespace DataAccessLayer
                 cmd.Parameters.Add(new SqlParameter("@TenGV", SqlDbType.NVarChar, 150) { Value = giangvien.TenGV });
                 cmd.Parameters.Add(new SqlParameter("@NgaySinh", SqlDbType.Date) { Value = giangvien.NgaySinh });
                 cmd.Parameters.Add(new SqlParameter("@GioiTinh", SqlDbType.NVarChar, 5) { Value = giangvien.GioiTinh });
-                cmd.Parameters.Add(new SqlParameter("@MACD", SqlDbType.Int) { Value = giangvien.MaCD });
                 cmd.Parameters.Add(new SqlParameter("@MAKHOA", SqlDbType.Char, 6) { Value = giangvien.MaKhoa });
                 cmd.Parameters.Add(new SqlParameter("@SDT", SqlDbType.Char, 12) { Value = giangvien.SDT });
                 cmd.Parameters.Add(new SqlParameter("@DiaChi", SqlDbType.NText) { Value = giangvien.DiaChi });

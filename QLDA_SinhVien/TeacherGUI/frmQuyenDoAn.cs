@@ -57,7 +57,8 @@ namespace QLDA_SinhVien.TeacherGUI
 
         public void loadListNhom()
         {
-            dtgv_Nhom.DataSource = nhomSinhVienService.getDatadsNhomSV();
+            string MAGV = UserSession.Refld;
+            dtgv_Nhom.DataSource = nhomSinhVienService.getDatadsNhomSV(MAGV);
 
             dtgv_Nhom.Columns["STT"].HeaderText = "Số thứ tự";
             dtgv_Nhom.Columns["MANHOM"].HeaderText = "Mã Nhóm";
@@ -68,7 +69,8 @@ namespace QLDA_SinhVien.TeacherGUI
 
         public void loadListQuyenDoAn()
         {
-            dtgv_QuyenDoAn.DataSource = quyenDoAnService.getDataListQuyenDoAn();
+            string MAGV = UserSession.Refld;
+            dtgv_QuyenDoAn.DataSource = quyenDoAnService.getDataListQuyenDoAn(MAGV);
 
             dtgv_QuyenDoAn.Columns["MADA"].HeaderText = "Mã DA";
             dtgv_QuyenDoAn.Columns["TENDA"].HeaderText = "Tên DA";

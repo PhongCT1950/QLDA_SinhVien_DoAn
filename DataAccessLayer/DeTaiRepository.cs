@@ -42,7 +42,7 @@ namespace DataAccessLayer
             return Detai;
         }
 
-        public DataTable getAllDeTai(string MaNH)
+        public DataTable getAllDeTai(string MaNH, string MaNganh)
         {
             DataTable Detai = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
@@ -50,7 +50,11 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_DeTai", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.Char, 6) { Value = MaNH });
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.VarChar, 20)
+                { Value = (object)MaNH ?? DBNull.Value });
+
+                cmd.Parameters.Add(new SqlParameter("@MANGANH", SqlDbType.VarChar, 20)
+                { Value = (object)MaNganh ?? DBNull.Value });
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(Detai);
@@ -155,8 +159,34 @@ namespace DataAccessLayer
             }
             return count;
         }
+        public int DoAnDaNop(string MANK)
+        {
+            int count = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectCountDoAnNop", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.VarChar, 20) { Value = MANK });
 
-        public DataTable getDeTaiFind(string keyword)
+                count = (int)cmd.ExecuteScalar();
+            }
+            return count;
+        }
+        public int TongDoAn(string MANK)
+        {
+            int count = 0;
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectCountTongDoAn", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.VarChar, 20) { Value = MANK });
+                count = (int)cmd.ExecuteScalar();
+            }
+            return count;
+        }
+        public DataTable getDeTaiFind(string keyword, string maGV)
         {
             DataTable detai = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
@@ -164,12 +194,92 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Find_DeTai", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.VarChar, 20) { Value = (object)maGV ?? DBNull.Value });
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(detai);
             }
             return detai;
+        }
+
+        public DataTable getDataDeTaiFindSinhVien(string keyword, string maNhom, string maNganh)
+        {
+            DataTable detai = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Find_DeTai_SinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@keyword", SqlDbType.NVarChar, 200) { Value = keyword });
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.VarChar, 20) { Value = (object)maNhom ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@MANGANH", SqlDbType.VarChar, 20) { Value = (object)maNganh ?? DBNull.Value });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(detai);
+            }
+            return detai;
+        }
+
+        public string LayDanhSachDeTaiChoAI(string MANHOM, string MANGANH)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                SqlCommand cmd = new SqlCommand("SelectDsDeTaiChoAI", conn);
+
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.VarChar, 20) { Value = (object)MANHOM ?? DBNull.Value });
+                cmd.Parameters.Add(new SqlParameter("@MANGANH", SqlDbType.VarChar, 20) { Value = (object)MANGANH ?? DBNull.Value });
+                conn.Open();
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        string maDT = reader["MADT"].ToString();
+                        string tenDT = reader["TenDT"].ToString();
+                        string loaiDA = reader["LoaiDA"].ToString();
+                        string tenNganh = reader["TenNganh"].ToString();
+                        string moTa = reader["MoTa"].ToString();
+                        string tenGV = reader["TenGV"].ToString();
+
+                        sb.AppendLine($"- Mã Đề Tài: {maDT}");
+                        sb.AppendLine($"- Tên Đề Tài: {tenDT}");
+                        sb.AppendLine($"- Giảng viên: {tenGV}");
+                        sb.AppendLine($"- Mô tả: {moTa}");
+                        sb.AppendLine("-------------------");
+                    }
+                }
+            }
+
+            if (sb.Length == 0)
+            {
+                return "Hiện tại hệ thống không có đề tài nào phù hợp với ngành của bạn.";
+            }
+
+            return sb.ToString();
+        }
+
+        public DataTable GetThongKeDeTaiTheoNganh(string MANK)
+        {
+            DataTable Detai = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_ThongKeDeTaiTheoNganh", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@MANK", SqlDbType.VarChar, 20) { Value = (object)MANK ?? DBNull.Value });
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(Detai);
+            }
+            return Detai;
         }
     }
 }

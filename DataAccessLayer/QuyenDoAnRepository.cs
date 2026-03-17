@@ -48,7 +48,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable getListQuyenDoAn()
+        public DataTable getListQuyenDoAn(string MAGV)
         {
             DataTable dsQuyenDoAn = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
@@ -56,6 +56,27 @@ namespace DataAccessLayer
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("Select_ListQuyenDoAn", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MAGV", SqlDbType.Char, 6) { Value = MAGV });
+
+                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                adapter.Fill(dsQuyenDoAn);
+                cmd.ExecuteNonQuery();
+            }
+            return dsQuyenDoAn;
+        }
+
+        public DataTable getLoaiDANhom(string MANHOM)
+        {
+            DataTable dsQuyenDoAn = new DataTable();
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SelectLoaiDASinhVien", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MANHOM", SqlDbType.VarChar, 20) { Value = MANHOM });
+
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(dsQuyenDoAn);
                 cmd.ExecuteNonQuery();

@@ -39,21 +39,21 @@
             this.txt_TenSV = new System.Windows.Forms.Label();
             this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.close = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_ttCaNhan = new Guna.UI2.WinForms.Guna2Button();
             this.btn_Diem = new Guna.UI2.WinForms.Guna2Button();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.close = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.close)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_NopDA
@@ -65,7 +65,7 @@
             this.btn_NopDA.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_NopDA.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_NopDA.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_NopDA.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_NopDA.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_NopDA.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_NopDA.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_NopDA.Location = new System.Drawing.Point(0, 55);
@@ -84,7 +84,7 @@
             this.btn_DangKyDT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_DangKyDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_DangKyDT.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_DangKyDT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_DangKyDT.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_DangKyDT.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangKyDT.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_DangKyDT.Location = new System.Drawing.Point(0, 0);
@@ -101,7 +101,7 @@
             this.btn_DoiMK.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_DoiMK.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_DoiMK.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_DoiMK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_DoiMK.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_DoiMK.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DoiMK.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_DoiMK.Location = new System.Drawing.Point(0, 465);
@@ -109,6 +109,7 @@
             this.btn_DoiMK.Size = new System.Drawing.Size(201, 50);
             this.btn_DoiMK.TabIndex = 4;
             this.btn_DoiMK.Text = "Đổi mật khẩu";
+            this.btn_DoiMK.Visible = false;
             // 
             // btn_DangXuat
             // 
@@ -117,7 +118,7 @@
             this.btn_DangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_DangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_DangXuat.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btn_DangXuat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_DangXuat.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_DangXuat.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangXuat.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_DangXuat.Location = new System.Drawing.Point(0, 515);
@@ -156,7 +157,7 @@
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.panel3.Controls.Add(this.tableLayoutPanel1);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Controls.Add(this.guna2PictureBox2);
@@ -219,6 +220,18 @@
             this.panel1.Size = new System.Drawing.Size(1280, 720);
             this.panel1.TabIndex = 5;
             // 
+            // close
+            // 
+            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.close.Image = global::QLDA_SinhVien.Properties.Resources.minus;
+            this.close.Location = new System.Drawing.Point(1157, 3);
+            this.close.Name = "close";
+            this.close.Size = new System.Drawing.Size(57, 56);
+            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.close.TabIndex = 24;
+            this.close.TabStop = false;
+            this.close.Click += new System.EventHandler(this.close_Click);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,7 +248,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.label1.Location = new System.Drawing.Point(207, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(249, 24);
@@ -247,7 +260,7 @@
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.panel2.Controls.Add(this.btn_ttCaNhan);
             this.panel2.Controls.Add(this.btn_Diem);
             this.panel2.Controls.Add(this.btn_NopDA);
@@ -268,7 +281,7 @@
             this.btn_ttCaNhan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_ttCaNhan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_ttCaNhan.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_ttCaNhan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_ttCaNhan.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ttCaNhan.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_ttCaNhan.Location = new System.Drawing.Point(0, 165);
@@ -287,7 +300,7 @@
             this.btn_Diem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btn_Diem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btn_Diem.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(236)))), ((int)(((byte)(139)))));
+            this.btn_Diem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(80)))), ((int)(((byte)(255)))));
             this.btn_Diem.Font = new System.Drawing.Font("Arial", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Diem.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Diem.Location = new System.Drawing.Point(0, 110);
@@ -295,6 +308,7 @@
             this.btn_Diem.Size = new System.Drawing.Size(201, 55);
             this.btn_Diem.TabIndex = 12;
             this.btn_Diem.Text = "Điểm";
+            this.btn_Diem.Visible = false;
             this.btn_Diem.Click += new System.EventHandler(this.btn_Diem_Click);
             // 
             // panel_body
@@ -306,18 +320,6 @@
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1082, 655);
             this.panel_body.TabIndex = 3;
-            // 
-            // close
-            // 
-            this.close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.close.Image = global::QLDA_SinhVien.Properties.Resources.minus;
-            this.close.Location = new System.Drawing.Point(1157, 3);
-            this.close.Name = "close";
-            this.close.Size = new System.Drawing.Size(57, 56);
-            this.close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.close.TabIndex = 24;
-            this.close.TabStop = false;
-            this.close.Click += new System.EventHandler(this.close_Click);
             // 
             // frmTrangChuStudent
             // 
@@ -338,9 +340,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.close)).EndInit();
             this.ResumeLayout(false);
 
         }

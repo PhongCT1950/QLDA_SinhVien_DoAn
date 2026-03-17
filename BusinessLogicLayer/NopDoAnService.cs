@@ -26,6 +26,11 @@ namespace BusinessLogicLayer
             return nopDoAnRepository.getMaNH(MaNH);
         }
 
+        public bool getDataKiemTraNopDA(string MaNH,string MADA)
+        {
+            return nopDoAnRepository.KiemTraNopDA(MaNH, MADA);
+        }
+
         public void UpdateDataDoAnNop(string MaNH)
         {
             nopDoAnRepository.UpdateDoAnNop(MaNH);

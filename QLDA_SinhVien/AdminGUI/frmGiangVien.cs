@@ -26,7 +26,6 @@ namespace QLDA_SinhVien.AdminGUI
             LoadListGiangVien();
             LoadMaGV();
             LoadKhoa();
-            LoadChucDanh();
         }
 
         public void LoadMaGV()
@@ -43,13 +42,6 @@ namespace QLDA_SinhVien.AdminGUI
             cmb_Khoa.DisplayMember = "TENKHOA";
             cmb_Khoa.ValueMember = "MAKHOA";
         }
-        public void LoadChucDanh()
-        {
-            DataTable ChucDanh = giangVienService.getDataChucDanh();
-            cmb_ChucDanh.DataSource = ChucDanh;
-            cmb_ChucDanh.DisplayMember = "ChucDanh";
-            cmb_ChucDanh.ValueMember = "MaCD";
-        }
 
         public void LoadListGiangVien()
         {
@@ -64,8 +56,6 @@ namespace QLDA_SinhVien.AdminGUI
             dtgv_GiangVien.Columns["SDT"].HeaderText = "SĐT";
             dtgv_GiangVien.Columns["DiaChi"].HeaderText = "Địa Chỉ";
             dtgv_GiangVien.Columns["Email"].HeaderText = "Email";
-            dtgv_GiangVien.Columns["ChucDanh"].HeaderText = "Chức Danh";
-            dtgv_GiangVien.Columns["HeSoCD"].HeaderText = "Hệ Số";
             dtgv_GiangVien.Columns["TENKHOA"].HeaderText = "Khoa";
         }
 
@@ -127,7 +117,6 @@ namespace QLDA_SinhVien.AdminGUI
                 txt_NgaySinh.Value = giangvien.NgaySinh;
                 txt_Email.Text = giangvien.Email;
                 txt_SDT.Text = giangvien.SDT.Trim();
-                cmb_ChucDanh.SelectedValue = giangvien.MaCD;
                 cmb_Khoa.SelectedValue = giangvien.MaKhoa;
 
                 if (giangvien.GioiTinh == "Nam")
@@ -162,7 +151,6 @@ namespace QLDA_SinhVien.AdminGUI
                     DiaChi = txt_DiaChi.Text.Trim(),
                     Email = txt_Email.Text.Trim(),
                     MaKhoa = cmb_Khoa.SelectedValue?.ToString(),
-                    MaCD = int.Parse(cmb_ChucDanh.SelectedValue.ToString())
                 };
 
                 if (!IsEdit)
@@ -186,18 +174,6 @@ namespace QLDA_SinhVien.AdminGUI
             catch (Exception ex)
             {
                 MessageBox.Show("Hệ thống đang gặp lỗi vui lòng thử lại sau!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void cmb_ChucDanh_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(cmb_ChucDanh.SelectedItem != null)
-            {
-                DataRowView row = cmb_ChucDanh.SelectedItem as DataRowView;
-                if(row != null)
-                {
-                    txt_HeSoChucDanh.Text = row["HeSoCD"].ToString();
-                }
             }
         }
 

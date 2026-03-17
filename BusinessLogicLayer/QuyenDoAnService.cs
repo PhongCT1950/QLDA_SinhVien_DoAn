@@ -37,9 +37,9 @@ namespace BusinessLogicLayer
             quyenDoAnRepository.addQuyenDoAn(quyenDoAn);
         }
 
-        public DataTable getDataListQuyenDoAn()
+        public DataTable getDataListQuyenDoAn(string MAGV)
         {
-            return quyenDoAnRepository.getListQuyenDoAn();
+            return quyenDoAnRepository.getListQuyenDoAn(MAGV);
         }
 
         public DataTable getDataEditQuyenDoAn(string MaDA)
@@ -60,6 +60,11 @@ namespace BusinessLogicLayer
         public DataTable getDataQuyenDoAnFind(string keyword)
         {
             return quyenDoAnRepository.getQuyenDoAnFind(keyword);
+        }
+
+        public DataTable getLoaiDACuaNhom(string MANHOM)
+        {
+            return quyenDoAnRepository.getLoaiDANhom(MANHOM);
         }
     }
 }

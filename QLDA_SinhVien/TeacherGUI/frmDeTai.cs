@@ -30,8 +30,9 @@ namespace QLDA_SinhVien.TeacherGUI
         {
             DataTable LoaiDa = deTaiService.getLoaiDa();
 
-            cmb_LoaiDT.DataSource = LoaiDa;
             cmb_LoaiDT.DisplayMember = "LOAIDA";
+            cmb_LoaiDT.ValueMember = "LOAIDA";
+            cmb_LoaiDT.DataSource = LoaiDa;
         }
 
         public void loadListDeTai()
@@ -182,10 +183,21 @@ namespace QLDA_SinhVien.TeacherGUI
 
         private void txt_Find_TextChanged(object sender, EventArgs e)
         {
-            string keyword = txt_Find.Text.Trim();
-            DataTable detai = deTaiService.getDataDeTaiFind(keyword);
+            try
+            {
+                string keyword = txt_Find.Text.Trim();
 
-            dtgv_DeTai.DataSource = detai;
+                string maGV = UserSession.Refld;
+
+                DataTable detai = deTaiService.getDataDeTaiFind(keyword, maGV);
+
+                dtgv_DeTai.DataSource = detai;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Lỗi tìm kiếm: " + ex.Message);
+            }
         }
     }
 }

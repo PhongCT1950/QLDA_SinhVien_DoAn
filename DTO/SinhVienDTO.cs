@@ -13,7 +13,6 @@ namespace DTO
         public DateTime NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string MaNganh { get; set; }
-        public string MaHeDT { get; set; }
         public string MaKhoa { get; set; }
         public string MaNK { get; set; }
         public string SDT { get; set; }
