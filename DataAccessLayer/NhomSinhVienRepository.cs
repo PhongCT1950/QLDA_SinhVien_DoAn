@@ -243,6 +243,35 @@ namespace DataAccessLayer
             return MaNhom;
         }
 
+        public string getMaNhomMAGV(string MaSV, out string MaGV)
+        {
+            string MaNhom = null;
+            MaGV = null;
+
+            using (SqlConnection conn = DatabaseHelper.GetConnection())
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("Select_MaNhomMAGV", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@MaSV", SqlDbType.Char, 6) { Value = MaSV });
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read()) // Dùng if thay vì while
+                    {
+                        MaNhom = reader["MANHOM"].ToString();
+
+                        if (reader["MAGV"] != DBNull.Value)
+                        {
+                            MaGV = reader["MAGV"].ToString();
+                        }
+                    }
+                }
+            }
+            return MaNhom;
+        }
+
         public int SinhVienDaCoNhom(string MANK)
         {
             int soLuong = 0;

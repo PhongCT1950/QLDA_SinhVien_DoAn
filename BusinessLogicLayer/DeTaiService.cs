@@ -22,9 +22,9 @@ namespace BusinessLogicLayer
             return deTaiRepository.getListDeTai();
         }
 
-        public DataTable getAllDataDeTai(string MaNH,string MaNganh)
+        public DataTable getAllDataDeTai(string MaNH,string MaNganh, string MaGV)
         {
-            return deTaiRepository.getAllDeTai(MaNH, MaNganh);
+            return deTaiRepository.getAllDeTai(MaNH, MaNganh, MaGV);
         }
 
         public DataTable getDataDeTai()

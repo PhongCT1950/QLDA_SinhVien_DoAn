@@ -42,7 +42,7 @@ namespace DataAccessLayer
             return Detai;
         }
 
-        public DataTable getAllDeTai(string MaNH, string MaNganh)
+        public DataTable getAllDeTai(string MaNH, string MaNganh, string MaGV)
         {
             DataTable Detai = new DataTable();
             using (SqlConnection conn = DatabaseHelper.GetConnection())
@@ -55,6 +55,9 @@ namespace DataAccessLayer
 
                 cmd.Parameters.Add(new SqlParameter("@MANGANH", SqlDbType.VarChar, 20)
                 { Value = (object)MaNganh ?? DBNull.Value });
+
+                cmd.Parameters.Add(new SqlParameter("@MaGV", SqlDbType.VarChar, 20)
+                { Value = (object)MaGV ?? DBNull.Value });
 
                 SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                 adapter.Fill(Detai);

@@ -109,14 +109,15 @@ namespace QLDA_SinhVien.StudentGUI
         public void loadDeTai()
         {
             string MaSV = UserSession.Refld;
-            string MaNhom = nhomSinhVienService.getDataMaNhom(MaSV);
+            string MaGV = "";
+            string MaNhom = nhomSinhVienService.getDataMaNhomMAGV(MaSV, out MaGV);
             string MaNganh = nganhService.getDataMaNganh(MaSV);
             if (string.IsNullOrEmpty(MaNhom) || string.IsNullOrEmpty(MaNganh))
             {
                 loadAllDeTai();
                 return;
             }
-            DataTable DeTai = deTaiService.getAllDataDeTai(MaNhom, MaNganh);
+            DataTable DeTai = deTaiService.getAllDataDeTai(MaNhom, MaNganh, MaGV);
 
             dtgv_DeTai.DataSource = DeTai;
             FormatGridDeTai();

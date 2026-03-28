@@ -13,6 +13,7 @@ namespace QLDA_SinhVien.AdminGUI
         SinhVienService sinhVienService = new SinhVienService();
         DeTaiService deTaiService = new DeTaiService();
         NhomSinhVienService nhomSinhVienService = new NhomSinhVienService();
+        DiemService diemService = new DiemService();
         public frmAdminDashBoard()
         {
             InitializeComponent();
@@ -30,10 +31,68 @@ namespace QLDA_SinhVien.AdminGUI
 
                 VeBieuDoThongKe(MANK);
                 VeBieuDoDeTai(dtThongKe);
+                HienThiBieuDoDiem(MANK);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Lỗi load biểu đồ: " + ex.Message);
+            }
+        }
+
+        public void HienThiBieuDoDiem(string MANK)
+        {
+            try
+            {
+                DataTable dtData = diemService.getDatagetDiemTheoNienKhoa(MANK);
+
+                chart3.Series["Series1"].Points.Clear();
+
+                chart3.Series["Series1"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+                chart3.Series["Series1"].BorderWidth = 3; 
+                chart3.Series["Series1"].Color = Color.FromArgb(52, 152, 219);
+
+                chart3.Series["Series1"].MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+                chart3.Series["Series1"].MarkerSize = 8;
+                chart3.Series["Series1"].MarkerColor = Color.Red;
+
+                var phoDiem = dtData.AsEnumerable()
+                    .Where(row => row["DIEM"] != DBNull.Value)
+                    .GroupBy(row => Convert.ToDouble(row["DIEM"]))
+                    .Select(group => new
+                    {
+                        DiemSo = group.Key,
+                        SoLuong = group.Count()
+                    })
+                    .OrderBy(x => x.DiemSo)
+                    .ToList();
+
+                if (phoDiem.Count > 0 && phoDiem.First().DiemSo > 0)
+                {
+                    int neoGoc = chart3.Series["Series1"].Points.AddXY(0, 0);
+                    chart3.Series["Series1"].Points[neoGoc].IsValueShownAsLabel = false;
+                }
+
+                foreach (var item in phoDiem)
+                {
+                    chart3.Series["Series1"].Points.AddXY(item.DiemSo, item.SoLuong);
+                }
+
+                chart3.Series["Series1"].IsValueShownAsLabel = true;
+                chart3.Series["Series1"].LabelFormat = "0";
+
+                chart3.ChartAreas[0].AxisX.Minimum = 0;
+                chart3.ChartAreas[0].AxisX.Maximum = 10;
+                chart3.ChartAreas[0].AxisX.Interval = 1;
+
+                chart3.ChartAreas[0].AxisY.LabelStyle.Enabled = false;
+                chart3.ChartAreas[0].AxisY.MajorTickMark.Enabled = false;
+
+                chart3.ChartAreas[0].AxisX.Title = "Mức điểm";
+                chart3.ChartAreas[0].AxisY.Title = "Số lượng sinh viên";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
             }
         }
         public void LoadListNienKhoa()
@@ -171,10 +230,11 @@ namespace QLDA_SinhVien.AdminGUI
             ChartArea area = new ChartArea("MainArea");
             area.BackColor = Color.Transparent;
 
-            area.Position.X = 60;
-            area.Position.Y = 50;
-            area.Position.Height = 100;
-            area.Position.Width = 100;
+            area.InnerPlotPosition.Auto = false;
+            area.InnerPlotPosition.Height = 60; 
+            area.InnerPlotPosition.Width = 60;
+            area.InnerPlotPosition.X = 20;  
+            area.InnerPlotPosition.Y = 15;
 
             chart.ChartAreas.Add(area);
 
@@ -186,18 +246,20 @@ namespace QLDA_SinhVien.AdminGUI
 
             Series series = new Series("Data");
             series.ChartType = SeriesChartType.Doughnut;
-            series.CustomProperties = "DoughnutRadius=60";
+            series.CustomProperties = "DoughnutRadius=50";
             series.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+
+            series.SmartLabelStyle.Enabled = true;
+            series.SmartLabelStyle.AllowOutsidePlotArea = LabelOutsidePlotAreaStyle.Yes;
+            series.SmartLabelStyle.CalloutLineColor = Color.Gray;
 
             series["PieLabelStyle"] = "Outside";
             series["PieLineColor"] = "Gray";
 
             int pt1 = series.Points.AddXY(tenMuc1, giaTri1);
             series.Points[pt1].Color = mau1;
-
             series.Points[pt1].Label = tenMuc1;
             series.Points[pt1].LabelForeColor = Color.Black;
-
             series.Points[pt1].LegendText = labelx1;
 
             int pt2 = series.Points.AddXY(tenMuc2, giaTri2);
@@ -225,6 +287,7 @@ namespace QLDA_SinhVien.AdminGUI
             VeBieuDoDeTai(dtThongKe);
 
             VeBieuDoThongKe(MANK);
+            HienThiBieuDoDiem(MANK);
         }
 
         private string TaoTuVietTat(string tenDayDu)

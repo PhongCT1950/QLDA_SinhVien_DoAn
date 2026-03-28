@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 public class GeminiHelper
 {
-    private const string ApiKey = "Your API Key";
+    private const string ApiKey = "";
     private const string ApiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=";
 
     public async Task<string> AskAI(string prompt)

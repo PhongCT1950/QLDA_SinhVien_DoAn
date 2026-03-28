@@ -57,6 +57,11 @@ namespace BusinessLogicLayer
             return diemRepository.getMaDADiem(MaDA);
         }
 
+        public DataTable getDatagetDiemTheoNienKhoa(string MANK)
+        {
+            return diemRepository.getDiemTheoNienKhoa(MANK);
+        }
+
         public DataTable getDataDiemFind(string keyword,string MaGV)
         {
             return diemRepository.getDiemFind(keyword, MaGV);

@@ -78,6 +78,10 @@ namespace BusinessLogicLayer
             return nhomSinhVienRepository.getMaNhom(MaSV);
         }
 
+        public string getDataMaNhomMAGV(string MaSV, out string MAGV)
+        {
+            return nhomSinhVienRepository.getMaNhomMAGV(MaSV, out MAGV);
+        }
         public void updateDKDeTai(string MaNhom, string MaDT)
         {
             nhomSinhVienRepository.updateDangKyDeTai(MaNhom,MaDT);

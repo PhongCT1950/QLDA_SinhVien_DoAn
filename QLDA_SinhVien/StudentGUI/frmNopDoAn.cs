@@ -56,6 +56,11 @@ namespace QLDA_SinhVien.StudentGUI
             }
             string MaDA = diemService.getDataMaDA(MaNH);
 
+            if (string.IsNullOrEmpty(MaDA))
+            {
+                return;
+            }
+
             System.Data.DataTable dsDiem = diemService.getDataDiem(MaDA);
 
             if (dsDiem != null && dsDiem.Rows.Count > 0)
